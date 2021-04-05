@@ -11,6 +11,6 @@ import javax.persistence.*;
 public class Centro {
 	
 	public Centro() {
-		
+		super();
 	}
 }
