@@ -1,6 +1,5 @@
 package jpa.tarea1;
 
-import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -20,8 +19,14 @@ public class Centro {
 	private String tlf_consegeria;
 	
 	
-	public Centro() {
+	public Centro(String nombre, String direccion, String tlf_consejeria) {
 		super();
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.tlf_consegeria = tlf_consejeria;
+	}
+	
+	public Centro() {
 	}
 	
 	public Long getId() {
