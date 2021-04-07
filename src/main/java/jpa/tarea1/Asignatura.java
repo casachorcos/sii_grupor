@@ -17,21 +17,21 @@ public class Asignatura {
 	@Column (name = "Créditos", nullable = false)
 	private double creditos;
 	@Column (name = "Ofertada", nullable = false)
-	private boolean ofertada;
-	@Column (name = "Nombre", nullable = false)
+	private char ofertada;
+	@Column (name = "Nombre", nullable = false, length = 100)
 	private String nombre;
 	@Column (name = "Curso")
-	private String curso;
-	@Column (name = "Carácter")
+	private int curso;
+	@Column (name = "Carácter", length = 20)
 	private String caracter;
-	@Column (name = "Duración")
+	@Column (name = "Duración", length = 20)
 	private String duracion;
-	@Column (name = "Unidad_Temporal(Cuatrimestre)", nullable = false)
+	@Column (name = "Unidad_Temporal(Cuatrimestre)", nullable = false, length = 10)
 	private String unidad_temporal;
-	@Column (name = "Idiomas_de_impartición", nullable = false)
+	@Column (name = "Idiomas_de_impartición", nullable = false, length = 20)
 	private String idiomas;
 	
-	public Asignatura(int referencia, int codigo, double creditos, boolean ofertada, String nombre, String curso, String caracter, String duracion, String unidad_temporal, String idiomas) {
+	public Asignatura(int referencia, int codigo, double creditos, char ofertada, String nombre, int curso, String caracter, String duracion, String unidad_temporal, String idiomas) {
 		super();
 		this.referencia = referencia;
 		this.codigo = codigo;
@@ -66,10 +66,10 @@ public class Asignatura {
 	public void setCreditos(double creditos) {
 		this.creditos = creditos;
 	}
-	public boolean isOfertada() {
+	public char getOfertada() {
 		return ofertada;
 	}
-	public void setOfertada(boolean ofertada) {
+	public void setOfertada(char ofertada) {
 		this.ofertada = ofertada;
 	}
 	public String getNombre() {
@@ -78,10 +78,10 @@ public class Asignatura {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getCurso() {
+	public int getCurso() {
 		return curso;
 	}
-	public void setCurso(String curso) {
+	public void setCurso(int curso) {
 		this.curso = curso;
 	}
 	public String getCaracter() {
@@ -108,6 +108,7 @@ public class Asignatura {
 	public void setIdiomas(String idiomas) {
 		this.idiomas = idiomas;
 	}
+		
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -117,15 +118,16 @@ public class Asignatura {
 		long temp;
 		temp = Double.doubleToLongBits(creditos);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
+		result = prime * result + curso;
 		result = prime * result + ((duracion == null) ? 0 : duracion.hashCode());
 		result = prime * result + ((idiomas == null) ? 0 : idiomas.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + (ofertada ? 1231 : 1237);
+		result = prime * result + ofertada;
 		result = prime * result + referencia;
 		result = prime * result + ((unidad_temporal == null) ? 0 : unidad_temporal.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -144,10 +146,7 @@ public class Asignatura {
 			return false;
 		if (Double.doubleToLongBits(creditos) != Double.doubleToLongBits(other.creditos))
 			return false;
-		if (curso == null) {
-			if (other.curso != null)
-				return false;
-		} else if (!curso.equals(other.curso))
+		if (curso != other.curso)
 			return false;
 		if (duracion == null) {
 			if (other.duracion != null)
@@ -175,6 +174,7 @@ public class Asignatura {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Asignatura [referencia=" + referencia + ", codigo=" + codigo + ", creditos=" + creditos + ", ofertada="
