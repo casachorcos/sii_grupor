@@ -9,7 +9,6 @@ import jpa.tarea1.Asignatura;
  *
  */
 @Entity
-@DiscriminatorValue("O")
 public class Optativa extends Asignatura implements Serializable {
 
 	private static final long serialVersionUID = 1L;
