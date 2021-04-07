@@ -1,6 +1,5 @@
 package jpa.tarea1;
 
-import java.io.Serializable;
 import javax.persistence.*;
 
 /**

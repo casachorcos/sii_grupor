@@ -20,6 +20,7 @@ public class Encuesta {
 	}
 	
 	public Encuesta() {
+		
 	}
 
 	public Date getFecha_de_envio() {
