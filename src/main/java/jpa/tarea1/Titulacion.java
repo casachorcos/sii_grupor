@@ -18,9 +18,14 @@ public class Titulacion {
 	@Column (name = "Créditos", nullable = false)
 	private double creditos;
 	
-	private List<Asignatura> asignaturas; //Relación OneToMany de Titulacion a Asignaturas
+	@OneToMany (mappedBy="titulacion")
+	private List<Asignatura> asignaturas; 	//Relación OneToMany de Titulacion a Asignaturas
+	@OneToMany (mappedBy="titulacion")
+	private List<Expediente> expediente; 	//Relación OneToMany de Titulacion a Expediente
+	@OneToMany (mappedBy="titulacion")
+	private List<Grupo> grupo; 				//Relación OneToMany de Titulacion a Grupo
 	@ManyToMany(mappedBy = "titulacion")
-	private List<Centro> centro; //Relacion ManyToMany con Centro
+	private List<Centro> centro; 			//Relacion ManyToMany con Centro
 	
 	public Titulacion(int codigo, String nombre, double creditos) {
 		super();

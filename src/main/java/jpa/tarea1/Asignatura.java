@@ -8,6 +8,9 @@ import javax.persistence.*;
  */
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn (name="disc", discriminatorType = DiscriminatorType.CHAR)
+@DiscriminatorValue("A")
 public class Asignatura {
 
 	@Id @Column (name = "Referencia")
@@ -30,6 +33,11 @@ public class Asignatura {
 	private String unidad_temporal;
 	@Column (name = "Idiomas_de_impartición", nullable = false, length = 20)
 	private String idiomas;
+	
+	@ManyToOne
+	private Titulacion titulacion; //Relacion ManyToOne entre Asignatura y Titulacion
+	
+	
 	
 	public Asignatura(int referencia, int codigo, double creditos, char ofertada, String nombre, int curso, String caracter, String duracion, String unidad_temporal, String idiomas) {
 		super();

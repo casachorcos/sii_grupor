@@ -27,6 +27,9 @@ public class Grupo  {
 	private String asignar;
 	@Column (name = "Plazas", nullable = true)
 	private int plazas;
+	
+	@ManyToOne
+	private Titulacion titulacion; //Relacion ManyToOne entre Grupo y Titulacion
 
 	public Grupo() {
 		super();
