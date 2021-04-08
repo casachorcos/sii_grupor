@@ -1,6 +1,15 @@
 package jpa.tarea1;
 
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  * Entity implementation class for Entity: Centro
@@ -11,16 +20,28 @@ public class Centro {
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column (name = "Nombre", nullable = false)
+	@Column (name = "Nombre", nullable = false, length = 50)
 	private String nombre;
-	@Column (name = "Dirección", nullable = false)
+	@Column (name = "Dirección", nullable = false, length = 50)
 	private String direccion;
-	@Column (name = "TLF_Consejería")
+	@Column (name = "TLF_Consejería", length = 10)
 	private String tlf_consegeria;
 	
+	@ManyToMany
+	@JoinTable(name = "jnd_cent_titu",
+			joinColumns = @JoinColumn(name = "centro_fk"),
+			inverseJoinColumns = @JoinColumn(name = "titulacion_fk"))
+	private List<Titulacion> titulacion; //Relacion ManyToMany con Titulacion
+	
+	
+	public Centro(String nombre, String direccion, String tlf_consejeria) {
+		super();
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.tlf_consegeria = tlf_consejeria;
+	}
 	
 	public Centro() {
-		super();
 	}
 	
 	public Long getId() {

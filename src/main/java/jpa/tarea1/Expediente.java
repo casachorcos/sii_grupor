@@ -46,6 +46,9 @@ public class Expediente {
 	@Column (name = "Creditos_tf", nullable = false)
 	private double cr_tf;
 	
+	@ManyToOne
+	private Titulacion titulacion; //Relacion ManyToOne entre Expediente y Titulacion
+	
 	public Expediente(int ne, char a, double nm, double csup, double cfb, 
 			double cop, double cob, double ccf, double cpe, double ctf) {
 		super();
