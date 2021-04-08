@@ -1,6 +1,14 @@
 package jpa.tarea1;
 
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: Asignatura
@@ -34,6 +42,8 @@ public class Asignatura {
 	
 	@ManyToOne
 	private Titulacion titulacion; //Relacion ManyToOne entre Asignatura y Titulacion
+	@OneToMany (mappedBy="asignatura")
+	private List<Clase> clase;
 	
 	
 	

@@ -14,6 +14,9 @@ public class Clase {
 	@Temporal(TemporalType.DATE)
 	private Date horaFin;
 	
+	@ManyToOne
+	private Asignatura asignatura;
+	
 	public Clase(String d, Date hi, Date hf) {
 		super();
 		id = new ClaseId(d,hi);

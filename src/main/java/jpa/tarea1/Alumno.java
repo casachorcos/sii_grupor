@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 
 @Entity
-public class Alumno  {
+public class Alumno {
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
