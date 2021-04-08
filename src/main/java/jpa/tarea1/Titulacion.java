@@ -1,5 +1,7 @@
 package jpa.tarea1;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -11,10 +13,19 @@ public class Titulacion {
 	
 	@Id @Column (name = "Código")
 	private int codigo;
-	@Column (name = "Nombre", nullable = false)
+	@Column (name = "Nombre", nullable = false, length = 50)
 	private String nombre;
 	@Column (name = "Créditos", nullable = false)
 	private double creditos;
+	
+	@OneToMany (mappedBy="titulacion")
+	private List<Asignatura> asignaturas; 	//Relación OneToMany de Titulacion a Asignaturas
+	@OneToMany (mappedBy="titulacion")
+	private List<Expediente> expediente; 	//Relación OneToMany de Titulacion a Expediente
+	@OneToMany (mappedBy="titulacion")
+	private List<Grupo> grupo; 				//Relación OneToMany de Titulacion a Grupo
+	@ManyToMany(mappedBy = "titulacion")
+	private List<Centro> centro; 			//Relacion ManyToMany con Centro
 	
 	public Titulacion(int codigo, String nombre, double creditos) {
 		super();
