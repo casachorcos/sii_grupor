@@ -13,7 +13,6 @@ import javax.persistence.*;
 
 @IdClass(Matricula.MatriculaId.class)
 public class Matricula implements Serializable {
-
 	
 	public static class MatriculaId implements Serializable {
 		private int curso;

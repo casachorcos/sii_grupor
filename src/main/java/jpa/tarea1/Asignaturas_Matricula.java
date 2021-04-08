@@ -1,8 +1,6 @@
 package jpa.tarea1;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.*;
 
 /**
@@ -17,7 +15,6 @@ public class Asignaturas_Matricula implements Serializable {
 	public static class Asignaturas_MatriculaId implements Serializable {
 		private int matricula;
 		private int asignatura;
-		
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -55,6 +52,9 @@ public class Asignaturas_Matricula implements Serializable {
 	@Id
 	@ManyToOne
 	private Matricula matricula;
+	
+	@ManyToOne
+	private Grupo grupo;
 
 	public String getGrupos_asignados() {
 		return grupos_asignados;

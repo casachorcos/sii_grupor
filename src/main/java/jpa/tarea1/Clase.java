@@ -16,12 +16,15 @@ public class Clase implements Serializable{
 	
 	@EmbeddedId
 	private ClaseId id;
+	@ManyToOne
+	private Grupo grupo;
 	@Column (name = "Hora_fin")
 	@Temporal(TemporalType.DATE)
 	private Date horaFin;
 	
 	@ManyToOne
 	private Asignatura asignatura;
+	
 	
 	public Clase(String d, Date hi, Date hf) {
 		super();
