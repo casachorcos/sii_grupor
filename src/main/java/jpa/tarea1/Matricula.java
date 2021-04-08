@@ -3,10 +3,6 @@ package jpa.tarea1;
 import java.util.Date;
 import javax.persistence.*;
 
-/**
- * Entity implementation class for Entity: Encuesta
- *
- */
 @Entity
 public class Matricula {
 
@@ -19,6 +15,7 @@ public class Matricula {
 	@Column (name = "Turno_preferente")
 	private String turno;
 	@Column (name = "Fecha_de_matricula", nullable = false)
+	@Temporal (TemporalType.DATE)
 	private Date fecha_matr;
 	@Column (name = "Nuevo_Ingreso")
 	private char nuevoIngreso;
