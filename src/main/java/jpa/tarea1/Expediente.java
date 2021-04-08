@@ -1,5 +1,7 @@
 package jpa.tarea1;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -28,6 +30,9 @@ public class Expediente {
 	
 	@ManyToOne
 	private Titulacion titulacion; //Relacion ManyToOne entre Expediente y Titulacion
+	@OneToMany (mappedBy="expediente" )
+	private List<Encuesta> encuestas;
+	
 	
 	public Expediente(int ne, char a, double nm, double csup, double cfb, 
 			double cop, double cob, double ccf, double cpe, double ctf) {

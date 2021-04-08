@@ -13,6 +13,9 @@ public class Encuesta {
 	@Id @Column (name = "Fecha de envio")
 	@Temporal (TemporalType.DATE)
 	private Date fecha_de_envio;
+	
+	@ManyToOne
+	private Expediente expediente;
 
 	public Encuesta(Date fecha_envio) {
 		super();
