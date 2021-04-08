@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class ClaseId {
 	
-	@Column(name = "Dia")
+	@Column(name = "Dia", length=10)
 	private String dia;
 	@Column(name = "Hora_inicio")
 	@Temporal (TemporalType.DATE)

@@ -12,14 +12,14 @@ public class Matricula {
 	private char estado;
 	@Column (name = "Num_Archivo")
 	private int nArchivo;
-	@Column (name = "Turno_preferente")
+	@Column (name = "Turno_preferente", length=10)
 	private String turno;
 	@Column (name = "Fecha_de_matricula", nullable = false)
 	@Temporal (TemporalType.DATE)
 	private Date fecha_matr;
 	@Column (name = "Nuevo_Ingreso")
 	private char nuevoIngreso;
-	@Column (name = "Listado_Asignaturas")
+	@Column (name = "Listado_Asignaturas", length=50)
 	private String listaAsig;
 	
 	public Matricula(int c, char e, int na, String t, Date fm, char ni, String la) {
