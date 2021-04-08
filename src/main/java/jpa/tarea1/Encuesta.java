@@ -2,6 +2,8 @@ package jpa.tarea1;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -22,6 +24,12 @@ public class Encuesta implements Serializable {
 	
 	@ManyToOne
 	private Expediente expediente;
+	
+	@ManyToMany
+	@JoinTable(name = "jnd_expediente_grupo_asig",
+			joinColumns = @JoinColumn(name = "expediente_fk"),
+			inverseJoinColumns = @JoinColumn(name = "grupo_asig_fk"))
+	private List<Grupos_por_asignatura> grupo_asig;
 
 	public Encuesta(Date fecha_envio) {
 		super();

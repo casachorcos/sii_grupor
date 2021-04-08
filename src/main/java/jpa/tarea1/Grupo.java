@@ -2,9 +2,9 @@ package jpa.tarea1;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
-
 /**
  * Entity implementation class for Entity: Grupo
  *
@@ -33,13 +33,20 @@ public class Grupo implements Serializable {
 	private String asignar;
 	@Column (name = "Plazas", nullable = true)
 	private int plazas;
-	
 	@ManyToOne
-	private Titulacion titulacion; //Relacion ManyToOne entre Grupo y Titulacion
+	private Titulacion titulacion;
 	@OneToMany (mappedBy="grupo")
-	private LinkedList <Asignaturas_Matricula>
+	private List <Grupos_por_asignatura> gruposAsig;
+	@OneToMany (mappedBy="grupo")
+	private List<Asignaturas_Matricula> asignaturasMat;
+	@OneToMany (mappedBy="grupo")
+	private List <Clase> clase;
+	@OneToMany (mappedBy="grupo")
+	private List<Grupo> gruposRefl;
+	@ManyToOne
+	private Grupo grupoRefle;
 	
-	
+
 	public Grupo() {
 		super();
 	}
