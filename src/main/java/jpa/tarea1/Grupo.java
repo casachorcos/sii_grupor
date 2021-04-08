@@ -36,7 +36,10 @@ public class Grupo implements Serializable {
 	
 	@ManyToOne
 	private Titulacion titulacion; //Relacion ManyToOne entre Grupo y Titulacion
-
+	@OneToMany (mappedBy="grupo")
+	private LinkedList <Asignaturas_Matricula>
+	
+	
 	public Grupo() {
 		super();
 	}

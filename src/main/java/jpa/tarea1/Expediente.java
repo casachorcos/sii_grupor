@@ -37,6 +37,8 @@ public class Expediente implements Serializable {
 	private Titulacion titulacion; //Relacion ManyToOne entre Expediente y Titulacion
 	@OneToMany (mappedBy="expediente" )
 	private List<Encuesta> encuestas;
+	@ManyToOne
+	private Alumno alumno;
 	
 	
 	public Expediente(int ne, char a, double nm, double csup, double cfb, 

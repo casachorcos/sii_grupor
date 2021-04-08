@@ -2,6 +2,7 @@ package jpa.tarea1;
 
 
 import java.io.Serializable;
+import java.util.LinkedList;
 
 import javax.persistence.*;
 
@@ -16,6 +17,7 @@ public class Alumno implements Serializable {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -43,6 +45,8 @@ public class Alumno implements Serializable {
 	private String provincia;
 	@Column(name = "CódigoPostal",nullable = false)
 	private Long codPostal;
+	@OneToMany ( mappedBy="alumno")
+	private LinkedList<Expediente> expedientes;
 	
 	
 	public Alumno() {
