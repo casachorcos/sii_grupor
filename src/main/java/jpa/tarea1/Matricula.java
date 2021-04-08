@@ -2,6 +2,8 @@ package jpa.tarea1;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -26,6 +28,9 @@ public class Matricula implements Serializable {
 	private char nuevoIngreso;
 	@Column (name = "Listado_Asignaturas", length=50)
 	private String listaAsig;
+	
+	@OneToMany (mappedBy = "matricula")
+	private List<Asignaturas_Matricula> asig_matricula;		//Relacion OneToMany entre Matricula y Asignaturas_Matricula
 	
 	public Matricula(int c, char e, int na, String t, Date fm, char ni, String la) {
 		super();

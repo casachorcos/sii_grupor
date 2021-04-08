@@ -2,9 +2,9 @@ package jpa.tarea1;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
-
 /**
  * Entity implementation class for Entity: Grupo
  *
@@ -35,7 +35,10 @@ public class Grupo implements Serializable {
 	private int plazas;
 	
 	@ManyToOne
-	private Titulacion titulacion; //Relacion ManyToOne entre Grupo y Titulacion
+	private Titulacion titulacion; 						//Relacion ManyToOne entre Grupo y Titulacion
+	
+	@OneToMany (mappedBy = "grupo")
+	private List<Grupos_por_asignatura> grupo_asig;		//Relacion OneToMany entre Grupo y Grupos_por_asignaturas
 
 	public Grupo() {
 		super();
