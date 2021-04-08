@@ -13,11 +13,17 @@
 		<class>jpa.tarea1.Titulacion</class>
 		<class>jpa.tarea1.Clase</class>
 		<class>jpa.tarea1.ClaseId</class>
+		<class>jpa.tarea1.Asignaturas_Matricula</class>
+		<class>jpa.tarea1.Datos_Excel</class>
+		<class>jpa.tarea1.Grupos_por_asignatura</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sii"/>
 			<property name="javax.persistence.jdbc.user" value="siiuser"/>
 			<property name="javax.persistence.jdbc.password" value="siipassword"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.schema-generation.scripts.action" value="create"/>
+			<property name="javax.persistence.schema-generation.scripts.create-target" value="/tmp/create-traza.ddl"/>
 		</properties>
 	</persistence-unit>
 </persistence>

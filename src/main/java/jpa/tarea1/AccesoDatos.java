@@ -22,6 +22,5 @@ public class AccesoDatos implements Closeable {
 		// TODO Auto-generated method stub
 		em.close();
 		emf.close();
-	}
-	
+	}	
 }
