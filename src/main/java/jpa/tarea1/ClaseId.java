@@ -1,12 +1,17 @@
 package jpa.tarea1;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class ClaseId {
+public class ClaseId implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5L;
 	@Column(name = "Dia", length=10)
 	private String dia;
 	@Column(name = "Hora_inicio")

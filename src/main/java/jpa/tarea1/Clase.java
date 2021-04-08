@@ -1,13 +1,19 @@
 package jpa.tarea1;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 
 
 @Entity
-public class Clase {
+public class Clase implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4L;
+	
 	@EmbeddedId
 	private ClaseId id;
 	@Column (name = "Hora_fin")

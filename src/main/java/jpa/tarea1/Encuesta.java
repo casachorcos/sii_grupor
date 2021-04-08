@@ -1,5 +1,6 @@
 package jpa.tarea1;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -8,7 +9,12 @@ import javax.persistence.*;
  *
  */
 @Entity
-public class Encuesta {
+public class Encuesta implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7L;
 
 	@Id @Column (name = "Fecha de envio")
 	@Temporal (TemporalType.DATE)

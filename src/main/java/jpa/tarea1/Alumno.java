@@ -1,6 +1,8 @@
 package jpa.tarea1;
 
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -9,8 +11,12 @@ import javax.persistence.*;
  */
 
 @Entity
-public class Alumno {
+public class Alumno implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name = "DNI",unique = true, nullable = false)

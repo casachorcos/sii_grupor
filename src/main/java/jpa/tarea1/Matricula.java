@@ -1,11 +1,16 @@
 package jpa.tarea1;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-public class Matricula {
+public class Matricula implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 10L;
 	@Id @Column (name = "Curso_academico")
 	private int curso;
 	@Column (name = "Estado", nullable = false)

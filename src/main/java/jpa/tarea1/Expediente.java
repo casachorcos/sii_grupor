@@ -1,12 +1,17 @@
 package jpa.tarea1;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
-public class Expediente {
+public class Expediente implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8L;
 	@Id @Column (name = "Num_Expediente")
 	private int num_exp;
 	@Column (name = "Activo")

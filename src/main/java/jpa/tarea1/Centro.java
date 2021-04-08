@@ -1,5 +1,6 @@
 package jpa.tarea1;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,8 +17,12 @@ import javax.persistence.ManyToMany;
  *
  */
 @Entity
-public class Centro {
+public class Centro implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3L;
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column (name = "Nombre", nullable = false, length = 50)
