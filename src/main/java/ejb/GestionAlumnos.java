@@ -1,11 +1,11 @@
 package ejb;
 
-import ejb.excepciones.*;
+import ejb.excepciones.TrazabilidadException;
 import jpa.entidades.Alumno;
+import javax.ejb.Local;
 
+@Local
 public interface GestionAlumnos {
-
-	public void eliminarAlumno(Alumno alumno) throws TrazabilidadException;
 	
 	public void actualizarAlumno(Alumno alumno) throws TrazabilidadException;
 	
