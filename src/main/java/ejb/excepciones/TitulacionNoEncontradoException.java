@@ -1,4 +1,4 @@
-package src.main.java.ejb.exception;
+package ejb.excepciones;
 
 public class TitulacionNoEncontradoException extends TrazabilidadException {
 

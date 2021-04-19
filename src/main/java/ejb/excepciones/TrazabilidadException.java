@@ -1,4 +1,4 @@
-package src.main.java.ejb.exception;
+package ejb.excepciones;
 
 public class TrazabilidadException extends Exception {
 	
@@ -7,5 +7,5 @@ public class TrazabilidadException extends Exception {
 	public TrazabilidadException(String message) {
 		super(message);
 	}
-
+	
 }
