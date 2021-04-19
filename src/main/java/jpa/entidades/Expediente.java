@@ -1,27 +1,8 @@
-package jpa.tarea1;
+package jpa.entidades;
 
 import javax.persistence.*;
 
-<<<<<<< HEAD
-/**
- * Entity implementation class for Entity: Expediente
- *
- */
-@Entity
 
-public class Expediente {
-
-	private int cr_fb;
-	private int cr_ob;
-	private int cr_op;
-	private int cr_cf;
-	
-
-	public Expediente() {
-		super();
-	}
-   
-=======
 @Entity
 public class Expediente {
 
@@ -215,5 +196,4 @@ public class Expediente {
 	
 	
 	
->>>>>>> b2425235ed282e40ac1212e914e06d9b66c68be2
 }

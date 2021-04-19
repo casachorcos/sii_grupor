@@ -1,8 +1,9 @@
-package jpa.tarea1;
+package jpa.entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import jpa.tarea1.Asignatura;
+
+import jpa.entidades.Asignatura;
 
 /**
  * Entity implementation class for Entity: Optativa
