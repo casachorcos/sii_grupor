@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="sii_grupor" transaction-type="RESOURCE_LOCAL">
-		<class>jpa.tarea1.Encuesta</class>
-		<class>jpa.tarea1.Asignatura</class>
-		<class>jpa.tarea1.Alumno</class>
-		<class>jpa.tarea1.Centro</class>
-		<class>jpa.tarea1.Expediente</class>
-		<class>jpa.tarea1.Grupo</class>
-		<class>jpa.tarea1.Matricula</class>
-		<class>jpa.tarea1.Optativa</class>
-		<class>jpa.tarea1.Titulacion</class>
-		<class>jpa.tarea1.Clase</class>
-		<class>jpa.tarea1.ClaseId</class>
-		<class>jpa.tarea1.Asignaturas_Matricula</class>
-		<class>jpa.tarea1.Grupos_por_asignatura</class>
+		<class>jpa.entidades.Encuesta</class>
+		<class>jpa.entidades.Asignatura</class>
+		<class>jpa.entidades.Alumno</class>
+		<class>jpa.entidades.Centro</class>
+		<class>jpa.entidades.Expediente</class>
+		<class>jpa.entidades.Grupo</class>
+		<class>jpa.entidades.Matricula</class>
+		<class>jpa.entidades.Optativa</class>
+		<class>jpa.entidades.Titulacion</class>
+		<class>jpa.entidades.Clase</class>
+		<class>jpa.entidades.ClaseId</class>
+		<class>jpa.entidades.Asignaturas_Matricula</class>
+		<class>jpa.entidades.Grupos_por_asignatura</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sii"/>
