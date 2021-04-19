@@ -1,4 +1,4 @@
-package jpa.tarea1;
+package jpa.entidades;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

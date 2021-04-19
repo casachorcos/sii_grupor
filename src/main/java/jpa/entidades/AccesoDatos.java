@@ -1,4 +1,4 @@
-package jpa.tarea1;
+package jpa.entidades;
 
 import java.io.Closeable;
 import java.io.IOException;
