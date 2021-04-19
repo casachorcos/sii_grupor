@@ -1,5 +1,6 @@
 package jpa.entidades;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -9,8 +10,12 @@ import javax.persistence.*;
  *
  */
 @Entity
-public class Titulacion {
+public class Titulacion implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 12L;
 	@Id @Column (name = "Código")
 	private int codigo;
 	@Column (name = "Nombre", nullable = false, length = 50)

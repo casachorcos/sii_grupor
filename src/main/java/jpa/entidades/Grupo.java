@@ -1,16 +1,22 @@
 package jpa.entidades;
 
 
-import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.*;
 /**
  * Entity implementation class for Entity: Grupo
  *
  */
 @Entity
 
-public class Grupo  {
+public class Grupo implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9L;
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column (name = "Curso",unique = true, nullable = false)
@@ -27,9 +33,19 @@ public class Grupo  {
 	private String asignar;
 	@Column (name = "Plazas", nullable = true)
 	private int plazas;
-	
 	@ManyToOne
-	private Titulacion titulacion; //Relacion ManyToOne entre Grupo y Titulacion
+	private Titulacion titulacion;
+	@OneToMany (mappedBy="grupo")
+	private List <Grupos_por_asignatura> gruposAsig;
+	@OneToMany (mappedBy="grupo")
+	private List<Asignaturas_Matricula> asignaturasMat;
+	@OneToMany (mappedBy="grupo")
+	private List <Clase> clase;
+	@OneToMany (mappedBy="grupoRefle")
+	private List<Grupo> gruposRefl;
+	@ManyToOne
+	private Grupo grupoRefle;
+	
 
 	public Grupo() {
 		super();

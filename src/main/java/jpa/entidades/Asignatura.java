@@ -1,5 +1,9 @@
 package jpa.entidades;
 
+
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -9,8 +13,12 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Asignatura {
+public class Asignatura implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
 	@Id @Column (name = "Referencia")
 	private int referencia;
 	@Column (name = "Código", nullable = false)
@@ -33,7 +41,13 @@ public class Asignatura {
 	private String idiomas;
 	
 	@ManyToOne
-	private Titulacion titulacion; //Relacion ManyToOne entre Asignatura y Titulacion
+	private Titulacion titulacion; 							//Relacion ManyToOne entre Asignatura y Titulacion
+	@OneToMany (mappedBy="asignatura")
+	private List<Clase> clase;								//Relacion OneToMany entre Asignatura y Clase
+	@OneToMany (mappedBy = "asignatura")
+	private List<Asignaturas_Matricula> asig_matricula;		//Relacion OneToMany entre Asignatura y Asignaturas_Matricula
+	@OneToMany (mappedBy = "asignatura")
+	private List<Grupos_por_asignatura> grupos_asig;		//Relacion OneToMany entre Asignatura y Grupos_por_asignatura
 	
 	
 	

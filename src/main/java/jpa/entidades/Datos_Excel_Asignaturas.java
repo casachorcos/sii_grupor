@@ -1,6 +1,8 @@
 package jpa.entidades;
 
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -9,8 +11,12 @@ import javax.persistence.*;
  */
 @Entity
 
-public class Datos_Excel_Asignaturas {
+public class Datos_Excel_Asignaturas implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6L;
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column (name = "Titulación", nullable = false)

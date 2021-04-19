@@ -1,11 +1,18 @@
 package jpa.entidades;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 
 @Entity
-public class Expediente {
+public class Expediente implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8L;
 	@Id @Column (name = "Num_Expediente")
 	private int num_exp;
 	@Column (name = "Activo")
@@ -29,6 +36,15 @@ public class Expediente {
 	
 	@ManyToOne
 	private Titulacion titulacion; //Relacion ManyToOne entre Expediente y Titulacion
+	@OneToMany (mappedBy="expediente" )
+	private List<Encuesta> encuestas;
+	@ManyToOne
+	private Alumno alumno;
+	@OneToMany (mappedBy = "expediente")
+	private List<Matricula> matricula;		//Relacion OneToMany entre Expediente y Matricula
+	
+
+	
 	
 	public Expediente(int ne, char a, double nm, double csup, double cfb, 
 			double cop, double cob, double ccf, double cpe, double ctf) {

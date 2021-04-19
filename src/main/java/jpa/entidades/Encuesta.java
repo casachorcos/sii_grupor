@@ -1,6 +1,9 @@
 package jpa.entidades;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -8,11 +11,25 @@ import javax.persistence.*;
  *
  */
 @Entity
-public class Encuesta {
+public class Encuesta implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7L;
 
 	@Id @Column (name = "Fecha de envio")
 	@Temporal (TemporalType.DATE)
 	private Date fecha_de_envio;
+	
+	@ManyToOne
+	private Expediente expediente;
+	
+	@ManyToMany
+	@JoinTable(name = "jnd_expediente_grupo_asig",
+			joinColumns = @JoinColumn(name = "expediente_fk"),
+			inverseJoinColumns = @JoinColumn(name = "grupo_asig_fk"))
+	private List<Grupos_por_asignatura> grupo_asig;
 
 	public Encuesta(Date fecha_envio) {
 		super();

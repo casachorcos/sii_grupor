@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+<<<<<<< HEAD
 	<persistence-unit name="jpa.demo" transaction-type="RESOURCE_LOCAL">
 		<class>jpa.entidades.Encuesta</class>
 		<class>jpa.entidades.Expediente</class>
+=======
+	<persistence-unit name="sii_grupor" transaction-type="RESOURCE_LOCAL">
+		<class>jpa.tarea1.Encuesta</class>
+		<class>jpa.tarea1.Asignatura</class>
+		<class>jpa.tarea1.Alumno</class>
+		<class>jpa.tarea1.Centro</class>
+		<class>jpa.tarea1.Datos_Excel_Asignaturas</class>
+		<class>jpa.tarea1.Expediente</class>
+		<class>jpa.tarea1.Grupo</class>
+		<class>jpa.tarea1.Matricula</class>
+		<class>jpa.tarea1.Optativa</class>
+		<class>jpa.tarea1.Titulacion</class>
+		<class>jpa.tarea1.Clase</class>
+		<class>jpa.tarea1.ClaseId</class>
+		<class>jpa.tarea1.Asignaturas_Matricula</class>
+		<class>jpa.tarea1.Datos_Excel</class>
+		<class>jpa.tarea1.Grupos_por_asignatura</class>
+>>>>>>> 0ee56d751b160ba8ba2e0f57aebc5cf6fae2eea5
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sii"/>
 			<property name="javax.persistence.jdbc.user" value="siiuser"/>
 			<property name="javax.persistence.jdbc.password" value="siipassword"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.schema-generation.scripts.action" value="create"/>
+			<property name="javax.persistence.schema-generation.scripts.create-target" value="/tmp/create-traza.ddl"/>
 		</properties>
 	</persistence-unit>
 </persistence>

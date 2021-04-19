@@ -1,6 +1,9 @@
 package jpa.entidades;
 
 
+import java.io.Serializable;
+import java.util.LinkedList;
+
 import javax.persistence.*;
 
 /**
@@ -9,8 +12,13 @@ import javax.persistence.*;
  */
 
 @Entity
-public class Alumno  {
+public class Alumno implements Serializable {
 	
+	/**
+	 * 
+	 */
+	
+	private static final long serialVersionUID = 1L;
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name = "DNI",unique = true, nullable = false)
@@ -37,6 +45,8 @@ public class Alumno  {
 	private String provincia;
 	@Column(name = "CódigoPostal",nullable = false)
 	private Long codPostal;
+	@OneToMany ( mappedBy="alumno")
+	private LinkedList<Expediente> expedientes;
 	
 	
 	public Alumno() {

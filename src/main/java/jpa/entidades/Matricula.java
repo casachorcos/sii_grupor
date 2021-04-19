@@ -1,29 +1,70 @@
 package jpa.entidades;
 
+import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
+import java.util.List;
 
+import javax.persistence.*;
 /**
- * Entity implementation class for Entity: Encuesta
+ * Entity implementation class for Entity: Matricula
  *
  */
 @Entity
-public class Matricula {
 
+@IdClass(Matricula.MatriculaId.class)
+public class Matricula implements Serializable {
+	
+	public static class MatriculaId implements Serializable {
+		private int curso;
+		private int expediente;
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + curso;
+			result = prime * result + expediente;
+			return result;
+		}
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			MatriculaId other = (MatriculaId) obj;
+			if (curso != other.curso)
+				return false;
+			if (expediente != other.expediente)
+				return false;
+			return true;
+		}
+	}
+	
+	private static final long serialVersionUID = 10L;
 	@Id @Column (name = "Curso_academico")
 	private int curso;
 	@Column (name = "Estado", nullable = false)
 	private char estado;
 	@Column (name = "Num_Archivo")
 	private int nArchivo;
-	@Column (name = "Turno_preferente")
+	@Column (name = "Turno_preferente", length=10)
 	private String turno;
 	@Column (name = "Fecha_de_matricula", nullable = false)
+	@Temporal (TemporalType.DATE)
 	private Date fecha_matr;
 	@Column (name = "Nuevo_Ingreso")
 	private char nuevoIngreso;
-	@Column (name = "Listado_Asignaturas")
+	@Column (name = "Listado_Asignaturas", length=50)
 	private String listaAsig;
+	
+	@OneToMany (mappedBy = "matricula")
+	private List<Asignaturas_Matricula> asig_matricula;		//Relacion OneToMany entre Matricula y Asignaturas_Matricula
+	
+	@Id
+	@ManyToOne
+	private Expediente expediente;
 	
 	public Matricula(int c, char e, int na, String t, Date fm, char ni, String la) {
 		super();

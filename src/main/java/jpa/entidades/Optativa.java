@@ -12,7 +12,7 @@ import jpa.entidades.Asignatura;
 @Entity
 public class Optativa extends Asignatura implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 11L;
 	@Column (name = "Plazas", nullable = false)
 	private int plazas;
 	@Column (name = "Mención", nullable = false, length = 50)
