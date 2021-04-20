@@ -16,7 +16,7 @@ public class AlumnoEJB implements GestionAlumnos {
 	
 	@Override
 	public void actualizarAlumno(Alumno alumno) throws AlumnoNoEncontradoException{
-		Alumno al = em.find(Alumno.class, alumno);
+		Alumno al = em.find(Alumno.class, alumno.getId());
 		if (al==null) {
 			throw new AlumnoNoEncontradoException();
 		}
