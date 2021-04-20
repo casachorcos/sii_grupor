@@ -20,17 +20,39 @@ public class AsignaturaEJB implements GestionAsignaturas {
 	
 	@Override
 	public void eliminarAsignatura(Asignatura asignatura) throws AsignaturaNoEncontradoException {
-		
+		Asignatura asig = em.find(Asignatura.class, asignatura.getReferencia());
+		if (asig == null) {
+			throw new AsignaturaNoEncontradoException();
+		}
+		em.persist(asig);
 	}
 	
 	@Override
 	public void actualizarAsignatura(Asignatura asignatura) throws AsignaturaNoEncontradoException {
-		
+		Asignatura asig = em.find(Asignatura.class, asignatura.getReferencia());
+		if (asig == null) {
+			throw new AsignaturaNoEncontradoException();
+		}
+		asig.setReferencia(asignatura.getReferencia());
+		asig.setCodigo(asignatura.getCodigo());
+		asig.setCreditos(asignatura.getCreditos());
+		asig.setOfertada(asignatura.getOfertada());
+		asig.setNombre(asignatura.getNombre());
+		asig.setCurso(asignatura.getCurso());
+		asig.setCaracter(asignatura.getCaracter());
+		asig.setDuracion(asignatura.getDuracion());
+		asig.setUnidad_temporal(asignatura.getUnidad_temporal());
+		asig.setIdiomas(asignatura.getIdiomas());
+		em.persist(asig);
 	}
 	
 	@Override
-	public void crearAsignatura(Asignatura asignatura) throws AsignaturaExistenteException {
-		
+	public void insertarAsignatura(Asignatura asignatura) throws AsignaturaExistenteException {
+		Asignatura asig = em.find(Asignatura.class, asignatura.getReferencia());
+		if (asig == null) {
+			throw new AsignaturaExistenteException();
+		}
+		em.remove(asig);
 	}
 
 	
