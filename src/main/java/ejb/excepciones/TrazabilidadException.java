@@ -7,5 +7,5 @@ public class TrazabilidadException extends Exception {
 	public TrazabilidadException(String message) {
 		super(message);
 	}
-
+	
 }
