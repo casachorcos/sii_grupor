@@ -11,7 +11,7 @@ public interface GestionGrupo {
 	 * Añade el grupo a la base de datos.
 	 * @param grupo Grupo que se va a añadir.
 	 */
-	public void crearGrupo(Grupo grupo) throws TrazabilidadException;
+	public void insertarGrupo(Grupo grupo) throws TrazabilidadException;
 	
 	/*
 	 * Actualiza un grupo en la base de datos.
