@@ -30,6 +30,14 @@ public class BaseDatos {
 			em.persist(asignatura);
 		}
 		
+		Grupo gr1 = new Grupo(1,'A',"Mañana","Sí","No",null,20);
+		Grupo gr2 = new Grupo(2,'D',"Tarde","No","Sí",null,30);
+		Grupo gr3 = new Grupo(3,'B',"Mañana","No","Sí",null,60);
+		
+		for (Grupo grupo : new Grupo [] {gr1, gr2, gr3}) {
+			em.persist(grupo);
+		}
+		
 		/* EJEMPLO *
 		Ingrediente carne = new Ingrediente ("Carne picada");
 		Ingrediente pimienta = new Ingrediente ("Pimienta");

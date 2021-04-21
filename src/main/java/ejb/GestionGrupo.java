@@ -9,6 +9,7 @@ public interface GestionGrupo {
 
 	/*
 	 * Añade el grupo a la base de datos.
+	 * Si el grupo se encuentra ya en la base de datos, lanza la excepciñon GrupoExistenteException
 	 * @param grupo Grupo que se va a añadir.
 	 */
 	public void insertarGrupo(Grupo grupo) throws TrazabilidadException;
