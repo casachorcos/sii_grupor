@@ -20,10 +20,10 @@ public interface GestionAsignaturas {
 	public void actualizarAsignatura(Asignatura asignatura) throws TrazabilidadException;
 	
 	/**
-	 * Crear una matricula en la base de datos.
+	 * Insertar una matricula en la base de datos.
 	 * Si ya se encuentra la asignatura en la base de datos, lanza la excepcion AsignaturaExistenteException.
-	 * @param asignatura Asignatura que se quiere crear.
+	 * @param asignatura Asignatura que se quiere insertar.
 	 */
-	public void crearAsignatura(Asignatura asignatura) throws TrazabilidadException;
+	public void insertarAsignatura(Asignatura asignatura) throws TrazabilidadException;
 	
 }

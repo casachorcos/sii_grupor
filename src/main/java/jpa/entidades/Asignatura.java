@@ -23,10 +23,10 @@ public class Asignatura implements Serializable {
 	private int referencia;
 	@Column (name = "Código", nullable = false)
 	private int codigo;
-	@Column (name = "Créditos", nullable = false)
-	private double creditos;
-	@Column (name = "Ofertada", nullable = false)
-	private char ofertada;
+	@Column (name = "Créditos", nullable = false, length = 5)
+	private String creditos;
+	@Column (name = "Ofertada", nullable = false, length = 3)
+	private String ofertada;
 	@Column (name = "Nombre", nullable = false, length = 100)
 	private String nombre;
 	@Column (name = "Curso")
@@ -51,7 +51,7 @@ public class Asignatura implements Serializable {
 	
 	
 	
-	public Asignatura(int referencia, int codigo, double creditos, char ofertada, String nombre, int curso, String caracter, String duracion, String unidad_temporal, String idiomas) {
+	public Asignatura(int referencia, int codigo, String creditos, String ofertada, String nombre, int curso, String caracter, String duracion, String unidad_temporal, String idiomas) {
 		super();
 		this.referencia = referencia;
 		this.codigo = codigo;
@@ -80,16 +80,16 @@ public class Asignatura implements Serializable {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public double getCreditos() {
+	public String getCreditos() {
 		return creditos;
 	}
-	public void setCreditos(double creditos) {
+	public void setCreditos(String creditos) {
 		this.creditos = creditos;
 	}
-	public char getOfertada() {
+	public String getOfertada() {
 		return ofertada;
 	}
-	public void setOfertada(char ofertada) {
+	public void setOfertada(String ofertada) {
 		this.ofertada = ofertada;
 	}
 	public String getNombre() {
@@ -128,22 +128,24 @@ public class Asignatura implements Serializable {
 	public void setIdiomas(String idiomas) {
 		this.idiomas = idiomas;
 	}
-		
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((asig_matricula == null) ? 0 : asig_matricula.hashCode());
 		result = prime * result + ((caracter == null) ? 0 : caracter.hashCode());
+		result = prime * result + ((clase == null) ? 0 : clase.hashCode());
 		result = prime * result + codigo;
-		long temp;
-		temp = Double.doubleToLongBits(creditos);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((creditos == null) ? 0 : creditos.hashCode());
 		result = prime * result + curso;
 		result = prime * result + ((duracion == null) ? 0 : duracion.hashCode());
+		result = prime * result + ((grupos_asig == null) ? 0 : grupos_asig.hashCode());
 		result = prime * result + ((idiomas == null) ? 0 : idiomas.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + ofertada;
+		result = prime * result + ((ofertada == null) ? 0 : ofertada.hashCode());
 		result = prime * result + referencia;
+		result = prime * result + ((titulacion == null) ? 0 : titulacion.hashCode());
 		result = prime * result + ((unidad_temporal == null) ? 0 : unidad_temporal.hashCode());
 		return result;
 	}
@@ -157,14 +159,27 @@ public class Asignatura implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Asignatura other = (Asignatura) obj;
+		if (asig_matricula == null) {
+			if (other.asig_matricula != null)
+				return false;
+		} else if (!asig_matricula.equals(other.asig_matricula))
+			return false;
 		if (caracter == null) {
 			if (other.caracter != null)
 				return false;
 		} else if (!caracter.equals(other.caracter))
 			return false;
+		if (clase == null) {
+			if (other.clase != null)
+				return false;
+		} else if (!clase.equals(other.clase))
+			return false;
 		if (codigo != other.codigo)
 			return false;
-		if (Double.doubleToLongBits(creditos) != Double.doubleToLongBits(other.creditos))
+		if (creditos == null) {
+			if (other.creditos != null)
+				return false;
+		} else if (!creditos.equals(other.creditos))
 			return false;
 		if (curso != other.curso)
 			return false;
@@ -172,6 +187,11 @@ public class Asignatura implements Serializable {
 			if (other.duracion != null)
 				return false;
 		} else if (!duracion.equals(other.duracion))
+			return false;
+		if (grupos_asig == null) {
+			if (other.grupos_asig != null)
+				return false;
+		} else if (!grupos_asig.equals(other.grupos_asig))
 			return false;
 		if (idiomas == null) {
 			if (other.idiomas != null)
@@ -183,9 +203,17 @@ public class Asignatura implements Serializable {
 				return false;
 		} else if (!nombre.equals(other.nombre))
 			return false;
-		if (ofertada != other.ofertada)
+		if (ofertada == null) {
+			if (other.ofertada != null)
+				return false;
+		} else if (!ofertada.equals(other.ofertada))
 			return false;
 		if (referencia != other.referencia)
+			return false;
+		if (titulacion == null) {
+			if (other.titulacion != null)
+				return false;
+		} else if (!titulacion.equals(other.titulacion))
 			return false;
 		if (unidad_temporal == null) {
 			if (other.unidad_temporal != null)
@@ -199,6 +227,10 @@ public class Asignatura implements Serializable {
 	public String toString() {
 		return "Asignatura [referencia=" + referencia + ", codigo=" + codigo + ", creditos=" + creditos + ", ofertada="
 				+ ofertada + ", nombre=" + nombre + ", curso=" + curso + ", caracter=" + caracter + ", duracion="
-				+ duracion + ", unidad_temporal=" + unidad_temporal + ", idiomas=" + idiomas + "]";
+				+ duracion + ", unidad_temporal=" + unidad_temporal + ", idiomas=" + idiomas + ", titulacion="
+				+ titulacion + ", clase=" + clase + ", asig_matricula=" + asig_matricula + ", grupos_asig="
+				+ grupos_asig + "]";
 	}
+		
+	
 }
