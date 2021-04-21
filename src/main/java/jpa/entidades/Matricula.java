@@ -136,6 +136,10 @@ public class Matricula implements Serializable {
 	public void setListaAsig(String listaAsig) {
 		this.listaAsig = listaAsig;
 	}
+	
+	public Expediente getExpediente() {
+		return expediente;
+	}
 
 	@Override
 	public int hashCode() {
