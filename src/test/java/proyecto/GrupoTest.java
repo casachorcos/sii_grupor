@@ -1,7 +1,7 @@
 package proyecto;
 
-public class GrupoTest {
 
+public class GrupoTest {
 	
 	
 }
