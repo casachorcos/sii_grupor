@@ -24,7 +24,7 @@ public class AsignaturaEJB implements GestionAsignaturas {
 		if (asig == null) {
 			throw new AsignaturaNoEncontradoException();
 		}
-		em.persist(asig);
+		em.remove(asig);
 	}
 	
 	@Override
@@ -52,7 +52,7 @@ public class AsignaturaEJB implements GestionAsignaturas {
 		if (asig == null) {
 			throw new AsignaturaExistenteException();
 		}
-		em.remove(asig);
+		em.persist(asig);
 	}
 
 	

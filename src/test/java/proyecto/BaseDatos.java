@@ -19,6 +19,17 @@ public class BaseDatos {
 		
 		em.getTransaction().begin();
 		
+		
+		Asignatura sii = new Asignatura (51025, 306, "6","Sí","Sistemas de Información para Internet", 3, "-", "2º Semestre", "-", "-");
+		Asignatura abd = new Asignatura (51015, 305, "6","Sí","Administración de Bases de Datos", 3, "-", "2º Semestre", "-", "-");
+		Asignatura si2 = new Asignatura (51024, 307, "6","Sí","Sistemas Inteligentes II", 3, "-", "2º Semestre", "-", "-");
+		Asignatura ayc = new Asignatura (51016, 311, "6","Sí","Algoritmia y Complejidad", 3, "-", "2º Semestre", "-", "-");
+		Asignatura pr = new Asignatura (51040, 865, "6","Sí","Programación de Robots", 3, "-", "2º Semestre", "-", "-");
+		
+		for (Asignatura asignatura: new Asignatura [] {sii, abd, si2, ayc, pr}) {
+			em.persist(asignatura);
+		}
+		
 		/* EJEMPLO *
 		Ingrediente carne = new Ingrediente ("Carne picada");
 		Ingrediente pimienta = new Ingrediente ("Pimienta");
