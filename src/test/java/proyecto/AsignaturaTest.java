@@ -11,6 +11,7 @@ import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 import javax.naming.NamingException;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -82,4 +83,135 @@ public class AsignaturaTest {
 		}
 	}
 	
+	@Test
+	public void testInsertarAsignaturaNoEncontrado() throws TrazabilidadException {
+		
+		final int ref_asig = 10000;
+		
+		Asignatura prueba = new Asignatura (10000, 001, "6","Sí","Asignatura de Prueba", 3, "-", "2º Semestre", "-", "-");
+		
+		try {
+			gestionAsignaturas.insertarAsignatura(prueba);
+			Asignatura asignatura = gestionAsignaturas.obtenerAsignaturas(00000);
+			fail("Debe lanzar excepción");
+		} catch (AsignaturaExistenteException e) {
+			fail("Lanzó excepción al insertar");
+		} catch (AsignaturaNoEncontradoException e) {
+			//OK
+		}
+	}
+	
+	@Test
+	public void testInsertarAsignaturaExistente() throws AsignaturaNoEncontradoException, TrazabilidadException {
+		
+		Asignatura prueba = new Asignatura (51025, 306, "6","Sí","Sistemas de Información para Internet", 3, "-", "2º Semestre", "-", "-");
+		
+		try {
+			gestionAsignaturas.insertarAsignatura(prueba);
+			fail("Debe lanzar excepción de asignatura existente");
+		} catch (AsignaturaExistenteException e) {
+			//OK
+		} catch (TrazabilidadException e) {
+			fail("Debe lanzar excepción de asignatura existente");
+		}
+	}
+	
+	@Test
+	public void testObtenerAsignatura() {
+		try {
+			Asignatura prueba = gestionAsignaturas.obtenerAsignaturas(51025);
+			assertEquals(51025,prueba.getReferencia());
+		} catch (TrazabilidadException e) {
+			fail("No debería lanzar excepción");
+		}
+	}
+	
+	@Test
+	public void testObtenerAsignaturaNoEncontrado() {
+		try {
+			Asignatura prueba = gestionAsignaturas.obtenerAsignaturas(99999);
+			fail("Debería lanzar excepción de asignatura no encontrado");
+		} catch (AsignaturaNoEncontradoException e) {
+			//OK
+		} catch (TrazabilidadException e) {
+			fail("No debería lanzar excepción");
+		}
+	}
+	
+	@Test
+	public void testActualizarAsignatura() {
+		final int ref = 51025;
+		final String NuevoCaracter = "Presencial";
+		final String NuevoIdioma = "Español";
+		
+		try {
+			Asignatura asignatura = gestionAsignaturas.obtenerAsignaturas(ref);
+			asignatura.setCaracter(NuevoCaracter);
+			asignatura.setIdiomas(NuevoIdioma);
+			gestionAsignaturas.actualizarAsignatura(asignatura);
+			
+		} catch (TrazabilidadException e) {
+			fail("Lanzó excepción al actualizar");
+		}
+		
+		try {
+			Asignatura actualizado = gestionAsignaturas.obtenerAsignaturas(ref);
+			assertTrue((NuevoCaracter).compareTo(actualizado.getCaracter())==0);
+			assertTrue(NuevoIdioma.compareTo(actualizado.getIdiomas())==0);
+		} catch (TrazabilidadException e) {
+			fail("No debería lanzar excepción");
+		}
+	}
+	
+	@Test
+	public void testActualizarAsignaturaNoEncontrado() {
+		Asignatura prueba = new Asignatura (99990, 999, "6","Sí","Sistemas de Información para Internet II", 5, "-", "1º Semestre", "-", "-");
+		
+		try {
+			gestionAsignaturas.actualizarAsignatura(prueba);
+			fail("Debería lanzar excepción de asignatura no encontrado");
+		} catch (AsignaturaNoEncontradoException e) {
+			//OK
+		} catch (TrazabilidadException e) {
+			fail("Debería lanzar excepción de asignatura no encontrado");
+		}
+	}
+	
+	@Test
+	public void testEliminarAsignatura() throws TrazabilidadException {
+		final int ref = 51025;
+		Asignatura prueba = gestionAsignaturas.obtenerAsignaturas(ref);
+		
+		gestionAsignaturas.eliminarAsignatura(prueba);
+		
+		try {
+			prueba = gestionAsignaturas.obtenerAsignaturas(ref);
+			fail("Debería lanzar excepción de asignatura no encontrado");
+		} catch (AsignaturaNoEncontradoException e) {
+			//OK
+		}
+		
+	}
+	
+	@Test
+	public void testEliminarAsignaturaNoEncontrado() {
+		
+		try {
+			Asignatura prueba = new Asignatura (99990, 999, "6","Sí","Sistemas de Información para Internet II", 5, "-", "1º Semestre", "-", "-");
+			
+			gestionAsignaturas.eliminarAsignatura(prueba);
+			fail("Debería lanzar excepción de asignatura no encontrado");
+		} catch (AsignaturaNoEncontradoException e) {
+			//OK
+		} catch (TrazabilidadException e) {
+			fail("Debería lanzar la excepción de producto no encontrado");
+		}
+	}
+	
+	@AfterClass
+	public static void tearDownClass() {
+		if (ejbContainer != null) {
+			ejbContainer.close();
+		}
+	}
 }
