@@ -28,6 +28,18 @@ public class BaseDatos {
 		
 		for (Asignatura asignatura: new Asignatura [] {sii, abd, si2, ayc, pr}) {
 			em.persist(asignatura);
+			
+		
+			
+		Alumno al1 = new Alumno("77774511J","Dani","Lechuga","Ruiz","supraaazk@uma.es","sp1","72778113","95212812","C/Parrados","Malaga","Malaga",(long)29010);
+		Alumno al2 = new Alumno("66664511J","Alejandro","Gutierrez","España","ale@uma.es","sp2","72778115","95212813","C/Parrados2","Malaga","Malaga",(long)29010);
+		Alumno al3 = new Alumno("55554511J","Nicolas","Casamayor","Camacho","nico@uma.es","sp3","72778116","95212814","C/Parrados3","Malaga","Malaga",(long)29010);
+		Alumno al4 = new Alumno("44444511J","Francisco","Cabrerizo","Perez","cabre@uma.es","sp4","72778117","95212815","C/Parrados4","Malaga","Malaga",(long)29010);
+		
+		for(Alumno al : new Alumno [] {al1,al2,al3,al4}) {
+			em.persist(al);
+		}
+		
 		}
 		
 		/* EJEMPLO *
