@@ -5,14 +5,25 @@ import javax.persistence.PersistenceContext;
 import javax.ejb.Stateless;
 
 import ejb.excepciones.AlumnoNoEncontradoException;
+import ejb.excepciones.AsignaturaExistenteException;
 import ejb.excepciones.TrazabilidadException;
 import jpa.entidades.Alumno;
+import jpa.entidades.Asignatura;
 
 @Stateless
 public class AlumnoEJB implements GestionAlumnos {
 	
 	@PersistenceContext(name="sii_grupor")
 	private EntityManager em;
+	
+	@Override
+	public void insertarAlumno(Alumno alumno) throws AlumnoNoEncontradoException{
+		Alumno al = em.find(Alumno.class, alumno.getId());
+		if (al==null) {
+			throw new AlumnoNoEncontradoException();
+		}
+		em.persist(al);
+	}
 	
 	@Override
 	public void actualizarAlumno(Alumno alumno) throws AlumnoNoEncontradoException{
