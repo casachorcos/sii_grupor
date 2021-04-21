@@ -1,4 +1,4 @@
-package jpa.tarea1;
+package jpa.entidades;
 
 
 import java.io.Serializable;
@@ -41,7 +41,7 @@ public class Grupo implements Serializable {
 	private List<Asignaturas_Matricula> asignaturasMat;
 	@OneToMany (mappedBy="grupo")
 	private List <Clase> clase;
-	@OneToMany (mappedBy="grupo")
+	@OneToMany (mappedBy="grupoRefle")
 	private List<Grupo> gruposRefl;
 	@ManyToOne
 	private Grupo grupoRefle;

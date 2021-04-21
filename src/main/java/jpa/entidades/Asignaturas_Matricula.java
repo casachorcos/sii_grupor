@@ -1,8 +1,6 @@
-package jpa.tarea1;
+package jpa.entidades;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.*;
 
 /**
@@ -58,6 +56,9 @@ public class Asignaturas_Matricula implements Serializable {
 	@Id
 	@ManyToOne
 	private Matricula matricula;
+	
+	@ManyToOne
+	private Grupo grupo;
 
 	public String getGrupos_asignados() {
 		return grupos_asignados;

@@ -1,4 +1,4 @@
-package jpa.tarea1;
+package jpa.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,6 +16,8 @@ public class Clase implements Serializable{
 	
 	@EmbeddedId
 	private ClaseId id;
+	@ManyToOne
+	private Grupo grupo;
 	@Column (name = "Hora_fin")
 	@Temporal(TemporalType.DATE)
 	private Date horaFin;
@@ -24,6 +26,7 @@ public class Clase implements Serializable{
 	private Asignatura asignatura;
 	@ManyToOne
 	private Grupo grupo;
+	
 	
 	public Clase(String d, Date hi, Date hf) {
 		super();

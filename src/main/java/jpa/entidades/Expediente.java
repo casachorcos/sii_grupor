@@ -1,9 +1,10 @@
-package jpa.tarea1;
+package jpa.entidades;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+
 
 @Entity
 public class Expediente implements Serializable {
@@ -36,13 +37,13 @@ public class Expediente implements Serializable {
 	@ManyToOne
 	private Titulacion titulacion; //Relacion ManyToOne entre Expediente y Titulacion
 	@OneToMany (mappedBy="expediente" )
-<<<<<<< HEAD
 	private List<Encuesta> encuestas;
 	@ManyToOne
 	private Alumno alumno;
-=======
-	private List<Encuesta> encuesta;
->>>>>>> 8ec2592e0d5d804e2a24380a60073ec7f5194219
+	@OneToMany (mappedBy = "expediente")
+	private List<Matricula> matricula;		//Relacion OneToMany entre Expediente y Matricula
+	
+
 	
 	
 	public Expediente(int ne, char a, double nm, double csup, double cfb, 
