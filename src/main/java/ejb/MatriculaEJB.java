@@ -16,8 +16,18 @@ public class MatriculaEJB implements GestionMatricula{
 	
 	@Override
 	public void actualizarMatricula(Matricula matricula) throws MatriculaNoEncontradoException {
-		// TODO Auto-generated method stub
-		
+		Matricula mat = em.find(Matricula.class, new Matricula.MatriculaId(matricula.getCurso(),matricula.getExpediente()));
+		if(mat == null) {
+			throw new MatriculaNoEncontradoException();
+		}
+		mat.setCurso(matricula.getCurso());
+		mat.setEstado(matricula.getEstado());
+		mat.setFecha_matr(matricula.getFecha_matr());
+		mat.setListaAsig(matricula.getListaAsig());
+		mat.setnArchivo(matricula.getnArchivo());
+		mat.setNuevoIngreso(matricula.getNuevoIngreso());
+		mat.setTurno(matricula.getTurno());
+		em.persist(mat);
 	}
 
 }

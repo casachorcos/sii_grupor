@@ -17,6 +17,14 @@ public class Matricula implements Serializable {
 	public static class MatriculaId implements Serializable {
 		private int curso;
 		private int expediente;
+		public MatriculaId(int curso2, int expediente2) {
+			this.curso = curso2;
+			this.expediente = expediente2;
+		}
+		public MatriculaId() {
+			this.curso = curso;
+			this.expediente = expediente;
+		}
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -135,6 +143,9 @@ public class Matricula implements Serializable {
 
 	public void setListaAsig(String listaAsig) {
 		this.listaAsig = listaAsig;
+	}
+	public int getExpediente() {
+		return expediente.getNum_exp();
 	}
 
 	@Override
