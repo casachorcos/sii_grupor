@@ -15,6 +15,4 @@ public interface GestionAlumnos {
 	 */
 	public void actualizarAlumno(Alumno alumno) throws TrazabilidadException;
 
-	void insertarAlumno(Alumno alumno) throws AlumnoNoEncontradoException;
-	
 }

@@ -15,6 +15,5 @@ public interface GestionMatricula {
 	 */
 	public void actualizarMatricula(Matricula matricula) throws TrazabilidadException;
 
-	void insertarMatricula(Matricula matricula) throws MatriculaNoEncontradoException;
 	
 }

@@ -17,15 +17,6 @@ public class AlumnoEJB implements GestionAlumnos {
 	private EntityManager em;
 	
 	@Override
-	public void insertarAlumno(Alumno alumno) throws AlumnoNoEncontradoException{
-		Alumno al = em.find(Alumno.class, alumno.getId());
-		if (al==null) {
-			throw new AlumnoNoEncontradoException();
-		}
-		em.persist(al);
-	}
-	
-	@Override
 	public void actualizarAlumno(Alumno alumno) throws AlumnoNoEncontradoException{
 		Alumno al = em.find(Alumno.class, alumno.getId());
 		if (al==null) {
