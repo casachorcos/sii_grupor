@@ -24,8 +24,7 @@ import org.junit.Test;
 import ejb.GrupoEJB;
 import ejb.GestionGrupo;
 import ejb.excepciones.*;
-import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ProductoNoEncontradoException;
-import es.uma.informatica.sii.ejb.practica.ejb.exceptions.TrazabilidadException;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import jpa.entidades.Grupo;
 
 public class GrupoTest {
@@ -97,7 +96,7 @@ public class GrupoTest {
 		
 		try {
 			gestionGrupo.insertarGrupo(g);
-			fail("Debe lanzar excepción");
+			fail("Debe lanzar excepciï¿½n");
 		} catch (GrupoExistenteException e) {
 			//OK
 		} catch (TrazabilidadException e) {
@@ -113,13 +112,13 @@ public class GrupoTest {
 			assertEquals("1AINF2021",g.getId());
 			assertEquals(1, g.getCurso());
 			assertEquals('A', g.getLetra());
-			assertEquals("Mañana", g.getTurno());
+			assertEquals("Maï¿½ana", g.getTurno());
 			assertEquals("Si", g.getIngles());
 			assertEquals("No", g.getVisible());
 			assertEquals(null, g.getAsignar());
 			assertEquals(20, g.getPlazas());
 		} catch (TrazabilidadException e) {
-			fail("Lanza una excepción al obtener");
+			fail("Lanza una excepciï¿½n al obtener");
 		}
 	}
 	
@@ -143,7 +142,7 @@ public class GrupoTest {
 		try {
 			gestionGrupo.actualizarGrupo(gr);
 		} catch (TrazabilidadException e) {
-			fail("Lanza una excepción al actualizar");
+			fail("Lanza una excepciï¿½n al actualizar");
 		}
 	}
 	
@@ -163,7 +162,7 @@ public class GrupoTest {
 	@Requisitos({"RF03.4"})
 	@Test
 	public void testEliminarGrupo() {
-		Grupo gr = new Grupo("3BINF2021",3,'B',"Mañana","No","Si",null,60);
+		Grupo gr = new Grupo("3BINF2021",3,'B',"Maï¿½ana","No","Si",null,60);
 		try {
 			gestionGrupo.eliminarGrupo(gr);
 			
@@ -182,7 +181,7 @@ public class GrupoTest {
 	@Requisitos({"RF03.4"})
 	@Test
 	public void testEliminarGrupoNoExistente() {
-		Grupo gr = new Grupo("3DSOF2122",3,'D',"Mañana","No","Si",null,60);
+		Grupo gr = new Grupo("3DSOF2122",3,'D',"Maï¿½ana","No","Si",null,60);
 		try {
 			gestionGrupo.eliminarGrupo(gr);
 			fail("Debe lanzar GrupoNoEncontradoException");

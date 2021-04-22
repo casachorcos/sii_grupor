@@ -17,8 +17,7 @@ public class Grupos_por_asignatura implements Serializable {
 	public static class Grupos_por_asignaturaId implements Serializable {
 		private int curso_academico;
 		private int asignatura;
-		private Long grupo;
-		
+		private String grupo;
 		@Override
 		public int hashCode() {
 			final int prime = 31;
