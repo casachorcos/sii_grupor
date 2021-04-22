@@ -4,10 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.math.BigDecimal;
-import java.sql.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -20,17 +17,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ejb.GrupoEJB;
-import ejb.GestionGrupo;
+import ejb.EncuestaEJB;
+import ejb.GestionEncuestas;
 import ejb.excepciones.*;
 import es.uma.informatica.sii.anotaciones.Requisitos;
-import jpa.entidades.Grupo;
+import jpa.entidades.Encuesta;
 
-public class GrupoTest {
+public class EncuestaTest {
 
-	private static final Logger LOG = Logger.getLogger(GrupoTest.class.getCanonicalName());
+	private static final Logger LOG = Logger.getLogger(EncuestaTest.class.getCanonicalName());
 
-	private static final String GRUPOS_EJB = "java:global/classes/GrupoEJB";
+	private static final String ENCUESTAS_EJB = "java:global/classes/EncuestaEJB";
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
 	private static final String CONFIG_FILE = "target/test-classes/META-INF/domain.xml";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_grupor";
@@ -38,7 +35,7 @@ public class GrupoTest {
 	private static EJBContainer ejbContainer;
 	private static Context ctx;
 	
-	private GestionGrupo gestionGrupo;
+	private GestionEncuestas gestionEncuesta;
 	
 	@BeforeClass
 	public static void setUpClass() {
@@ -50,22 +47,22 @@ public class GrupoTest {
 	
 	@Before
 	public void setup() throws NamingException  {
-		gestionGrupo = (GestionGrupo) ctx.lookup(GRUPOS_EJB);
+		gestionEncuesta = (GestionEncuestas) ctx.lookup(ENCUESTAS_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 	
 	@Requisitos({"RF03.1"})
 	@Test
-	public void testInsertarGrupo() {
+	public void testInsertarEncuesta() {
 		
 		try {
 			
-			Grupo g = new Grupo(4,'A',"Tarde","No","S�","Hola",40);
+			Encuesta e = new Encuesta(new Date(2021, 4, 22));
 			
 			try {
-				gestionGrupo.insertarGrupo(g);
-			} catch (GrupoExistenteException e) {
-				fail("Excepci�n");
+				gestionEncuesta.insertarEncuesta(e);
+			} catch (EncuestaExistenteException ex) {
+				fail("Excepcion");
 			}
 			
 		} catch (TrazabilidadException e) {
@@ -73,7 +70,8 @@ public class GrupoTest {
 		}
 		
 		try {
-			//assertEquals(4, id);
+			Encuesta en = gestionEncuesta.obtenerEncuesta(new Date(2021, 4, 22, 13, 21, 56));
+			assertEquals(new Date(2021, 4, 22, 13, 21, 56), en.getFecha_de_envio());
 		} catch (TrazabilidadException e) {
 			throw new RuntimeException(e);
 		}
