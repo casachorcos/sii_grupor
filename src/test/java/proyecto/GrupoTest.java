@@ -53,7 +53,7 @@ public class GrupoTest {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 	
-	@Requisitos({"RF3.1"})
+	@Requisitos({"RF03.1"})
 	@Test
 	public void testInsertarGrupo() {
 		
