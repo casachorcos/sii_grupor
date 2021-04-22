@@ -17,8 +17,8 @@ public class Grupo implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 9L;
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@Id @Column(name = "ID")
+	private String id;
 	@Column (name = "Curso",unique = true, nullable = false)
 	private int curso;
 	@Column (name = "Letra",unique = true, nullable = false)
@@ -47,8 +47,9 @@ public class Grupo implements Serializable {
 	private Grupo grupoRefle;
 	
 
-	public Grupo(int c, char l, String t, String i, String v, String a, int p) {
+	public Grupo(String id, int c, char l, String t, String i, String v, String a, int p) {
 		super();
+		this.id = id;
 		curso = c;
 		letra = l;
 		turno = t;
@@ -62,11 +63,11 @@ public class Grupo implements Serializable {
 		
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -124,6 +125,58 @@ public class Grupo implements Serializable {
 
 	public void setPlazas(int plazas) {
 		this.plazas = plazas;
+	}
+
+	public Titulacion getTitulacion() {
+		return titulacion;
+	}
+
+	public void setTitulacion(Titulacion titulacion) {
+		this.titulacion = titulacion;
+	}
+
+	public List<Grupos_por_asignatura> getGruposAsig() {
+		return gruposAsig;
+	}
+
+	public void setGruposAsig(List<Grupos_por_asignatura> gruposAsig) {
+		this.gruposAsig = gruposAsig;
+	}
+
+	public List<Asignaturas_Matricula> getAsignaturasMat() {
+		return asignaturasMat;
+	}
+
+	public void setAsignaturasMat(List<Asignaturas_Matricula> asignaturasMat) {
+		this.asignaturasMat = asignaturasMat;
+	}
+
+	public List<Clase> getClase() {
+		return clase;
+	}
+
+	public void setClase(List<Clase> clase) {
+		this.clase = clase;
+	}
+
+	public List<Grupo> getGruposRefl() {
+		return gruposRefl;
+	}
+
+	public void setGruposRefl(List<Grupo> gruposRefl) {
+		this.gruposRefl = gruposRefl;
+	}
+
+	public Grupo getGrupoRefle() {
+		return grupoRefle;
+	}
+
+	public void setGrupoRefle(Grupo grupoRefle) {
+		this.grupoRefle = grupoRefle;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
@@ -223,8 +276,8 @@ public class Grupo implements Serializable {
 	@Override
 	public String toString() {
 		return "Grupo [id=" + id + ", curso=" + curso + ", letra=" + letra + ", turno=" + turno + ", ingles=" + ingles
-				+ ", visible=" + visible + ", asignar=" + asignar + ", plazas=" + plazas + "]";
+				+ ", visible=" + visible + ", asignar=" + asignar + ", plazas=" + plazas + ", titulacion=" + titulacion
+				+ ", gruposAsig=" + gruposAsig + ", asignaturasMat=" + asignaturasMat + ", clase=" + clase
+				+ ", gruposRefl=" + gruposRefl + ", grupoRefle=" + grupoRefle + "]";
 	}
-	
-   
 }
