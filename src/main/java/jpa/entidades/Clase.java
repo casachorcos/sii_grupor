@@ -24,9 +24,6 @@ public class Clase implements Serializable{
 	
 	@ManyToOne
 	private Asignatura asignatura;
-	@ManyToOne
-	private Grupo grupo;
-	
 	
 	public Clase(String d, Date hi, Date hf) {
 		super();
