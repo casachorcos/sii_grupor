@@ -1,6 +1,7 @@
 package proyecto;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -23,6 +24,7 @@ import org.junit.Test;
 import ejb.GrupoEJB;
 import ejb.GestionGrupo;
 import ejb.excepciones.*;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import jpa.entidades.Grupo;
 
 public class GrupoTest {
@@ -59,23 +61,17 @@ public class GrupoTest {
 		
 		try {
 			
-			Grupo g = new Grupo(4,'A',"Tarde","No","Sí","Hola",40);
+			Grupo g = new Grupo(4,'A',"Tarde","No","SÃ­","Hola",40);
 			
 			try {
 				gestionGrupo.insertarGrupo(g);
+				assertNotNull(g.getId());
 			} catch (GrupoExistenteException e) {
-				fail("Excepción");
+				fail("ExcepciÃ³n");
 			}
 			
 		} catch (TrazabilidadException e) {
 			throw new RuntimeException(e);
 		}
-		
-		try {
-			//assertEquals(4, id);
-		} catch (TrazabilidadException e) {
-			throw new RuntimeException(e);
-		}
-		
 	}
 }
