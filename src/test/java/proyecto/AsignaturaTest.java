@@ -83,6 +83,7 @@ public class AsignaturaTest {
 		}
 	}
 	
+	@Requisitos({"RF05"})
 	@Test
 	public void testInsertarAsignaturaNoEncontrado() throws TrazabilidadException {
 		
@@ -101,6 +102,7 @@ public class AsignaturaTest {
 		}
 	}
 	
+	@Requisitos({"RF05"})
 	@Test
 	public void testInsertarAsignaturaExistente() throws AsignaturaNoEncontradoException, TrazabilidadException {
 		
@@ -116,6 +118,7 @@ public class AsignaturaTest {
 		}
 	}
 	
+	@Requisitos({"RF05"})
 	@Test
 	public void testObtenerAsignatura() {
 		try {
@@ -126,6 +129,7 @@ public class AsignaturaTest {
 		}
 	}
 	
+	@Requisitos({"RF05"})
 	@Test
 	public void testObtenerAsignaturaNoEncontrado() {
 		try {
@@ -138,6 +142,7 @@ public class AsignaturaTest {
 		}
 	}
 	
+	@Requisitos({"RF05"})
 	@Test
 	public void testActualizarAsignatura() {
 		final int ref = 51025;
@@ -163,6 +168,7 @@ public class AsignaturaTest {
 		}
 	}
 	
+	@Requisitos({"RF05"})
 	@Test
 	public void testActualizarAsignaturaNoEncontrado() {
 		Asignatura prueba = new Asignatura (99990, 999, "6","Sí","Sistemas de Información para Internet II", 5, "-", "1º Semestre", "-", "-");
@@ -177,6 +183,7 @@ public class AsignaturaTest {
 		}
 	}
 	
+	@Requisitos({"RF05"})
 	@Test
 	public void testEliminarAsignatura() throws TrazabilidadException {
 		final int ref = 51025;
@@ -193,6 +200,7 @@ public class AsignaturaTest {
 		
 	}
 	
+	@Requisitos({"RF05"})
 	@Test
 	public void testEliminarAsignaturaNoEncontrado() {
 		
