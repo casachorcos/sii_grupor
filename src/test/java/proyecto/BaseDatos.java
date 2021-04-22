@@ -42,6 +42,14 @@ public class BaseDatos {
 		
 		}
 		
+		Grupo gr1 = new Grupo("1AINF2021",1,'A',"Mañana","Si","No",null,20);
+		Grupo gr2 = new Grupo("2DINF2021",2,'D',"Tarde","No","Si",null,30);
+		Grupo gr3 = new Grupo("3BINF2021",3,'B',"Mañana","No","Si",null,60);
+		
+		for (Grupo grupo : new Grupo [] {gr1, gr2, gr3}) {
+			em.persist(grupo);
+		}
+		
 		/* EJEMPLO *
 		Ingrediente carne = new Ingrediente ("Carne picada");
 		Ingrediente pimienta = new Ingrediente ("Pimienta");

@@ -144,6 +144,7 @@ public class Matricula implements Serializable {
 	public void setListaAsig(String listaAsig) {
 		this.listaAsig = listaAsig;
 	}
+
 	public int getExpediente() {
 		return expediente.getNum_exp();
 	}

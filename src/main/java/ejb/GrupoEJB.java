@@ -23,7 +23,16 @@ public class GrupoEJB implements GestionGrupo{
 		}
 		em.persist(grupo);
 	}
-
+	
+	@Override
+	public Grupo obtenerGrupo(String id) throws GrupoNoEncontradoException {
+		Grupo gr = em.find(Grupo.class, id);
+		if(gr==null) {
+			throw new GrupoNoEncontradoException();
+		}
+		return gr;
+	}
+	
 	@Override
 	public void actualizarGrupo(Grupo grupo) throws GrupoNoEncontradoException {
 		Grupo gr = em.find(Grupo.class, grupo.getId());
