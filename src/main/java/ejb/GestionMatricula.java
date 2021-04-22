@@ -14,6 +14,5 @@ public interface GestionMatricula {
 	 * @param matricula Matricula que se quiere actualizar.
 	 */
 	public void actualizarMatricula(Matricula matricula) throws TrazabilidadException;
-
 	
 }

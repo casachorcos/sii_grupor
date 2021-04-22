@@ -148,6 +148,9 @@ public class Matricula implements Serializable {
 	public int getExpediente() {
 		return expediente.getNum_exp();
 	}
+	public void setExpediente(Expediente exp) {
+		this.expediente = exp;
+	}
 
 	@Override
 	public int hashCode() {

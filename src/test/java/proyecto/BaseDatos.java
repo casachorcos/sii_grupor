@@ -11,6 +11,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import jpa.entidades.*;
+import jpa.entidades.Matricula.MatriculaId;
 
 public class BaseDatos {
 	public static void inicializaBaseDatos(String nombreUnidadPersistencia) {
@@ -35,20 +36,29 @@ public class BaseDatos {
 		Alumno al2 = new Alumno("66664511J","Alejandro","Gutierrez","EspaÃ±a","ale@uma.es","sp2","72778115","95212813","C/Parrados2","Malaga","Malaga",(long)29010);
 		Alumno al3 = new Alumno("55554511J","Nicolas","Casamayor","Camacho","nico@uma.es","sp3","72778116","95212814","C/Parrados3","Malaga","Malaga",(long)29010);
 		Alumno al4 = new Alumno("44444511J","Francisco","Cabrerizo","Perez","cabre@uma.es","sp4","72778117","95212815","C/Parrados4","Malaga","Malaga",(long)29010);
-		
+		al1.setId((long)1);
+		al2.setId((long)2);
+		al3.setId((long)3);
+		al4.setId((long)4);
 		for(Alumno al : new Alumno [] {al1,al2,al3,al4}) {
 			em.persist(al);
 		}
 		
 		}
 		
-		Grupo gr1 = new Grupo("1AINF2021",1,'A',"Mañana","Si","No",null,20);
+		Grupo gr1 = new Grupo("1AINF2021",1,'A',"Maï¿½ana","Si","No",null,20);
 		Grupo gr2 = new Grupo("2DINF2021",2,'D',"Tarde","No","Si",null,30);
-		Grupo gr3 = new Grupo("3BINF2021",3,'B',"Mañana","No","Si",null,60);
+		Grupo gr3 = new Grupo("3BINF2021",3,'B',"Maï¿½ana","No","Si",null,60);
 		
 		for (Grupo grupo : new Grupo [] {gr1, gr2, gr3}) {
 			em.persist(grupo);
 		}
+		
+		Expediente exp = new Expediente();
+		exp.setNum_exp(888);
+		Matricula mat = new Matricula(3,'a',958,"MaÃ±ana",java.util.Date.from(null),'s',"Mates");
+		mat.setExpediente(exp);
+		em.persist(mat);
 		
 		/* EJEMPLO *
 		Ingrediente carne = new Ingrediente ("Carne picada");
