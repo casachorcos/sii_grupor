@@ -17,15 +17,6 @@ public class MatriculaEJB implements GestionMatricula{
 	private EntityManager em;
 	
 	@Override
-	public void insertarMatricula(Matricula matricula) throws MatriculaNoEncontradoException {
-		Matricula mat = em.find(Matricula.class, new Matricula.MatriculaId(matricula.getCurso(),matricula.getExpediente()));
-		if(mat == null) {
-			throw new MatriculaNoEncontradoException();
-		}
-		em.persist(mat);
-	}
-	
-	@Override
 	public void actualizarMatricula(Matricula matricula) throws MatriculaNoEncontradoException {
 		Matricula mat = em.find(Matricula.class, new Matricula.MatriculaId(matricula.getCurso(),matricula.getExpediente()));
 		if(mat == null) {

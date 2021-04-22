@@ -27,6 +27,33 @@ import ejb.excepciones.*;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import jpa.entidades.Grupo;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Properties;
+import java.util.logging.Logger;
+
+import javax.ejb.embeddable.EJBContainer;
+import javax.naming.Context;
+import javax.naming.NamingException;
+
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import ejb.GestionAlumnos;
+import ejb.GestionMatricula;
+import ejb.excepciones.AlumnoNoEncontradoException;
+import ejb.excepciones.TrazabilidadException;
+import jpa.entidades.Alumno;
+
+
 public class GrupoTest {
 
 	private static final Logger LOG = Logger.getLogger(GrupoTest.class.getCanonicalName());
