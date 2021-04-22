@@ -15,6 +15,13 @@ public interface GestionGrupo {
 	public void insertarGrupo(Grupo grupo) throws TrazabilidadException;
 	
 	/*
+	 * Obtiene un Grupo de la base de datos.
+	 * Si no se encuentra, lanza la excepcion GrupoNoEncontradoException.
+	 * @param id ID del Grupo que se quiere buscar. 
+	 * */
+	public Grupo obtenerGrupo(String id) throws TrazabilidadException;
+	
+	/*
 	 * Actualiza un grupo en la base de datos.
 	 * Si no se encuentra el grupo en la base de datos, lanza la excepción GrupoNoEncontradoException.
 	 * @param grupo Grupo a actualizar.

@@ -52,6 +52,19 @@ public class Alumno implements Serializable {
 	public Alumno() {
 		super();
 	}
+	public Alumno(String dni,String name,String ap1,String ap2,String em1,String em2,String tel,String mov,String dir,String loc,String prov,Long codPostal) {
+		this.DNI = dni;
+		this.Nombre = name;
+		this.Apellido = ap1;
+		this.Apellido2 = ap2;
+		this.emailInst = em1;
+		this.emailPers = em2;
+		this.telefono = tel;
+		this.movil = mov;
+		this.localidad = loc;
+		this.provincia = prov;
+		this.codPostal = codPostal;
+	}
 
 
 	public Long getId() {

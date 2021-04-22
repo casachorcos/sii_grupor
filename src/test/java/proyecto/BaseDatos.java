@@ -28,11 +28,23 @@ public class BaseDatos {
 		
 		for (Asignatura asignatura: new Asignatura [] {sii, abd, si2, ayc, pr}) {
 			em.persist(asignatura);
+			
+		
+			
+		Alumno al1 = new Alumno("77774511J","Dani","Lechuga","Ruiz","supraaazk@uma.es","sp1","72778113","95212812","C/Parrados","Malaga","Malaga",(long)29010);
+		Alumno al2 = new Alumno("66664511J","Alejandro","Gutierrez","EspaÃ±a","ale@uma.es","sp2","72778115","95212813","C/Parrados2","Malaga","Malaga",(long)29010);
+		Alumno al3 = new Alumno("55554511J","Nicolas","Casamayor","Camacho","nico@uma.es","sp3","72778116","95212814","C/Parrados3","Malaga","Malaga",(long)29010);
+		Alumno al4 = new Alumno("44444511J","Francisco","Cabrerizo","Perez","cabre@uma.es","sp4","72778117","95212815","C/Parrados4","Malaga","Malaga",(long)29010);
+		
+		for(Alumno al : new Alumno [] {al1,al2,al3,al4}) {
+			em.persist(al);
 		}
 		
-		Grupo gr1 = new Grupo(1,'A',"Mañana","Sí","No",null,20);
-		Grupo gr2 = new Grupo(2,'D',"Tarde","No","Sí",null,30);
-		Grupo gr3 = new Grupo(3,'B',"Mañana","No","Sí",null,60);
+		}
+		
+		Grupo gr1 = new Grupo("1AINF2021",1,'A',"Mañana","Si","No",null,20);
+		Grupo gr2 = new Grupo("2DINF2021",2,'D',"Tarde","No","Si",null,30);
+		Grupo gr3 = new Grupo("3BINF2021",3,'B',"Mañana","No","Si",null,60);
 		
 		for (Grupo grupo : new Grupo [] {gr1, gr2, gr3}) {
 			em.persist(grupo);

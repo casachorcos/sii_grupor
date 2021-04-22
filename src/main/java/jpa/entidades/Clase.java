@@ -25,7 +25,6 @@ public class Clase implements Serializable{
 	@ManyToOne
 	private Asignatura asignatura;
 	
-	
 	public Clase(String d, Date hi, Date hf) {
 		super();
 		id = new ClaseId(d,hi);
