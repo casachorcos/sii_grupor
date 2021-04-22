@@ -4,16 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.util.Properties;
-import java.util.logging.Logger;
-
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
 import javax.naming.NamingException;
 
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import ejb.GestionAsignaturas;
@@ -24,31 +17,18 @@ import es.uma.informatica.sii.anotaciones.Requisitos;
 import jpa.entidades.Asignatura;
 
 
-public class AsignaturaTest {
-	
-	private static final Logger LOG = Logger.getLogger(AsignaturaTest.class.getCanonicalName());
+public class AsignaturaT {
 
-	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-	private static final String CONFIG_FILE = "target/test-classes/META-INF/domain.xml";
 	private static final String ASIGNATURA_EJB = "java:global/classes/AsignaturaEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_grupor";
 	
-	private static EJBContainer ejbContainer;
-	private static Context ctx;
+
 	
 	private GestionAsignaturas gestionAsignaturas;
 	
-	@BeforeClass
-	public static void setUpClass() {
-		Properties properties = new Properties();
-		properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-		ejbContainer = EJBContainer.createEJBContainer(properties);
-		ctx = ejbContainer.getContext();
-	}
-	
 	@Before
 	public void setup() throws NamingException  {
-		gestionAsignaturas = (GestionAsignaturas) ctx.lookup(ASIGNATURA_EJB);
+		gestionAsignaturas = (GestionAsignaturas) SuiteTest.ctx.lookup(ASIGNATURA_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 	
@@ -87,13 +67,13 @@ public class AsignaturaTest {
 	@Test
 	public void testInsertarAsignaturaNoEncontrado() throws TrazabilidadException {
 		
-		final int ref_asig = 10000;
+		final int ref_asig = 00000;
 		
 		Asignatura prueba = new Asignatura (10000, 001, "6","Sí","Asignatura de Prueba", 3, "-", "2º Semestre", "-", "-");
 		
 		try {
 			gestionAsignaturas.insertarAsignatura(prueba);
-			Asignatura asignatura = gestionAsignaturas.obtenerAsignaturas(00000);
+			Asignatura asignatura = gestionAsignaturas.obtenerAsignaturas(ref_asig);
 			fail("Debe lanzar excepción");
 		} catch (AsignaturaExistenteException e) {
 			fail("Lanzó excepción al insertar");
@@ -213,13 +193,6 @@ public class AsignaturaTest {
 			//OK
 		} catch (TrazabilidadException e) {
 			fail("Debería lanzar la excepción de producto no encontrado");
-		}
-	}
-	
-	@AfterClass
-	public static void tearDownClass() {
-		if (ejbContainer != null) {
-			ejbContainer.close();
 		}
 	}
 }
