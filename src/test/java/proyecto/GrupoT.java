@@ -19,7 +19,7 @@ import jpa.entidades.Grupo;
 public class GrupoT {
 
 	private static final String GRUPOS_EJB = "java:global/classes/GrupoEJB";
-	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_grupor";
+	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_gruporTest";
 	
 	private GestionGrupo gestionGrupo;
 	

@@ -20,7 +20,7 @@ import jpa.entidades.Matricula;
 public class MatriculaT {
 	
 	private static final String MATRICULA_EJB = "java:global/classes/MatriculaEJB";
-	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_grupor";
+	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_gruporTest";
 
 	private GestionMatricula gestionMatricula;
 	

@@ -19,7 +19,7 @@ import jpa.entidades.Alumno;
 public class AlumnoT {
 
 	private static final String ALUMNO_EJB = "java:global/classes/AlumnoEJB";
-	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_grupor";
+	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_gruporTest";
 
 	private GestionAlumnos gestionAlumnos;
 	

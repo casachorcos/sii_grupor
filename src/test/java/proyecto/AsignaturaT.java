@@ -20,7 +20,7 @@ import jpa.entidades.Asignatura;
 public class AsignaturaT {
 
 	private static final String ASIGNATURA_EJB = "java:global/classes/AsignaturaEJB";
-	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_grupor";
+	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_gruporTest";
 	
 
 	
