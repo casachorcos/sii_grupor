@@ -28,26 +28,13 @@ public class EncuestaT {
 	private static final Logger LOG = Logger.getLogger(EncuestaT.class.getCanonicalName());
 
 	private static final String ENCUESTAS_EJB = "java:global/classes/EncuestaEJB";
-	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-	private static final String CONFIG_FILE = "target/test-classes/META-INF/domain.xml";
-	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_grupor";
-	
-	private static EJBContainer ejbContainer;
-	private static Context ctx;
-	
+	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "sii_gruporTest";
+
 	private GestionEncuestas gestionEncuesta;
-	
-	@BeforeClass
-	public static void setUpClass() {
-		Properties properties = new Properties();
-		properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-		ejbContainer = EJBContainer.createEJBContainer(properties);
-		ctx = ejbContainer.getContext();
-	}
 	
 	@Before
 	public void setup() throws NamingException  {
-		gestionEncuesta = (GestionEncuestas) ctx.lookup(ENCUESTAS_EJB);
+		gestionEncuesta = (GestionEncuestas) SuiteTest.ctx.lookup(ENCUESTAS_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 	
