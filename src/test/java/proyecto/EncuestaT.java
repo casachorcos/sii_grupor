@@ -23,9 +23,9 @@ import ejb.excepciones.*;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import jpa.entidades.Encuesta;
 
-public class EncuestaTest {
+public class EncuestaT {
 
-	private static final Logger LOG = Logger.getLogger(EncuestaTest.class.getCanonicalName());
+	private static final Logger LOG = Logger.getLogger(EncuestaT.class.getCanonicalName());
 
 	private static final String ENCUESTAS_EJB = "java:global/classes/EncuestaEJB";
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
