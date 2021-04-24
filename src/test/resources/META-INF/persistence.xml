@@ -14,7 +14,6 @@
 		<class>jpa.entidades.Optativa</class>
 		<class>jpa.entidades.Titulacion</class>
 		<class>jpa.entidades.Clase</class>
-		<class>jpa.entidades.ClaseId</class>
 		<class>jpa.entidades.Asignaturas_Matricula</class>
 		<class>jpa.entidades.Grupos_por_asignatura</class>
 		<shared-cache-mode>NONE</shared-cache-mode>
