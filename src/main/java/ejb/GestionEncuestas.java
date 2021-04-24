@@ -33,5 +33,5 @@ public interface GestionEncuestas {
 	 * Elimina una encuesta de la base de datos.
 	 * Si no se encuentra la encuesta en la base de datos, lanza la excepcion EncuestaNoEncontradoException.
 	 * @param encuesta Encuesta a eliminar.*/
-	public void eliminarGrupo(Encuesta encuesta) throws TrazabilidadException;
+	public void eliminarEncuesta(Encuesta encuesta) throws TrazabilidadException;
 }

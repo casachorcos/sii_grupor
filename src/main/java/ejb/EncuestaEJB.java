@@ -47,7 +47,7 @@ public class EncuestaEJB implements GestionEncuestas{
 	}
 
 	@Override
-	public void eliminarGrupo(Encuesta encuesta) throws EncuestaNoEncontradoException {
+	public void eliminarEncuesta(Encuesta encuesta) throws EncuestaNoEncontradoException {
 		Encuesta en = em.find(Encuesta.class, encuesta.getFecha_de_envio());
 		if (en==null) {
 			throw new EncuestaNoEncontradoException();

@@ -22,6 +22,7 @@ import ejb.GestionEncuestas;
 import ejb.excepciones.*;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import jpa.entidades.Encuesta;
+import jpa.entidades.Grupo;
 
 public class EncuestaTest {
 
@@ -51,16 +52,16 @@ public class EncuestaTest {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 	
-	@Requisitos({"RF03.1"})
+	@Requisitos({"RF07"})
 	@Test
 	public void testInsertarEncuesta() {
 		
 		try {
 			
-			Encuesta e = new Encuesta(new Date(2021, 4, 22));
+			Encuesta en = new Encuesta(new Date(2021, 4, 22));
 			
 			try {
-				gestionEncuesta.insertarEncuesta(e);
+				gestionEncuesta.insertarEncuesta(en);
 			} catch (EncuestaExistenteException ex) {
 				fail("Excepcion");
 			}
@@ -76,5 +77,78 @@ public class EncuestaTest {
 			throw new RuntimeException(e);
 		}
 		
+	}
+	
+	@Requisitos({"RF07"})
+	@Test
+	public void testInsertarEncuestaExistente() {
+		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
+		
+		try {
+			gestionEncuesta.insertarEncuesta(en);
+			fail("Debe lanzar excepcion");
+		} catch (EncuestaExistenteException e) {
+			//OK
+		} catch (TrazabilidadException e) {
+			fail("Debe lanzar EncuestaExistenteException");
+		}
+	}
+	
+	@Requisitos({"RF07"})
+	@Test
+	public void testObtenerEncuesta() {
+		try {
+			Encuesta en = gestionEncuesta.obtenerEncuesta(new Date(2021, 4, 22, 13, 21, 56));
+			assertEquals(new Date(2021, 4, 22, 13, 21, 56),en.getFecha_de_envio());
+
+		} catch (TrazabilidadException e) {
+			fail("Lanza una excepcion al obtener");
+		}
+	}
+	
+	@Requisitos({"RF07"})
+	@Test
+	public void testObtenerGrupoNoExistente() {
+		try {
+			Encuesta en = gestionEncuesta.obtenerEncuesta(new Date(2000, 2, 22, 2, 22, 22));
+			fail("Debe lanzar la excepcion");
+		} catch (EncuestaNoEncontradoException e) {
+			// OK
+		} catch (TrazabilidadException e) {
+			fail("Debe lanzar EncuestaNoEncontradoException");
+		}
+	}
+	
+	@Requisitos({"RF07"})
+	@Test
+	public void testEliminarEncuesta() {
+		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
+		try {
+			gestionEncuesta.eliminarEncuesta(en);
+			
+			try {
+				gestionEncuesta.obtenerEncuesta(new Date(2021, 4, 22, 13, 21, 56));
+			} catch (EncuestaNoEncontradoException e) {
+				// OK
+			} catch (TrazabilidadException e) {
+				fail("Debe lanzar EncuestaNoEncontradoException");
+			}
+		} catch (TrazabilidadException e) {
+			fail("Lanza una excepion al eliminar");
+		}
+	}
+	
+	@Requisitos({"RF03.4"})
+	@Test
+	public void testEliminarGrupoNoExistente() {
+		Encuesta en = new Encuesta(new Date(2000, 2, 22, 2, 22, 22));
+		try {
+			gestionEncuesta.eliminarEncuesta(en);
+			fail("Debe lanzar EncuestaNoEncontradoException");
+		} catch (EncuestaNoEncontradoException e) {
+			// OK
+		} catch (TrazabilidadException e) {
+			fail("Debe lanzar EncuestaNoEncontradoException");
+		}
 	}
 }
