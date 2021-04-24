@@ -20,19 +20,19 @@ public class Grupo implements Serializable {
 	@Id @Column(name = "ID")
 	private String id;
 	@Column (name = "Curso",unique = true, nullable = false)
-	private int curso;
+	private Integer curso;
 	@Column (name = "Letra",unique = true, nullable = false)
 	private char letra;
 	@Column (name = "Turno _MaÃ±ana_Tarde", nullable = false)
 	private String turno;
 	@Column (name = "Ingles", nullable = false)
-	private String ingles; //"Sí"/"No"
+	private String ingles; //"Sï¿½"/"No"
 	@Column (name = "Visible", nullable = true)
-	private String visible; //"Sí"/"No"
+	private String visible; //"Sï¿½"/"No"
 	@Column (name = "Asignar", nullable = true)
 	private String asignar;
 	@Column (name = "Plazas", nullable = true)
-	private int plazas;
+	private Integer plazas;
 	@ManyToOne
 	private Titulacion titulacion;
 	@OneToMany (mappedBy="grupo")
@@ -47,7 +47,7 @@ public class Grupo implements Serializable {
 	private Grupo grupoRefle;
 	
 
-	public Grupo(String id, int c, char l, String t, String i, String v, String a, int p) {
+	public Grupo(String id, Integer c, char l, String t, String i, String v, String a, Integer p) {
 		super();
 		this.id = id;
 		curso = c;
@@ -71,11 +71,11 @@ public class Grupo implements Serializable {
 		this.id = id;
 	}
 
-	public int getCurso() {
+	public Integer getCurso() {
 		return curso;
 	}
 
-	public void setCurso(int curso) {
+	public void setCurso(Integer curso) {
 		this.curso = curso;
 	}
 
@@ -119,11 +119,11 @@ public class Grupo implements Serializable {
 		this.asignar = asignar;
 	}
 
-	public int getPlazas() {
+	public Integer getPlazas() {
 		return plazas;
 	}
 
-	public void setPlazas(int plazas) {
+	public void setPlazas(Integer plazas) {
 		this.plazas = plazas;
 	}
 
@@ -175,10 +175,6 @@ public class Grupo implements Serializable {
 		this.grupoRefle = grupoRefle;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -186,14 +182,14 @@ public class Grupo implements Serializable {
 		result = prime * result + ((asignar == null) ? 0 : asignar.hashCode());
 		result = prime * result + ((asignaturasMat == null) ? 0 : asignaturasMat.hashCode());
 		result = prime * result + ((clase == null) ? 0 : clase.hashCode());
-		result = prime * result + curso;
+		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((grupoRefle == null) ? 0 : grupoRefle.hashCode());
 		result = prime * result + ((gruposAsig == null) ? 0 : gruposAsig.hashCode());
 		result = prime * result + ((gruposRefl == null) ? 0 : gruposRefl.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((ingles == null) ? 0 : ingles.hashCode());
 		result = prime * result + letra;
-		result = prime * result + plazas;
+		result = prime * result + ((plazas == null) ? 0 : plazas.hashCode());
 		result = prime * result + ((titulacion == null) ? 0 : titulacion.hashCode());
 		result = prime * result + ((turno == null) ? 0 : turno.hashCode());
 		result = prime * result + ((visible == null) ? 0 : visible.hashCode());
@@ -224,7 +220,10 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!clase.equals(other.clase))
 			return false;
-		if (curso != other.curso)
+		if (curso == null) {
+			if (other.curso != null)
+				return false;
+		} else if (!curso.equals(other.curso))
 			return false;
 		if (grupoRefle == null) {
 			if (other.grupoRefle != null)
@@ -253,7 +252,10 @@ public class Grupo implements Serializable {
 			return false;
 		if (letra != other.letra)
 			return false;
-		if (plazas != other.plazas)
+		if (plazas == null) {
+			if (other.plazas != null)
+				return false;
+		} else if (!plazas.equals(other.plazas))
 			return false;
 		if (titulacion == null) {
 			if (other.titulacion != null)

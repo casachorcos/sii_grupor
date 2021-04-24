@@ -50,13 +50,13 @@ public class GrupoT {
 		try {
 			Grupo g2 = gestionGrupo.obtenerGrupo("4AINF2021");
 			assertEquals("4AINF2021",g2.getId());
-			assertEquals(4, g2.getCurso());
+			assertEquals(Integer.valueOf(4), g2.getCurso());
 			assertEquals('A', g2.getLetra());
 			assertEquals("Tarde", g2.getTurno());
 			assertEquals("No", g2.getIngles());
 			assertEquals("Si", g2.getVisible());
 			assertEquals("Hola", g2.getAsignar());
-			assertEquals(40, g2.getPlazas());
+			assertEquals(Integer.valueOf(40), g2.getPlazas());
 		} catch (TrazabilidadException e) {
 			fail("No pasa las pruebas");
 		}
@@ -84,13 +84,13 @@ public class GrupoT {
 		try {
 			Grupo g = gestionGrupo.obtenerGrupo("1AINF2021");
 			assertEquals("1AINF2021",g.getId());
-			assertEquals(1, g.getCurso());
+			assertEquals(Integer.valueOf(1), g.getCurso());
 			assertEquals('A', g.getLetra());
 			assertEquals("Ma�ana", g.getTurno());
 			assertEquals("Si", g.getIngles());
 			assertEquals("No", g.getVisible());
 			assertEquals(null, g.getAsignar());
-			assertEquals(20, g.getPlazas());
+			assertEquals(Integer.valueOf(20), g.getPlazas());
 		} catch (TrazabilidadException e) {
 			fail("Lanza una excepci�n al obtener");
 		}

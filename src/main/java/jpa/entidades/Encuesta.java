@@ -26,9 +26,7 @@ public class Encuesta implements Serializable {
 	private Expediente expediente;
 	
 	@ManyToMany
-	@JoinTable(name = "jnd_expediente_grupo_asig",
-			joinColumns = @JoinColumn(name = "expediente_fk"),
-			inverseJoinColumns = @JoinColumn(name = "grupo_asig_fk"))
+	@JoinTable(name = "jnd_encuesta_grupo_asig")
 	private List<Grupos_por_asignatura> grupo_asig;
 
 	public Encuesta(Date fecha_envio) {

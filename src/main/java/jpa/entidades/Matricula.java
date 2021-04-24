@@ -52,7 +52,7 @@ public class Matricula implements Serializable {
 	
 	private static final long serialVersionUID = 10L;
 	@Id @Column (name = "Curso_academico")
-	private int curso;
+	private Integer curso;
 	@Column (name = "Estado", nullable = false)
 	private char estado;
 	@Column (name = "Num_Archivo")
