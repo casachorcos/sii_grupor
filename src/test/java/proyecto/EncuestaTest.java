@@ -22,7 +22,6 @@ import ejb.GestionEncuestas;
 import ejb.excepciones.*;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 import jpa.entidades.Encuesta;
-import jpa.entidades.Grupo;
 
 public class EncuestaTest {
 
@@ -108,7 +107,7 @@ public class EncuestaTest {
 	
 	@Requisitos({"RF07"})
 	@Test
-	public void testObtenerGrupoNoExistente() {
+	public void testObtenerEncuestaNoExistente() {
 		try {
 			Encuesta en = gestionEncuesta.obtenerEncuesta(new Date(2000, 2, 22, 2, 22, 22));
 			fail("Debe lanzar la excepcion");
@@ -138,9 +137,9 @@ public class EncuestaTest {
 		}
 	}
 	
-	@Requisitos({"RF03.4"})
+	@Requisitos({"RF07"})
 	@Test
-	public void testEliminarGrupoNoExistente() {
+	public void testEliminarEncuestaNoExistente() {
 		Encuesta en = new Encuesta(new Date(2000, 2, 22, 2, 22, 22));
 		try {
 			gestionEncuesta.eliminarEncuesta(en);
