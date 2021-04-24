@@ -57,7 +57,7 @@ public class EncuestaTest {
 		
 		try {
 			
-			Encuesta en = new Encuesta(new Date(2021, 4, 22));
+			Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
 			
 			try {
 				gestionEncuesta.insertarEncuesta(en);

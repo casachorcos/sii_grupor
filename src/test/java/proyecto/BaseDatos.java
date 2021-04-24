@@ -1,5 +1,7 @@
 package proyecto;
 
+import java.util.Date;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -47,6 +49,9 @@ public class BaseDatos {
 		for (Grupo grupo : new Grupo [] {gr1, gr2, gr3}) {
 			em.persist(grupo);
 		}
+		
+		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
+		em.persist(en);
 		
 		Expediente exp = new Expediente();
 		exp.setNum_exp(888);
