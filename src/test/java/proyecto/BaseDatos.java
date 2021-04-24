@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 
 import jpa.entidades.Alumno;
 import jpa.entidades.Asignatura;
+import jpa.entidades.Encuesta;
 import jpa.entidades.Expediente;
 import jpa.entidades.Grupo;
 import jpa.entidades.Matricula;
