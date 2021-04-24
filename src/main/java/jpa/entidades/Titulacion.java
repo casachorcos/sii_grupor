@@ -17,11 +17,11 @@ public class Titulacion implements Serializable {
 	 */
 	private static final long serialVersionUID = 12L;
 	@Id @Column (name = "Código")
-	private int codigo;
+	private Integer codigo;
 	@Column (name = "Nombre", nullable = false, length = 50)
 	private String nombre;
 	@Column (name = "Créditos", nullable = false)
-	private double creditos;
+	private Double creditos;
 	
 	@OneToMany (mappedBy="titulacion")
 	private List<Asignatura> asignaturas; 	//Relación OneToMany de Titulacion a Asignaturas
@@ -32,7 +32,7 @@ public class Titulacion implements Serializable {
 	@ManyToMany(mappedBy = "titulacion")
 	private List<Centro> centro; 			//Relacion ManyToMany con Centro
 	
-	public Titulacion(int codigo, String nombre, double creditos) {
+	public Titulacion(Integer codigo, String nombre, Double creditos) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -43,10 +43,10 @@ public class Titulacion implements Serializable {
 	public Titulacion() {
 	}
 	
-	public int getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {
@@ -55,23 +55,23 @@ public class Titulacion implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public double getCreditos() {
+	public Double getCreditos() {
 		return creditos;
 	}
-	public void setCreditos(double creditos) {
+	public void setCreditos(Double creditos) {
 		this.creditos = creditos;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + codigo;
-		long temp;
-		temp = Double.doubleToLongBits(creditos);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + ((creditos == null) ? 0 : creditos.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -81,9 +81,15 @@ public class Titulacion implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Titulacion other = (Titulacion) obj;
-		if (codigo != other.codigo)
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
 			return false;
-		if (Double.doubleToLongBits(creditos) != Double.doubleToLongBits(other.creditos))
+		if (creditos == null) {
+			if (other.creditos != null)
+				return false;
+		} else if (!creditos.equals(other.creditos))
 			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
@@ -92,9 +98,10 @@ public class Titulacion implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Titulacion [codigo=" + codigo + ", nombre=" + nombre + ", creditos=" + creditos + "]";
 	}
+	
 }

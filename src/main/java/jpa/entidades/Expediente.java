@@ -14,25 +14,25 @@ public class Expediente implements Serializable {
 	 */
 	private static final long serialVersionUID = 8L;
 	@Id @Column (name = "Num_Expediente")
-	private int num_exp;
+	private Integer num_exp;
 	@Column (name = "Activo")
 	private char activo;
 	@Column (name = "Nota_Media_Provisional")
-	private double notaMedia;
+	private Double notaMedia;
 	@Column (name = "Creditos_superados", nullable = false)
-	private double cr_sup;
+	private Double cr_sup;
 	@Column (name = "Creditos_fb", nullable = false)
-	private double cr_fb;
+	private Double cr_fb;
 	@Column (name = "Creditos_op", nullable = false)
-	private double cr_op;
+	private Double cr_op;
 	@Column (name = "Creditos_ob", nullable = false)
-	private double cr_ob;
+	private Double cr_ob;
 	@Column (name = "Creditos_cf", nullable = false)
-	private double cr_cf;
+	private Double cr_cf;
 	@Column (name = "Creditos_pe", nullable = false)
-	private double cr_pe;
+	private Double cr_pe;
 	@Column (name = "Creditos_tf", nullable = false)
-	private double cr_tf;
+	private Double cr_tf;
 	
 	@ManyToOne
 	private Titulacion titulacion; //Relacion ManyToOne entre Expediente y Titulacion
@@ -46,8 +46,8 @@ public class Expediente implements Serializable {
 
 	
 	
-	public Expediente(int ne, char a, double nm, double csup, double cfb, 
-			double cop, double cob, double ccf, double cpe, double ctf) {
+	public Expediente(Integer ne, char a, Double nm, Double csup, Double cfb, 
+			Double cop, Double cob, Double ccf, Double cpe, Double ctf) {
 		super();
 		num_exp = ne;
 		activo = a;
@@ -65,11 +65,11 @@ public class Expediente implements Serializable {
 		
 	}
 
-	public int getNum_exp() {
+	public Integer getNum_exp() {
 		return num_exp;
 	}
 
-	public void setNum_exp(int num_exp) {
+	public void setNum_exp(Integer num_exp) {
 		this.num_exp = num_exp;
 	}
 
@@ -81,68 +81,100 @@ public class Expediente implements Serializable {
 		this.activo = activo;
 	}
 
-	public double getNotaMedia() {
+	public Double getNotaMedia() {
 		return notaMedia;
 	}
 
-	public void setNotaMedia(double notaMedia) {
+	public void setNotaMedia(Double notaMedia) {
 		this.notaMedia = notaMedia;
 	}
 
-	public double getCr_sup() {
+	public Double getCr_sup() {
 		return cr_sup;
 	}
 
-	public void setCr_sup(double cr_sup) {
+	public void setCr_sup(Double cr_sup) {
 		this.cr_sup = cr_sup;
 	}
 
-	public double getCr_fb() {
+	public Double getCr_fb() {
 		return cr_fb;
 	}
 
-	public void setCr_fb(double cr_fb) {
+	public void setCr_fb(Double cr_fb) {
 		this.cr_fb = cr_fb;
 	}
 
-	public double getCr_op() {
+	public Double getCr_op() {
 		return cr_op;
 	}
 
-	public void setCr_op(double cr_op) {
+	public void setCr_op(Double cr_op) {
 		this.cr_op = cr_op;
 	}
 
-	public double getCr_ob() {
+	public Double getCr_ob() {
 		return cr_ob;
 	}
 
-	public void setCr_ob(double cr_ob) {
+	public void setCr_ob(Double cr_ob) {
 		this.cr_ob = cr_ob;
 	}
 
-	public double getCr_cf() {
+	public Double getCr_cf() {
 		return cr_cf;
 	}
 
-	public void setCr_cf(double cr_cf) {
+	public void setCr_cf(Double cr_cf) {
 		this.cr_cf = cr_cf;
 	}
 
-	public double getCr_pe() {
+	public Double getCr_pe() {
 		return cr_pe;
 	}
 
-	public void setCr_pe(double cr_pe) {
+	public void setCr_pe(Double cr_pe) {
 		this.cr_pe = cr_pe;
 	}
 
-	public double getCr_tf() {
+	public Double getCr_tf() {
 		return cr_tf;
 	}
 
-	public void setCr_tf(double cr_tf) {
+	public void setCr_tf(Double cr_tf) {
 		this.cr_tf = cr_tf;
+	}
+
+	public Titulacion getTitulacion() {
+		return titulacion;
+	}
+
+	public void setTitulacion(Titulacion titulacion) {
+		this.titulacion = titulacion;
+	}
+
+	public List<Encuesta> getEncuestas() {
+		return encuestas;
+	}
+
+	public void setEncuestas(List<Encuesta> encuestas) {
+		this.encuestas = encuestas;
+	}
+
+	public Alumno getAlumno() {
+		return alumno;
+	}
+
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+
+	public List<Matricula> getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(List<Matricula> matricula) {
+		this.matricula = matricula;
 	}
 
 	@Override
@@ -150,24 +182,19 @@ public class Expediente implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + activo;
-		long temp;
-		temp = Double.doubleToLongBits(cr_cf);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(cr_fb);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(cr_ob);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(cr_op);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(cr_pe);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(cr_sup);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(cr_tf);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		temp = Double.doubleToLongBits(notaMedia);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + num_exp;
+		result = prime * result + ((alumno == null) ? 0 : alumno.hashCode());
+		result = prime * result + ((cr_cf == null) ? 0 : cr_cf.hashCode());
+		result = prime * result + ((cr_fb == null) ? 0 : cr_fb.hashCode());
+		result = prime * result + ((cr_ob == null) ? 0 : cr_ob.hashCode());
+		result = prime * result + ((cr_op == null) ? 0 : cr_op.hashCode());
+		result = prime * result + ((cr_pe == null) ? 0 : cr_pe.hashCode());
+		result = prime * result + ((cr_sup == null) ? 0 : cr_sup.hashCode());
+		result = prime * result + ((cr_tf == null) ? 0 : cr_tf.hashCode());
+		result = prime * result + ((encuestas == null) ? 0 : encuestas.hashCode());
+		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
+		result = prime * result + ((notaMedia == null) ? 0 : notaMedia.hashCode());
+		result = prime * result + ((num_exp == null) ? 0 : num_exp.hashCode());
+		result = prime * result + ((titulacion == null) ? 0 : titulacion.hashCode());
 		return result;
 	}
 
@@ -182,23 +209,70 @@ public class Expediente implements Serializable {
 		Expediente other = (Expediente) obj;
 		if (activo != other.activo)
 			return false;
-		if (Double.doubleToLongBits(cr_cf) != Double.doubleToLongBits(other.cr_cf))
+		if (alumno == null) {
+			if (other.alumno != null)
+				return false;
+		} else if (!alumno.equals(other.alumno))
 			return false;
-		if (Double.doubleToLongBits(cr_fb) != Double.doubleToLongBits(other.cr_fb))
+		if (cr_cf == null) {
+			if (other.cr_cf != null)
+				return false;
+		} else if (!cr_cf.equals(other.cr_cf))
 			return false;
-		if (Double.doubleToLongBits(cr_ob) != Double.doubleToLongBits(other.cr_ob))
+		if (cr_fb == null) {
+			if (other.cr_fb != null)
+				return false;
+		} else if (!cr_fb.equals(other.cr_fb))
 			return false;
-		if (Double.doubleToLongBits(cr_op) != Double.doubleToLongBits(other.cr_op))
+		if (cr_ob == null) {
+			if (other.cr_ob != null)
+				return false;
+		} else if (!cr_ob.equals(other.cr_ob))
 			return false;
-		if (Double.doubleToLongBits(cr_pe) != Double.doubleToLongBits(other.cr_pe))
+		if (cr_op == null) {
+			if (other.cr_op != null)
+				return false;
+		} else if (!cr_op.equals(other.cr_op))
 			return false;
-		if (Double.doubleToLongBits(cr_sup) != Double.doubleToLongBits(other.cr_sup))
+		if (cr_pe == null) {
+			if (other.cr_pe != null)
+				return false;
+		} else if (!cr_pe.equals(other.cr_pe))
 			return false;
-		if (Double.doubleToLongBits(cr_tf) != Double.doubleToLongBits(other.cr_tf))
+		if (cr_sup == null) {
+			if (other.cr_sup != null)
+				return false;
+		} else if (!cr_sup.equals(other.cr_sup))
 			return false;
-		if (Double.doubleToLongBits(notaMedia) != Double.doubleToLongBits(other.notaMedia))
+		if (cr_tf == null) {
+			if (other.cr_tf != null)
+				return false;
+		} else if (!cr_tf.equals(other.cr_tf))
 			return false;
-		if (num_exp != other.num_exp)
+		if (encuestas == null) {
+			if (other.encuestas != null)
+				return false;
+		} else if (!encuestas.equals(other.encuestas))
+			return false;
+		if (matricula == null) {
+			if (other.matricula != null)
+				return false;
+		} else if (!matricula.equals(other.matricula))
+			return false;
+		if (notaMedia == null) {
+			if (other.notaMedia != null)
+				return false;
+		} else if (!notaMedia.equals(other.notaMedia))
+			return false;
+		if (num_exp == null) {
+			if (other.num_exp != null)
+				return false;
+		} else if (!num_exp.equals(other.num_exp))
+			return false;
+		if (titulacion == null) {
+			if (other.titulacion != null)
+				return false;
+		} else if (!titulacion.equals(other.titulacion))
 			return false;
 		return true;
 	}
@@ -207,9 +281,7 @@ public class Expediente implements Serializable {
 	public String toString() {
 		return "Expediente [num_exp=" + num_exp + ", activo=" + activo + ", notaMedia=" + notaMedia + ", cr_sup="
 				+ cr_sup + ", cr_fb=" + cr_fb + ", cr_op=" + cr_op + ", cr_ob=" + cr_ob + ", cr_cf=" + cr_cf
-				+ ", cr_pe=" + cr_pe + ", cr_tf=" + cr_tf + "]";
+				+ ", cr_pe=" + cr_pe + ", cr_tf=" + cr_tf + ", titulacion=" + titulacion + ", encuestas=" + encuestas
+				+ ", alumno=" + alumno + ", matricula=" + matricula + "]";
 	}
-	
-	
-	
 }
