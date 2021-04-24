@@ -3,7 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="sii_grupor" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="sii_gruporTest" transaction-type="RESOURCE_LOCAL">
 		<class>jpa.entidades.Encuesta</class>
 		<class>jpa.entidades.Asignatura</class>
 		<class>jpa.entidades.Alumno</class>
