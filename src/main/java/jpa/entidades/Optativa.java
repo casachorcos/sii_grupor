@@ -1,9 +1,9 @@
 package jpa.entidades;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
-import jpa.entidades.Asignatura;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 /**
  * Entity implementation class for Entity: Optativa

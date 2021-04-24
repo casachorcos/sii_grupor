@@ -23,7 +23,7 @@ public class AlumnoEJB implements GestionAlumnos {
 			throw new AlumnoNoEncontradoException();
 		}
 		al.setNombre(alumno.getNombre());
-		al.setApellido(alumno.getApellido());
+		al.setApellido1(alumno.getApellido1());
 		al.setApellido2(alumno.getApellido2());
 		al.setEmailInst(alumno.getEmailInst());
 		al.setEmailPers(alumno.getEmailPers());

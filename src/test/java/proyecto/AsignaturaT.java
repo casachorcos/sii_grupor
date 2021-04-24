@@ -36,7 +36,7 @@ public class AsignaturaT {
 	@Test
 	public void testInsertarAsignatura() throws AsignaturaNoEncontradoException, TrazabilidadException {
 		
-		final int ref_asig = 10000;
+		final Integer ref_asig = 10000;
 		
 		Asignatura prueba = new Asignatura (10000, 001, "6","Sí","Asignatura de Prueba", 3, "-", "2º Semestre", "-", "-");
 		
@@ -49,11 +49,11 @@ public class AsignaturaT {
 		try {
 			Asignatura asignatura = gestionAsignaturas.obtenerAsignaturas(ref_asig);
 			assertEquals(ref_asig, asignatura.getReferencia());
-			assertEquals(001,asignatura.getCodigo());
+			assertEquals(Integer.valueOf(001),asignatura.getCodigo());
 			assertTrue(("6").compareTo(asignatura.getCreditos())==0);
 			assertTrue(("Sí").compareTo(asignatura.getOfertada())==0);
 			assertTrue(("Asignatura de Prueba").compareTo(asignatura.getNombre())==0);
-			assertEquals(3, asignatura.getCurso());
+			assertEquals(Integer.valueOf(3), asignatura.getCurso());
 			assertTrue(("-").compareTo(asignatura.getCreditos())==0);
 			assertTrue(("2º Semestre").compareTo(asignatura.getDuracion())==0);
 			assertTrue(("-").compareTo(asignatura.getUnidad_temporal())==0);
@@ -103,7 +103,7 @@ public class AsignaturaT {
 	public void testObtenerAsignatura() {
 		try {
 			Asignatura prueba = gestionAsignaturas.obtenerAsignaturas(51025);
-			assertEquals(51025,prueba.getReferencia());
+			assertEquals(Integer.valueOf(51025),prueba.getReferencia());
 		} catch (TrazabilidadException e) {
 			fail("No debería lanzar excepción");
 		}
