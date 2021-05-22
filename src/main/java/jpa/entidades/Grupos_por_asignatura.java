@@ -49,7 +49,7 @@ public class Grupos_por_asignatura implements Serializable {
 		}
 	}
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 13L;
 	
 	@Id @Column (name = "Curso_académico")
 	private int curso_academico;

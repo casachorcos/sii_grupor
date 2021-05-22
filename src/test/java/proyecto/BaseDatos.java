@@ -36,10 +36,10 @@ public class BaseDatos {
 		Alumno al2 = new Alumno("66664511J","Alejandro","Gutierrez","España","ale@uma.es","sp2","72778115","95212813","C/Parrados2","Malaga","Malaga","29010");
 		Alumno al3 = new Alumno("55554511J","Nicolas","Casamayor","Camacho","nico@uma.es","sp3","72778116","95212814","C/Parrados3","Malaga","Malaga","29010");
 		Alumno al4 = new Alumno("44444511J","Francisco","Cabrerizo","Perez","cabre@uma.es","sp4","72778117","95212815","C/Parrados4","Malaga","Malaga","29010");
-		al1.setId((long)1);
-		al2.setId((long)2);
-		al3.setId((long)3);
-		al4.setId((long)4);
+		//al1.setId((long)1);
+		//al2.setId((long)2);
+		//al3.setId((long)3);
+		//al4.setId((long)4);
 		for(Alumno al : new Alumno [] {al1,al2,al3,al4}) {
 			em.persist(al);
 		}
@@ -59,7 +59,7 @@ public class BaseDatos {
 		
 		Expediente exp = new Expediente();
 		exp.setNum_exp(888);
-		Matricula mat = new Matricula(3,'a',958,"Mañana",java.util.Date.from(null),'s',"Mates");
+		Matricula mat = new Matricula(3,'a',958,"Mañana",null,'s',"Mates");
 		mat.setExpediente(exp);
 		em.persist(mat);
 		

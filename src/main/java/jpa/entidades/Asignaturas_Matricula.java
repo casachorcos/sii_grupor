@@ -22,7 +22,7 @@ public class Asignaturas_Matricula implements Serializable {
 		private int asignatura;
 	}
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 14L;
 	
 	@Column (name = "Grupos_asignados", length = 500)
 	private String grupos_asignados;
