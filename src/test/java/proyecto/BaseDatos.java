@@ -21,16 +21,15 @@ public class BaseDatos {
 		em.getTransaction().begin();
 		
 		
-		Asignatura sii = new Asignatura (51025, 306, "6","Sí","Sistemas de Información para Internet", 3, "-", "2º Semestre", "-", "-");
-		Asignatura abd = new Asignatura (51015, 305, "6","Sí","Administración de Bases de Datos", 3, "-", "2º Semestre", "-", "-");
-		Asignatura si2 = new Asignatura (51024, 307, "6","Sí","Sistemas Inteligentes II", 3, "-", "2º Semestre", "-", "-");
-		Asignatura ayc = new Asignatura (51016, 311, "6","Sí","Algoritmia y Complejidad", 3, "-", "2º Semestre", "-", "-");
-		Asignatura pr = new Asignatura (51040, 865, "6","Sí","Programación de Robots", 3, "-", "2º Semestre", "-", "-");
+		Asignatura sii = new Asignatura (51090, 306, "6","Sí","Sistemas de Información para Internet", 3, "-", "2º Semestre", "-", "-");
+		Asignatura abd = new Asignatura (51091, 305, "6","Sí","Administración de Bases de Datos", 3, "-", "2º Semestre", "-", "-");
+		Asignatura si2 = new Asignatura (51092, 307, "6","Sí","Sistemas Inteligentes II", 3, "-", "2º Semestre", "-", "-");
+		Asignatura ayc = new Asignatura (51093, 311, "6","Sí","Algoritmia y Complejidad", 3, "-", "2º Semestre", "-", "-");
+		Asignatura pr = new Asignatura (51094, 865, "6","Sí","Programación de Robots", 3, "-", "2º Semestre", "-", "-");
 		
 		for (Asignatura asignatura: new Asignatura [] {sii, abd, si2, ayc, pr}) {
 			em.persist(asignatura);
-			
-		
+		}
 			
 		Alumno al1 = new Alumno("77774511J","Dani","Lechuga","Ruiz","supraaazk@uma.es","sp1","72778113","95212812","C/Parrados","Malaga","Malaga","29010");
 		Alumno al2 = new Alumno("66664511J","Alejandro","Gutierrez","España","ale@uma.es","sp2","72778115","95212813","C/Parrados2","Malaga","Malaga","29010");
@@ -44,7 +43,6 @@ public class BaseDatos {
 			em.persist(al);
 		}
 		
-		}
 		
 		Grupo gr1 = new Grupo("1AINF2021",1,'A',"Ma�ana","Si","No",null,20);
 		Grupo gr2 = new Grupo("2DINF2021",2,'D',"Tarde","No","Si",null,30);
@@ -59,9 +57,13 @@ public class BaseDatos {
 		
 		Expediente exp = new Expediente(0,'a',0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0);
 		exp.setNum_exp(888);
-		Matricula mat = new Matricula(3,'a',958,"Mañana",null,'s',"Mates");
+		em.persist(exp);
+		
+		java.util.Date date = new java.util.Date();
+		Matricula mat = new Matricula(3,'a',958,"Mañana",date,'s',"Mates");
 		mat.setExpediente(exp);
 		em.persist(mat);
+		
 		
 		em.getTransaction().commit();
 		

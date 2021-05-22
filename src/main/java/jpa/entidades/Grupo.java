@@ -23,7 +23,7 @@ public class Grupo implements Serializable {
 	private Integer curso;
 	@Column (name = "Letra",unique = true, nullable = false)
 	private char letra;
-	@Column (name = "Turno _Mañana_Tarde", nullable = false)
+	@Column (name = "Turno_Mañana_Tarde", nullable = false)
 	private String turno;
 	@Column (name = "Ingles", nullable = false)
 	private String ingles; //"S�"/"No"

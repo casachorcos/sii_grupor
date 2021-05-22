@@ -35,7 +35,7 @@ public class Asignatura implements Serializable {
 	private String caracter;
 	@Column (name = "Duración", length = 20)
 	private String duracion;
-	@Column (name = "Unidad_Temporal(Cuatrimestre)", nullable = false, length = 10)
+	@Column (name = "Unidad_Temporal", nullable = false, length = 10)
 	private String unidad_temporal;
 	@Column (name = "Idiomas_de_impartición", nullable = false, length = 20)
 	private String idiomas;
