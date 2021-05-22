@@ -23,13 +23,13 @@ public class Titulacion implements Serializable {
 	@Column (name = "Créditos", nullable = false)
 	private Double creditos;
 	
-	@OneToMany (mappedBy="titulacion")
+	@OneToMany (mappedBy="titulacion", cascade = CascadeType.PERSIST)
 	private List<Asignatura> asignaturas; 	//Relación OneToMany de Titulacion a Asignaturas
-	@OneToMany (mappedBy="titulacion")
+	@OneToMany (mappedBy="titulacion", cascade = CascadeType.PERSIST)
 	private List<Expediente> expediente; 	//Relación OneToMany de Titulacion a Expediente
-	@OneToMany (mappedBy="titulacion")
+	@OneToMany (mappedBy="titulacion", cascade = CascadeType.PERSIST)
 	private List<Grupo> grupo; 				//Relación OneToMany de Titulacion a Grupo
-	@ManyToMany(mappedBy = "titulacion")
+	@ManyToMany(mappedBy = "titulacion", cascade = CascadeType.PERSIST)
 	private List<Centro> centro; 			//Relacion ManyToMany con Centro
 	
 	public Titulacion(Integer codigo, String nombre, Double creditos) {

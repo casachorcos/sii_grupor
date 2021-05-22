@@ -42,11 +42,11 @@ public class Asignatura implements Serializable {
 	
 	@ManyToOne
 	private Titulacion titulacion; 							//Relacion ManyToOne entre Asignatura y Titulacion
-	@OneToMany (mappedBy="asignatura")
+	@OneToMany (mappedBy="asignatura", cascade = CascadeType.PERSIST)
 	private List<Clase> clase;								//Relacion OneToMany entre Asignatura y Clase
-	@OneToMany (mappedBy = "asignatura")
+	@OneToMany (mappedBy = "asignatura", cascade = CascadeType.PERSIST)
 	private List<Asignaturas_Matricula> asig_matricula;		//Relacion OneToMany entre Asignatura y Asignaturas_Matricula
-	@OneToMany (mappedBy = "asignatura")
+	@OneToMany (mappedBy = "asignatura", cascade = CascadeType.PERSIST)
 	private List<Grupos_por_asignatura> grupos_asig;		//Relacion OneToMany entre Asignatura y Grupos_por_asignatura
 	
 	

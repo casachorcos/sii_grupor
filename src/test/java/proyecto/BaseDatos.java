@@ -57,9 +57,9 @@ public class BaseDatos {
 		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
 		em.persist(en);
 		
-		Expediente exp = new Expediente();
+		Expediente exp = new Expediente(0,'a',0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0);
 		exp.setNum_exp(888);
-		Matricula mat = new Matricula(3,'a',958,"Mañana",java.util.Date.from(null),'s',"Mates");
+		Matricula mat = new Matricula(3,'a',958,"Mañana",null,'s',"Mates");
 		mat.setExpediente(exp);
 		em.persist(mat);
 		
