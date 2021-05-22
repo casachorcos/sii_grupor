@@ -175,7 +175,7 @@ public class AsignaturaT {
 			prueba = gestionAsignaturas.obtenerAsignaturas(ref);
 			fail("Debería lanzar excepción de asignatura no encontrado");
 		} catch (AsignaturaNoEncontradoException e) {
-			fail("Debería lanzar excepción de asignatura no encontrado");
+			//Ok
 		}
 		
 	}
