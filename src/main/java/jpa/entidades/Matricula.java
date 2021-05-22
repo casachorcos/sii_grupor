@@ -56,7 +56,7 @@ public class Matricula implements Serializable {
 	@Column (name = "Estado", nullable = false)
 	private char estado;
 	@Column (name = "Num_Archivo")
-	private int nArchivo;
+	private Integer nArchivo;
 	@Column (name = "Turno_preferente", length=10)
 	private String turno;
 	@Column (name = "Fecha_de_matricula", nullable = false)
@@ -67,11 +67,11 @@ public class Matricula implements Serializable {
 	@Column (name = "Listado_Asignaturas", length=50)
 	private String listaAsig;
 	
-	@OneToMany (mappedBy = "matricula")
+	@OneToMany (mappedBy = "matricula", cascade = CascadeType.PERSIST)
 	private List<Asignaturas_Matricula> asig_matricula;		//Relacion OneToMany entre Matricula y Asignaturas_Matricula
 	
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Expediente expediente;
 	
 	public Matricula(int c, char e, int na, String t, Date fm, char ni, String la) {
@@ -93,7 +93,7 @@ public class Matricula implements Serializable {
 		return curso;
 	}
 
-	public void setCurso(int curso) {
+	public void setCurso(Integer curso) {
 		this.curso = curso;
 	}
 
@@ -109,7 +109,7 @@ public class Matricula implements Serializable {
 		return nArchivo;
 	}
 
-	public void setnArchivo(int nArchivo) {
+	public void setnArchivo(Integer nArchivo) {
 		this.nArchivo = nArchivo;
 	}
 
@@ -156,11 +156,13 @@ public class Matricula implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + curso;
+		result = prime * result + ((asig_matricula == null) ? 0 : asig_matricula.hashCode());
+		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + estado;
+		result = prime * result + ((expediente == null) ? 0 : expediente.hashCode());
 		result = prime * result + ((fecha_matr == null) ? 0 : fecha_matr.hashCode());
 		result = prime * result + ((listaAsig == null) ? 0 : listaAsig.hashCode());
-		result = prime * result + nArchivo;
+		result = prime * result + ((nArchivo == null) ? 0 : nArchivo.hashCode());
 		result = prime * result + nuevoIngreso;
 		result = prime * result + ((turno == null) ? 0 : turno.hashCode());
 		return result;
@@ -175,9 +177,22 @@ public class Matricula implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Matricula other = (Matricula) obj;
-		if (curso != other.curso)
+		if (asig_matricula == null) {
+			if (other.asig_matricula != null)
+				return false;
+		} else if (!asig_matricula.equals(other.asig_matricula))
+			return false;
+		if (curso == null) {
+			if (other.curso != null)
+				return false;
+		} else if (!curso.equals(other.curso))
 			return false;
 		if (estado != other.estado)
+			return false;
+		if (expediente == null) {
+			if (other.expediente != null)
+				return false;
+		} else if (!expediente.equals(other.expediente))
 			return false;
 		if (fecha_matr == null) {
 			if (other.fecha_matr != null)
@@ -189,7 +204,10 @@ public class Matricula implements Serializable {
 				return false;
 		} else if (!listaAsig.equals(other.listaAsig))
 			return false;
-		if (nArchivo != other.nArchivo)
+		if (nArchivo == null) {
+			if (other.nArchivo != null)
+				return false;
+		} else if (!nArchivo.equals(other.nArchivo))
 			return false;
 		if (nuevoIngreso != other.nuevoIngreso)
 			return false;
@@ -204,9 +222,7 @@ public class Matricula implements Serializable {
 	@Override
 	public String toString() {
 		return "Matricula [curso=" + curso + ", estado=" + estado + ", nArchivo=" + nArchivo + ", turno=" + turno
-				+ ", fecha_matr=" + fecha_matr + ", nuevoIngreso=" + nuevoIngreso + ", listaAsig=" + listaAsig + "]";
+				+ ", fecha_matr=" + fecha_matr + ", nuevoIngreso=" + nuevoIngreso + ", listaAsig=" + listaAsig
+				+ ", asig_matricula=" + asig_matricula + ", expediente=" + expediente + "]";
 	}
-   
-	
-	
 }

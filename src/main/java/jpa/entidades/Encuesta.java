@@ -18,11 +18,11 @@ public class Encuesta implements Serializable {
 	 */
 	private static final long serialVersionUID = 7L;
 
-	@Id @Column (name = "Fecha de envio")
+	@Id @Column (name = "Fecha_de_envio")
 	@Temporal (TemporalType.DATE)
 	private Date fecha_de_envio;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Expediente expediente;
 	
 	@ManyToMany

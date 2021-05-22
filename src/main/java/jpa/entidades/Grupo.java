@@ -35,13 +35,13 @@ public class Grupo implements Serializable {
 	private Integer plazas;
 	@ManyToOne
 	private Titulacion titulacion;
-	@OneToMany (mappedBy="grupo")
+	@OneToMany (mappedBy="grupo", cascade = CascadeType.PERSIST)
 	private List <Grupos_por_asignatura> gruposAsig;
-	@OneToMany (mappedBy="grupo")
+	@OneToMany (mappedBy="grupo", cascade = CascadeType.PERSIST)
 	private List<Asignaturas_Matricula> asignaturasMat;
-	@OneToMany (mappedBy="grupo")
+	@OneToMany (mappedBy="grupo", cascade = CascadeType.PERSIST)
 	private List <Clase> clase;
-	@OneToMany (mappedBy="grupoRefle")
+	@OneToMany (mappedBy="grupoRefle", cascade = CascadeType.PERSIST)
 	private List<Grupo> gruposRefl;
 	@ManyToOne
 	private Grupo grupoRefle;
