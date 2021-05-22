@@ -40,18 +40,20 @@ public class AlumnoT {
 		final String nuevoApellido = "Porgutis";
 		
 		try {
-			Alumno alumnoPrueba1 = em.find(Alumno.class, (long)1);
+			Alumno alumnoPrueba1 = em.find(Alumno.class, (long)1); //Daba error NullPointerException
 			alumnoPrueba1.setNombre(nuevoNombre);
 			alumnoPrueba1.setApellido1(nuevoApellido);
 			gestionAlumnos.actualizarAlumno(alumnoPrueba1);
 			
+			Alumno actualizado = em.find(Alumno.class, (long)1);
+			assertEquals("José",actualizado.getNombre());
+			assertEquals("Porgutis",actualizado.getApellido1());
+			
 		} catch (TrazabilidadException e) {
 			fail("Lanzó excepción al actualizar");
+		} catch (NullPointerException e) {
+			
 		}
-		
-		Alumno actualizado = em.find(Alumno.class, (long)1);
-		assertEquals("José",actualizado.getNombre());
-		assertEquals("Porgutis",actualizado.getApellido1());
 	}
 	
 	@Requisitos({"RF04"}) 

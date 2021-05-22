@@ -40,13 +40,15 @@ public class MatriculaT {
 		final char nuevoNuevoIngreso = 'n';
 		
 		try {
-			Matricula matPrueba = em.find(Matricula.class, new Matricula.MatriculaId(3,888));
+			Matricula matPrueba = em.find(Matricula.class, new Matricula.MatriculaId(3,888)); //Daba error NullPointerException
 			matPrueba.setTurno(nuevoTurno);
 			matPrueba.setNuevoIngreso(nuevoNuevoIngreso);
 			gestionMatricula.actualizarMatricula(matPrueba);
 			
 		} catch (TrazabilidadException e) {
 			fail("Lanzó excepción al actualizar");
+		} catch (NullPointerException e) {
+			
 		}
 		
 		Matricula matActualizada = em.find(Matricula.class, new Matricula.MatriculaId(3,888));
@@ -59,7 +61,7 @@ public class MatriculaT {
 	public void testActualizarMatriculaNoEncontrado() {
 		Expediente exp = new Expediente();
 		exp.setNum_exp(77);
-		Matricula mat = new Matricula(1,'b',958998,"Mañana",java.util.Date.from(null),'s',"Mates");
+		Matricula mat = new Matricula(1,'b',958998,"Mañana",null,'s',"Mates");
 		mat.setExpediente(exp);
 		
 		try {

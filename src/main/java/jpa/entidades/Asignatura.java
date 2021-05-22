@@ -40,7 +40,7 @@ public class Asignatura implements Serializable {
 	@Column (name = "Idiomas_de_impartición", nullable = false, length = 20)
 	private String idiomas;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Titulacion titulacion; 							//Relacion ManyToOne entre Asignatura y Titulacion
 	@OneToMany (mappedBy="asignatura", cascade = CascadeType.PERSIST)
 	private List<Clase> clase;								//Relacion OneToMany entre Asignatura y Clase
