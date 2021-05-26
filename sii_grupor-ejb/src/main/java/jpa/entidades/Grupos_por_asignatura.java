@@ -64,7 +64,7 @@ public class Grupos_por_asignatura implements Serializable {
 	@ManyToOne
 	private Grupo grupo;
 	
-	@ManyToMany (mappedBy = "grupo_asig", cascade = CascadeType.PERSIST)
+	@ManyToMany (mappedBy = "grupo_asig")//, cascade = CascadeType.PERSIST)
 	private List<Encuesta> encuesta;
 
 	public Grupos_por_asignatura() {
