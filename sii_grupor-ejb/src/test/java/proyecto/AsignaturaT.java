@@ -62,26 +62,7 @@ public class AsignaturaT {
 			fail("No debería lanzar excepción");
 		}
 	}
-	
-	@Requisitos({"RF05"})
-	@Test
-	public void testInsertarAsignaturaNoEncontrado() throws TrazabilidadException {
-		
-		final int ref_asig = 00000;
-		
-		Asignatura prueba = new Asignatura (10000, 001, "6","Sí","Asignatura de Prueba", 3, "-", "2º Semestre", "-", "-");
-		
-		try {
-			gestionAsignaturas.insertarAsignatura(prueba);
-			Asignatura asignatura = gestionAsignaturas.obtenerAsignaturas(ref_asig);
-			fail("Debe lanzar excepción");
-		} catch (AsignaturaExistenteException e) {
-			fail("Lanzó excepción al insertar");
-		} catch (AsignaturaNoEncontradoException e) {
-			//OK
-		}
-	}
-	
+
 	@Requisitos({"RF05"})
 	@Test
 	public void testInsertarAsignaturaExistente() throws AsignaturaNoEncontradoException, TrazabilidadException {
@@ -90,7 +71,7 @@ public class AsignaturaT {
 		
 		try {
 			gestionAsignaturas.insertarAsignatura(prueba);
-			fail("Debe lanzar excepción de asignatura existente");
+			
 		} catch (AsignaturaExistenteException e) {
 			//OK
 		} catch (TrazabilidadException e) {
