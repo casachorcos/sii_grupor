@@ -34,13 +34,13 @@ public class Expediente implements Serializable {
 	@Column (name = "Creditos_tf", nullable = false)
 	private Double cr_tf;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private Titulacion titulacion; //Relacion ManyToOne entre Expediente y Titulacion
-	@OneToMany (mappedBy="expediente", cascade = CascadeType.PERSIST )
+	@OneToMany (mappedBy="expediente")//, cascade = CascadeType.PERSIST )
 	private List<Encuesta> encuestas;
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	private Alumno alumno;
-	@OneToMany (mappedBy = "expediente", cascade = CascadeType.PERSIST)
+	@OneToMany (mappedBy = "expediente")//, cascade = CascadeType.PERSIST)
 	private List<Matricula> matricula;		//Relacion OneToMany entre Expediente y Matricula
 	
 

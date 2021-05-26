@@ -24,11 +24,11 @@ public class BaseDatos {
 		Titulacion t = new Titulacion(1024, "Ingenieria Informatica", 240.0);
 		em.persist(t);
 		
-		Asignatura sii = new Asignatura (51090, 306, "6","Si","Sistemas de Informacion para Internet", 3, "-", "2 Semestre", "-", "-");
-		Asignatura abd = new Asignatura (51091, 305, "6","Si","Administración de Bases de Datos", 3, "-", "2 Semestre", "-", "-");
-		Asignatura si2 = new Asignatura (51092, 307, "6","Si","Sistemas Inteligentes II", 3, "-", "2 Semestre", "-", "-");
-		Asignatura ayc = new Asignatura (51093, 311, "6","Si","Algoritmia y Complejidad", 3, "-", "2 Semestre", "-", "-");
-		Asignatura pr = new Asignatura (51094, 865, "6","Si","Programacion de Robots", 3, "-", "2 Semestre", "-", "-");
+		Asignatura sii = new Asignatura (51025, 306, "6","Si","Sistemas de Informacion para Internet", 3, "-", "2 Semestre", "-", "-");
+		Asignatura abd = new Asignatura (51015, 305, "6","Si","Administración de Bases de Datos", 3, "-", "2 Semestre", "-", "-");
+		Asignatura si2 = new Asignatura (51024, 307, "6","Si","Sistemas Inteligentes II", 3, "-", "2 Semestre", "-", "-");
+		Asignatura ayc = new Asignatura (51016, 311, "6","Si","Algoritmia y Complejidad", 3, "-", "2 Semestre", "-", "-");
+		Asignatura pr = new Asignatura (51040, 865, "6","Si","Programacion de Robots", 3, "-", "2 Semestre", "-", "-");
 		
 		for (Asignatura asignatura: new Asignatura [] {sii, abd, si2, ayc, pr}) {
 			em.persist(asignatura);
@@ -38,10 +38,10 @@ public class BaseDatos {
 		Alumno al2 = new Alumno("66664511J","Alejandro","Gutierrez","España","ale@uma.es","sp2","72778115","95212813","C/Parrados2","Malaga","Malaga","29010");
 		Alumno al3 = new Alumno("55554511J","Nicolas","Casamayor","Camacho","nico@uma.es","sp3","72778116","95212814","C/Parrados3","Malaga","Malaga","29010");
 		Alumno al4 = new Alumno("44444511J","Francisco","Cabrerizo","Perez","cabre@uma.es","sp4","72778117","95212815","C/Parrados4","Malaga","Malaga","29010");
-		al1.setId((long)1);
-		al2.setId((long)2);
-		al3.setId((long)3);
-		al4.setId((long)4);
+		//al1.setId((long)1);
+		//al2.setId((long)2);
+		//al3.setId((long)3);
+		//al4.setId((long)4);
 		for(Alumno al : new Alumno [] {al1,al2,al3,al4}) {
 			em.persist(al);
 		}
@@ -68,7 +68,7 @@ public class BaseDatos {
 		em.persist(mat);
 		
 		
-		//em.getTransaction().commit(); Está comentado porque sino devuelve errores de violacion de primary key y no funciona la base de datos
+		em.getTransaction().commit(); //Está comentado porque sino devuelve errores de violacion de primary key y no funciona la base de datos
 		
 		em.close();
 		emf.close();
