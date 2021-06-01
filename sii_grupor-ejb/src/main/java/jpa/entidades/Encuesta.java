@@ -22,7 +22,7 @@ public class Encuesta implements Serializable {
 	@Temporal (TemporalType.DATE)
 	private Date fecha_de_envio;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne //(cascade = CascadeType.PERSIST)
 	private Expediente expediente;
 	
 	@ManyToMany

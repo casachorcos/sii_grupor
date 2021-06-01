@@ -19,9 +19,9 @@ public class Grupo implements Serializable {
 	private static final long serialVersionUID = 9L;
 	@Id @Column(name = "ID")
 	private String id;
-	@Column (name = "Curso",unique = true, nullable = false)
+	@Column (name = "Curso", nullable = false)
 	private Integer curso;
-	@Column (name = "Letra",unique = true, nullable = false)
+	@Column (name = "Letra", nullable = false)
 	private char letra;
 	@Column (name = "Turno_Mañana_Tarde", nullable = false)
 	private String turno;
@@ -33,15 +33,16 @@ public class Grupo implements Serializable {
 	private String asignar;
 	@Column (name = "Plazas", nullable = true)
 	private Integer plazas;
+	
 	@ManyToOne
 	private Titulacion titulacion;
-	@OneToMany (mappedBy="grupo", cascade = CascadeType.PERSIST)
+	@OneToMany (mappedBy="grupo")//, cascade = CascadeType.PERSIST)
 	private List <Grupos_por_asignatura> gruposAsig;
-	@OneToMany (mappedBy="grupo", cascade = CascadeType.PERSIST)
+	@OneToMany (mappedBy="grupo")//, cascade = CascadeType.PERSIST)
 	private List<Asignaturas_Matricula> asignaturasMat;
-	@OneToMany (mappedBy="grupo", cascade = CascadeType.PERSIST)
+	@OneToMany (mappedBy="grupo")//, cascade = CascadeType.PERSIST)
 	private List <Clase> clase;
-	@OneToMany (mappedBy="grupoRefle", cascade = CascadeType.PERSIST)
+	@OneToMany (mappedBy="grupoRefle")//, cascade = CascadeType.PERSIST)
 	private List<Grupo> gruposRefl;
 	@ManyToOne
 	private Grupo grupoRefle;

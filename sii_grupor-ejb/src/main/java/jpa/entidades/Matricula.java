@@ -67,11 +67,11 @@ public class Matricula implements Serializable {
 	@Column (name = "Listado_Asignaturas", length=50)
 	private String listaAsig;
 	
-	@OneToMany (mappedBy = "matricula", cascade = CascadeType.PERSIST)
+	@OneToMany (mappedBy = "matricula")//, cascade = CascadeType.PERSIST)
 	private List<Asignaturas_Matricula> asig_matricula;		//Relacion OneToMany entre Matricula y Asignaturas_Matricula
 	
 	@Id
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne//(cascade = CascadeType.PERSIST)
 	private Expediente expediente;
 	
 	public Matricula(int c, char e, int na, String t, Date fm, char ni, String la) {
