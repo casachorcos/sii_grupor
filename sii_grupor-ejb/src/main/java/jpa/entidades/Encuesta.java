@@ -19,7 +19,7 @@ public class Encuesta implements Serializable {
 	private static final long serialVersionUID = 7L;
 
 	@Id @Column (name = "Fecha_de_envio")
-	@Temporal (TemporalType.DATE)
+	@Temporal (TemporalType.TIMESTAMP)
 	private Date fecha_de_envio;
 	
 	@ManyToOne //(cascade = CascadeType.PERSIST)
