@@ -12,7 +12,7 @@
 
 		<dependency>
 			<groupId>es.uma.informatica.sii</groupId>
-			<artifactId>sii_grupor-ear</artifactId>
+			<artifactId>sii_grupor-ear-0.0.1-SNAPSHOT</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>ear</type>
 			<scope>test</scope>
