@@ -44,7 +44,7 @@ public class EncuestaT {
 		
 		try {
 			
-			Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
+			Encuesta en = new Encuesta(new Date(2021, 5, 22, 13, 21, 56));
 			
 			try {
 				gestionEncuesta.insertarEncuesta(en);
@@ -57,8 +57,8 @@ public class EncuestaT {
 		}
 		
 		try {
-			Encuesta en = gestionEncuesta.obtenerEncuesta(new Date(2021, 4, 22, 13, 21, 56));
-			assertEquals(new Date(2021, 4, 22, 13, 21, 56), en.getFecha_de_envio());
+			Encuesta en = gestionEncuesta.obtenerEncuesta(new Date(2021, 5, 22, 13, 21, 56));
+			assertEquals(new Date(2021, 5, 22, 13, 21, 56), en.getFecha_de_envio());
 		} catch (TrazabilidadException e) {
 			throw new RuntimeException(e);
 		}

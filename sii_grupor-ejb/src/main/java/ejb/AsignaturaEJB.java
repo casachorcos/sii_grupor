@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import ejb.excepciones.AsignaturaExistenteException;
 import ejb.excepciones.AsignaturaNoEncontradoException;
+import ejb.excepciones.TrazabilidadException;
 import jpa.entidades.Asignatura;
 
 @Stateless
@@ -46,9 +47,9 @@ public class AsignaturaEJB implements GestionAsignaturas {
 	}
 	
 	@Override
-	public void insertarAsignatura(Asignatura asignatura) throws AsignaturaExistenteException {
+	public void insertarAsignatura(Asignatura asignatura) throws TrazabilidadException {
 		Asignatura asig = em.find(Asignatura.class, asignatura.getReferencia());
-		if (asig == null) {
+		if (asig != null) {
 			throw new AsignaturaExistenteException();
 		}
 		em.persist(asig);
