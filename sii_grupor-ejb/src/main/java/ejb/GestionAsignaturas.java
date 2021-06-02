@@ -26,7 +26,7 @@ public interface GestionAsignaturas {
 	 * Si ya se encuentra la asignatura en la base de datos, lanza la excepcion AsignaturaExistenteException.
 	 * @param asignatura Asignatura que se quiere insertar.
 	 */
-	public void insertarAsignatura(Asignatura asignatura) throws AsignaturaExistenteException;
+	public void insertarAsignatura(Asignatura asignatura) throws TrazabilidadException;
 
 	/**
 	 * Obtener una asignatura en la base de datos.
