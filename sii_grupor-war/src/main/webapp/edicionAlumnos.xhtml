@@ -63,8 +63,9 @@
 				action="#{alumnos.ejecutarAccion()}" />
 			<h:commandButton value="Cancelar" action="alumnos.xhtml" />
 
-			<h:inputHidden value="#{contactos.alumnos}" />
-			<h:inputHidden value="#{contactos.alumno.id}" />
+			<h:inputHidden value="#{alumnos.modo}" />
+			<h:inputHidden value="#{alumnos.alumno.id}" />
+
 		</h:panelGrid>
 	</h:form>
 </h:body>
