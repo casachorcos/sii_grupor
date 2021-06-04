@@ -75,7 +75,7 @@ public class Alumnos {
 		}
     }
     
-    public String menu() {
+    public String getMenu() {
         return "menuSecretaria.xhtml";
     }
 }
