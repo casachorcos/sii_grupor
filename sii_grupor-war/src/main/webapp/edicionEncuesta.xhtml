@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+	<title>Edición encuesta</title>
+</h:head>
+<h:body>
+
+	<h1>Editar encuesta</h1>
+	<h:form id="encuesta">
+		<h:panelGrid columns="3">
+			<h:outputText value="Nº Expediente" />
+			<h:inputText id="i_nexpediente" value="" />
+			<h:message for="nexpediente" />
+
+			<h:outputText value="Asignaturas" />
+			<h:inputText id="i_asignaturas" value="" />
+			<h:message for="asignaturas" />
+
+			<h:outputText value="Grupo preferente" />
+			<h:inputText id="i_grupoPreferente" value="" />
+			<h:message for="grupoPreferente" />
+			
+			<h:outputText value="Asignaturas en inglés" />
+			<h:inputText id="i_asigIngles" value="" />
+			<h:message for="asigIngles" />
+
+			<h:commandButton value="Guardar"
+				action="#{encuesta.ejecutarAccion()}" />
+			<h:commandButton value="Cancelar" action="encuesta.xhtml" />
+
+
+			<h:inputHidden value="#{encuesta.modo}" />
+			<h:inputHidden value="#{encuesta.enc.id}" />
+
+		</h:panelGrid>
+	</h:form>
+
+
+</h:body>
+</html>

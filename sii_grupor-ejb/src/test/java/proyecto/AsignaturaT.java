@@ -39,8 +39,8 @@ public class AsignaturaT {
 		//final Integer ref_asig = 10001;
 		
 		//try {	
-			Asignatura prueba = new Asignatura(10001, 100, "6","Sí","Asignatura de Prueba", 3, "-", "2 Semestre", "-", "-");
-			gestionAsignaturas.insertarAsignatura(prueba);
+		//	Asignatura prueba = new Asignatura(10001, 100, "6","Sí","Asignatura de Prueba", 3, "-", "2 Semestre", "-", "-");
+		//	gestionAsignaturas.insertarAsignatura(prueba);
 		//} catch (AsignaturaExistenteException e) {
 			//fail("Lanzó excepción al insertar");
 		//}
