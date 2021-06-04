@@ -4,6 +4,9 @@ import jpa.entidades.Alumno;
 import ejb.excepciones.AlumnoNoEncontradoException;
 import ejb.excepciones.TrazabilidadException;
 import ejb.GestionAlumnos;
+
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -59,7 +62,7 @@ public class Alumnos {
     public String modificar(Alumno a) {
         alumno = a;
         setModo(Modo.MODIFICAR);
-        return "edicionContacto.xhtml";
+        return "edicionAlumno.xhtml";
     }
 
     public String ejecutarAccion() {
