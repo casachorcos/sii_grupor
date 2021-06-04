@@ -86,11 +86,9 @@
 				<h:commandButton value="Eliminar" action="#{alumnos.eliminar(a)}" />
 			</h:column>
 		</h:dataTable>
-		<h:commandButton value="Insertar"
-			action="#{alumnos.insertarAlumno()}" />
-		<h:commandButton value="Refrescar" action="#{alumnos.refrescar}" />
+		<h:commandButton value="Refrescar" action="#{alumnos.refrescar}"/>
 		<p>
-			<h:commandLink action="#{alumnos.menu()}">Menú</h:commandLink>
+			<h:commandLink action="#{alumnos.menu()}">Volver al menú</h:commandLink>
 		</p>
 	</h:form>
 </h:body>
