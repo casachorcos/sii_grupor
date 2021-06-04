@@ -9,81 +9,81 @@
 </h:head>
 <h:body>
 	<h:form id="alumnos">
-		<h:dataTable value="#{infoSesion.alumnos}" var="c">
+		<h:dataTable value="#{infoSesion.alumnos}" var="a">
 			<h:column>
 				<f:facet name="header">ID</f:facet>
-				<h:outputText value="#{c.id}" />
+				<h:outputText value="#{a.id}" />
 			</h:column>
 
 			<h:column>
 				<f:facet name="header">DNI</f:facet>
-				<h:outputText value="#{c.DNI}" />
+				<h:outputText value="#{a.DNI}" />
 			</h:column>
 
 			<h:column>
 				<f:facet name="header">Nombre</f:facet>
-				<h:outputText value="#{c.nombre}" />
+				<h:outputText value="#{a.nombre}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Apellido1</f:facet>
-				<h:outputText value="#{c.apellido1}" />
+				<h:outputText value="#{a.apellido1}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Apellido2</f:facet>
-				<h:outputText value="#{c.apellido2}" />
+				<h:outputText value="#{a.apellido2}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">e-mail Institucional</f:facet>
-				<h:outputText value="#{c.emaili}" />
+				<h:outputText value="#{a.emaili}" />
 			</h:column>
 
 			<h:column>
 				<f:facet name="header">e-mail Personal</f:facet>
-				<h:outputText value="#{c.emailp}" />
+				<h:outputText value="#{a.emailp}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Telefono</f:facet>
-				<h:outputText value="#{c.telefono}" />
+				<h:outputText value="#{a.telefono}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Movil</f:facet>
-				<h:outputText value="#{c.movil}" />
+				<h:outputText value="#{a.movil}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Direccion</f:facet>
-				<h:outputText value="#{c.direccion}" />
+				<h:outputText value="#{a.direccion}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Localidad</f:facet>
-				<h:outputText value="#{c.localidad}" />
+				<h:outputText value="#{a.localidad}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Provincia</f:facet>
-				<h:outputText value="#{c.provincia}" />
+				<h:outputText value="#{a.provincia}" />
 			</h:column>
 			
 			<h:column>
 				<f:facet name="header">Codigo Postal</f:facet>
-				<h:outputText value="#{c.codPostal}" />
+				<h:outputText value="#{a.codPostal}" />
 			</h:column>
 			
 			
 
 			<h:column>
 				<h:commandButton value="Modificar"
-					action="#{alumnos.modificar(c)}" />
+					action="#{alumnos.modificar(a)}" />
 			</h:column>
 
 			<h:column>
-				<h:commandButton value="Eliminar" action="#{alumnos.eliminar(c)}" />
+				<h:commandButton value="Eliminar" action="#{alumnos.eliminar(a)}" />
 			</h:column>
 		</h:dataTable>
 		<h:commandButton value="Insertar"
