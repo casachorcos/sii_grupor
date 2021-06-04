@@ -1,31 +1,30 @@
 package es.uma.informatica.sii.backing;
 
-import jpa.entidades.Alumno;
-import ejb.excepciones.AlumnoNoEncontradoException;
-import ejb.excepciones.TrazabilidadException;
-import ejb.GestionAlumnos;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named(value = "alumnos")
+import ejb.GestionMatricula;
+import ejb.excepciones.TrazabilidadException;
+import jpa.entidades.Matricula;
+
+@Named(value = "matriculas")
 @RequestScoped
-public class Alumnos {
+public class Matriculas {
 
     public static enum Modo {
         MODIFICAR,
-        INSERTAR,
         NOACCION
     };
 
     @Inject
-    private GestionAlumnos gestionAlumnos;
+    private GestionMatricula gestionMatricula;
 
-    private Alumno alumno;
+    private Matricula matricula;
     private Modo modo;
 
-    public Alumnos() {
-        alumno = new Alumno();
+    public Matriculas() {
+        matricula = new Matricula();
         modo = Modo.NOACCION;
     }
 
@@ -41,35 +40,32 @@ public class Alumnos {
         switch (modo) {
             case MODIFICAR:
                 return "Modificar";
-            case INSERTAR:
-                return "Insertar";
-
         }
         return null;
     }
 
-    public Alumno getAlumno() {
-        return alumno;
+    public Matricula getMatricula() {
+        return matricula;
     }
 
-    public void setAlumno(Alumno alumno) {
-        this.alumno = alumno;
+    public void setMatricula(Matricula matricula) {
+        this.matricula = matricula;
     }
 
-    public String modificar(Alumno a) {
-        alumno = a;
+    public String modificar(Matricula m) {
+    	matricula = m;
         setModo(Modo.MODIFICAR);
-        return "edicionAlumnos.xhtml";
+        return "edicionMatricula.xhtml";
     }
 
     public String ejecutarAccion() {
         try {
             switch (modo) {
                 case MODIFICAR:
-                    gestionAlumnos.actualizarAlumno(alumno);
+                	gestionMatricula.actualizarMatricula(matricula);;
                     break;
             }
-            return "alumnos.xhtml";
+            return "matriculas.xhtml";
         } catch (TrazabilidadException e) {
             return "login.xhtml";
 		}
