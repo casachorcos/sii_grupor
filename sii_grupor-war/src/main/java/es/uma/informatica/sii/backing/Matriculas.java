@@ -62,7 +62,7 @@ public class Matriculas {
         try {
             switch (modo) {
                 case MODIFICAR:
-                	gestionMatricula.actualizarMatricula(matricula);;
+                	gestionMatricula.actualizarMatricula(matricula);
                     break;
             }
             return "matriculas.xhtml";
