@@ -11,6 +11,7 @@ import javax.persistence.*;
  *
  */
 
+@NamedQuery(name = "Asignatura.todos", query = "select a from Asignatura a")
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Asignatura implements Serializable {

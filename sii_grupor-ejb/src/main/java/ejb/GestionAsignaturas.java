@@ -34,5 +34,7 @@ public interface GestionAsignaturas {
 	 * @param ref int que se quiere obtener.
 	 */
 	public Asignatura obtenerAsignaturas(int ref) throws AsignaturaNoEncontradoException;
+
+	public List<Asignatura> listaAsignatura() throws TrazabilidadException;
 	
 }

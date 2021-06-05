@@ -4,81 +4,80 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-	<title>Lista de asignaturas</title>
-</h:head>
-<h:body>
 
-	<h:form id="asignaturas">
-		<h:dataTable value="#{asignaturas.asignatura}" var="a">
-
-			<h:column>
-				<f:facet name="header">Nombre</f:facet>
-				<h:outputText value="#{a.nombre}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Referencia</f:facet>
-				<h:outputText value="#{a.referencia}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Código</f:facet>
-				<h:outputText value="#{a.codigo}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Créditos</f:facet>
-				<h:outputText value="#{a.creditos}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Ofertada</f:facet>
-				<h:outputText value="#{a.ofertada}" />
-			</h:column>
-			
-			<h:column>
-				<f:facet name="header">Curso</f:facet>
-				<h:outputText value="#{a.curso}" />
-			</h:column>
-			
-			<h:column>
-				<f:facet name="header">Carácter</f:facet>
-				<h:outputText value="#{a.caracter}" />
-			</h:column>
-			
-			<h:column>
-				<f:facet name="header">Duración</f:facet>
-				<h:outputText value="#{a.duracion}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Unidad Temporal</f:facet>
-				<h:outputText value="#{a.unidad_temporal}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Idiomas</f:facet>
-				<h:outputText value="#{a.idiomas}" />
-			</h:column>
-
-			<h:column>
-				<h:commandButton value="Modificar"
-					action="#{asignaturas.modificar(a)}" />
-			</h:column>
-
-			<h:column>
-				<h:commandButton value="Eliminar" action="#{asignaturas.eliminar(a)}" />
-			</h:column>
-		</h:dataTable>
-		<h:commandButton value="Insertar"
-			action="#{asignaturas.insertarAsignatura()}" />
-		<h:commandButton value="Refrescar" action="#{asignaturas.refrescar}" />
-		<p>
-			<h:commandLink action="#{asignaturas.getMenu()}">Log out</h:commandLink>
-		</p>
-	</h:form>
-
-
-</h:body>
+	<h:head>
+		<title>Lista de asignaturas</title>
+	</h:head>
+	<h:body>
+	
+		<h:form id="asignaturas">
+			<h:dataTable value="#{asignaturas.getLista()}" var="a">
+	
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:outputText value="#{a.nombre}" />
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Referencia</f:facet>
+					<h:outputText value="#{a.referencia}" />
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Código</f:facet>
+					<h:outputText value="#{a.codigo}" />
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Créditos</f:facet>
+					<h:outputText value="#{a.creditos}" />
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Ofertada</f:facet>
+					<h:outputText value="#{a.ofertada}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Curso</f:facet>
+					<h:outputText value="#{a.curso}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Carácter</f:facet>
+					<h:outputText value="#{a.caracter}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Duración</f:facet>
+					<h:outputText value="#{a.duracion}" />
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Unidad Temporal</f:facet>
+					<h:outputText value="#{a.unidad_temporal}" />
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">Idiomas</f:facet>
+					<h:outputText value="#{a.idiomas}" />
+				</h:column>
+	
+				<h:column>
+					<h:commandButton value="Modificar"
+						action="#{asignaturas.modificar(a)}" />
+				</h:column>
+	
+				<h:column>
+					<h:commandButton value="Eliminar" action="#{asignaturas.eliminar(a)}" />
+				</h:column>
+			</h:dataTable>
+			<h:commandButton value="Insertar"
+				action="#{asignaturas.insertarAsignatura()}" />
+			<h:commandButton value="Refrescar" action="#{asignaturas.refrescar}" />
+			<p>
+				<h:commandLink action="#{asignaturas.getMenu()}">Volver al menú </h:commandLink>
+			</p>
+		</h:form>
+	</h:body>
 </html>
