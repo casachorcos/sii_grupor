@@ -1,5 +1,7 @@
 package ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 
 
@@ -64,5 +66,8 @@ public class AsignaturaEJB implements GestionAsignaturas {
 		return asignatura;
 	}
 	
-	
+	@Override
+	public List<Asignatura> listaAsignatura() throws TrazabilidadException {
+		return em.createNamedQuery("Asignatura.todos", Asignatura.class).getResultList();
+	}
 }

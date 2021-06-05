@@ -1,5 +1,7 @@
 package es.uma.informatica.sii.backing;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -94,4 +96,11 @@ public class Asignaturas {
         return "edicionAsignatura.xhtml";
     }
     
+    public List<Asignatura> getLista() {
+    	try {
+    		return gestion.listaAsignatura();
+    	} catch (TrazabilidadException e) {
+    		return null;
+    	}
+    }
 }
