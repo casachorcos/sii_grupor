@@ -9,8 +9,9 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Grupo
  *
  */
-@Entity
 
+@NamedQuery(name = "Grupo.todos", query = "select g from Grupo g")
+@Entity
 public class Grupo implements Serializable {
 
 	/**

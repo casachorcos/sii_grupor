@@ -1,13 +1,13 @@
 package es.uma.informatica.sii.backing;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import ejb.GestionAsignaturas;
 import ejb.GestionGrupo;
 import ejb.excepciones.TrazabilidadException;
-import jpa.entidades.Asignatura;
 import jpa.entidades.Grupo;
 
 @Named(value = "grupos")
@@ -96,4 +96,11 @@ public class Grupos {
         return "edicionGrupos.xhtml";
     }
     
+    public List<Grupo> getLista() {
+    	try {
+    		return gestion.listaGrupo();
+    	} catch (TrazabilidadException e) {
+    		return null;
+    	}
+    }
 }

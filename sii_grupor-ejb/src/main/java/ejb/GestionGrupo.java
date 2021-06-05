@@ -2,15 +2,18 @@ package ejb;
 
 import ejb.excepciones.TrazabilidadException;
 import jpa.entidades.Grupo;
+
+import java.util.List;
+
 import javax.ejb.Local;
 
 @Local
 public interface GestionGrupo {
 
 	/*
-	 * Añade el grupo a la base de datos.
-	 * Si el grupo se encuentra ya en la base de datos, lanza la excepciñon GrupoExistenteException
-	 * @param grupo Grupo que se va a añadir.
+	 * Aï¿½ade el grupo a la base de datos.
+	 * Si el grupo se encuentra ya en la base de datos, lanza la excepciï¿½on GrupoExistenteException
+	 * @param grupo Grupo que se va a aï¿½adir.
 	 */
 	public void insertarGrupo(Grupo grupo) throws TrazabilidadException;
 	
@@ -23,15 +26,17 @@ public interface GestionGrupo {
 	
 	/*
 	 * Actualiza un grupo en la base de datos.
-	 * Si no se encuentra el grupo en la base de datos, lanza la excepción GrupoNoEncontradoException.
+	 * Si no se encuentra el grupo en la base de datos, lanza la excepciï¿½n GrupoNoEncontradoException.
 	 * @param grupo Grupo a actualizar.
 	 */
 	public void actualizarGrupo(Grupo grupo) throws TrazabilidadException;
 	
 	/*
 	 * Elimina un grupo de la base de datos.
-	 * Si no se encuentra el grupo en la base de datos, lanza la excepción GrupoNoEncontradoException.
+	 * Si no se encuentra el grupo en la base de datos, lanza la excepciï¿½n GrupoNoEncontradoException.
 	 * @param grupo Grupo a eliminar.*/
 	public void eliminarGrupo(Grupo grupo) throws TrazabilidadException;
+
+	public List<Grupo> listaGrupo() throws TrazabilidadException;
 	
 }
