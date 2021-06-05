@@ -9,7 +9,7 @@
 </h:head>
 <h:body>
 	<h:form id="alumnos">
-		<h:dataTable value="#{infoSesion.alumnos}" var="a">
+		<h:dataTable value="#{alumnos.getLista()}" var="a">
 			<h:column>
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{a.id}" />
@@ -86,7 +86,6 @@
 				<h:commandButton value="Eliminar" action="#{alumnos.eliminar(a)}" />
 			</h:column>
 		</h:dataTable>
-		<h:commandButton value="Refrescar" action="#{alumnos.refrescar}"/>
 		<p>
 			<h:commandLink action="#{alumnos.getMenu()}">Volver al menú</h:commandLink>
 		</p>
