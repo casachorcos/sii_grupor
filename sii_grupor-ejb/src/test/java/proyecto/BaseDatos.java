@@ -48,8 +48,8 @@ public class BaseDatos {
 		
 		
 		Grupo gr1 = new Grupo("1AINF2021",1,'A',"Ma�ana","Si","No",null,20);
-		Grupo gr2 = new Grupo("2DINF2021",2,'D',"Tarde","No","Si",null,30);
-		Grupo gr3 = new Grupo("3BINF2021",3,'B',"Ma�ana","No","Si",null,60);
+		Grupo gr2 = new Grupo("2DINF2021",1,'D',"Tarde","No","Si",null,30);
+		Grupo gr3 = new Grupo("3BINF2021",3,'A',"Ma�ana","No","Si",null,60);
 		
 		for (Grupo grupo : new Grupo [] {gr1, gr2, gr3}) {
 			em.persist(grupo);

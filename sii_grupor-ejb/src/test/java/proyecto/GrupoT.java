@@ -35,7 +35,7 @@ public class GrupoT {
 		
 		try {
 			
-			Grupo g1 = new Grupo("4AINF2021",4,'A',"Tarde","No","Si","Hola",40);
+			Grupo g1 = new Grupo("4AINF2021",1,'C',"Tarde","No","Si","Hola",40);
 			
 			try {
 				gestionGrupo.insertarGrupo(g1);
@@ -50,8 +50,8 @@ public class GrupoT {
 		try {
 			Grupo g2 = gestionGrupo.obtenerGrupo("4AINF2021");
 			assertEquals("4AINF2021",g2.getId());
-			assertEquals(Integer.valueOf(4), g2.getCurso());
-			assertEquals('A', g2.getLetra());
+			assertEquals(Integer.valueOf(1), g2.getCurso());
+			assertEquals('C', g2.getLetra());
 			assertEquals("Tarde", g2.getTurno());
 			assertEquals("No", g2.getIngles());
 			assertEquals("Si", g2.getVisible());
@@ -66,7 +66,7 @@ public class GrupoT {
 	@Requisitos({"RF03.1"})
 	@Test
 	public void testInsertarGrupoExistente() {
-		Grupo g = new Grupo("2DINF2021",2,'D',"Tarde","No","Si",null,30);
+		Grupo g = new Grupo("2DINF2021",1,'D',"Tarde","No","Si",null,30);
 		
 		try {
 			gestionGrupo.insertarGrupo(g);
@@ -112,7 +112,7 @@ public class GrupoT {
 	@Requisitos({"RF03.3"})
 	@Test
 	public void testActualizarGrupo() {
-		Grupo gr = new Grupo("2DINF2021",2,'D',"Tarde","Si","No","Asignado",40);
+		Grupo gr = new Grupo("2DINF2021",1,'D',"Tarde","Si","No","Asignado",40);
 		try {
 			gestionGrupo.actualizarGrupo(gr);
 		} catch (TrazabilidadException e) {
@@ -136,7 +136,7 @@ public class GrupoT {
 	@Requisitos({"RF03.4"})
 	@Test
 	public void testEliminarGrupo() {
-		Grupo gr = new Grupo("3BINF2021",3,'B',"Ma�ana","No","Si",null,60);
+		Grupo gr = new Grupo("3BINF2021",3,'A',"Ma�ana","No","Si",null,60);
 		try {
 			gestionGrupo.eliminarGrupo(gr);
 			

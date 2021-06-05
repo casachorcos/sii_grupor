@@ -2,6 +2,9 @@ package ejb;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import java.util.List;
+
 import javax.ejb.Stateless;
 
 import ejb.excepciones.GrupoNoEncontradoException;
@@ -58,6 +61,9 @@ public class GrupoEJB implements GestionGrupo{
 		em.remove(gr);
 	}
 
-	
+	@Override
+	public List<Grupo> listaGrupo() throws TrazabilidadException {
+		return em.createNamedQuery("Grupo.todos", Grupo.class).getResultList();
+	}
 	
 }

@@ -9,7 +9,7 @@
     </h:head>
     <h:body>
                 <h:form id="grupos">
-                    <h:dataTable value="#{infoSesion.grupos}" var="g">
+                    <h:dataTable value="#{grupos.getLista()}" var="g">
                         <h:column>
                             <f:facet name="header">ID</f:facet>
                             <h:outputText value="#{g.id}"/>
