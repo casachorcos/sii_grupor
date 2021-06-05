@@ -72,7 +72,7 @@ public class EncuestaT {
 		
 		try {
 			gestionEncuesta.insertarEncuesta(en);
-			fail("Debe lanzar excepcion");
+			fail("Debe lanzar excepción");
 		} catch (EncuestaExistenteException e) {
 			//OK
 		} catch (TrazabilidadException e) {
