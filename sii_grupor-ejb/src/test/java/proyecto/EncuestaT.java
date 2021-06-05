@@ -68,11 +68,11 @@ public class EncuestaT {
 	@Requisitos({"RF07"})
 	@Test
 	public void testInsertarEncuestaExistente() {
-		Encuesta en = new Encuesta(new Date(2022, 5, 23, 23, 20, 30));
+		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
 		
 		try {
 			gestionEncuesta.insertarEncuesta(en);
-			fail("Debe lanzar excepcion");
+			fail("Debe lanzar excepción");
 		} catch (EncuestaExistenteException e) {
 			//OK
 		} catch (TrazabilidadException e) {
