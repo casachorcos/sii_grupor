@@ -9,9 +9,9 @@
 </h:head>
 <h:body>
 	<h:form id="encuestas">
-		<h:dataTable value="Encuestas" var="e">
+		<h:dataTable value="#{infoSesion.encuestas}" var="e">
 			<h:column>
-				<f:facet name="fecha">Fecha envío</f:facet>
+				<f:facet name="header">Fecha envío</f:facet>
 				<h:outputText value="#{e.fecha}" />
 			</h:column>
 
