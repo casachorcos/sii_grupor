@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+	<title><h:outputText value="#{grupos.accion} grupo" />
+
+
+	</title>
+</h:head>
+<h:body>
+
+
+	<h1>#{grupos.accion} grupo</h1>
+	<h:form id="asignatura">
+		<h:panelGrid columns="3">
+
+			<h:outputText value="ID" />
+			<h:inputText id="id"
+				value="#{grupos.grupo.id}" />
+			<h:message for="id" />
+
+			<h:outputText value="Curso" />
+			<h:inputText id="curso"
+				value="#{grupos.grupo.curso}" />
+			<h:message for="curso" />
+
+			<h:outputText value="Letra" />
+			<h:inputText id="letra"
+				value="#{grupos.grupo.letra}" />
+			<h:message for="letra" />
+			
+			<h:outputText value="Turno" />
+			<h:inputText id="turno"
+				value="#{grupos.grupo.turno}" />
+			<h:message for="turno" />
+			
+			<h:outputText value="Ingles" />
+			<h:inputText id="ingles"
+				value="#{grupos.grupo.ingles}" />
+			<h:message for="ingles" />
+			
+			<h:outputText value="Visible" />
+			<h:inputText id="visible"
+				value="#{grupos.grupo.visible}" />
+			<h:message for="visible" />
+			
+			<h:outputText value="Asignar" />
+			<h:inputText id="asignar"
+				value="#{grupos.grupo.asignar}" />
+			<h:message for="asignar" />
+			
+			<h:outputText value="Plazas" />
+			<h:inputText id="plazas"
+				value="#{grupos.grupo.plazas}" />
+			<h:message for="plazas" />
+		
+			<h:commandButton value="#{grupos.accion}"
+				action="#{grupos.ejecutarAccion()}" />
+			<h:commandButton value="Cancelar" action="grupos.xhtml" />
+
+			<h:inputHidden value="#{grupos.modo}" />
+
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>
