@@ -52,7 +52,7 @@ public class AsignaturaEJB implements GestionAsignaturas {
 		if (asig != null) {
 			throw new AsignaturaExistenteException();
 		}
-		em.persist(asig);
+		em.persist(asignatura);
 	}
 
 	@Override
