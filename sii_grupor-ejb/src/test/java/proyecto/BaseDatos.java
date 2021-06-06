@@ -55,7 +55,7 @@ public class BaseDatos {
 			em.persist(grupo);
 		}
 		
-		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
+		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56),null,null,null,null);
 		em.persist(en);
 		
 		Expediente exp = new Expediente(0,'a',0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0);

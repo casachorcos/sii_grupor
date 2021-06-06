@@ -12,20 +12,20 @@
 	<h:form id="encuesta">
 		<h:panelGrid columns="3">
 			<h:outputText value="Nº Expediente" />
-			<h:inputText id="i_nexpediente"/>
+			<h:inputText id="nexpediente" value = "encuestas.encuesta.nexpediente"/>
 			<h:message for="nexpediente" />
 
 			<h:outputText value="Asignaturas" />
-			<h:inputText id="i_asignaturas"/>
+			<h:inputText id="asignaturas" value = "encuestas.encuesta.asignaturas"/>
 			<h:message for="asignaturas" />
 
 			<h:outputText value="Grupo preferente" />
-			<h:inputText id="i_grupoPreferente"/>
-			<h:message for="grupoPreferente" />
+			<h:inputText id="gr_preferente" value = "encuestas.encuesta.gr_preferente"/>
+			<h:message for="gr_preferente" />
 			
 			<h:outputText value="Asignaturas en inglés" />
-			<h:inputText id="i_asigIngles"/>
-			<h:message for="asigIngles" />
+			<h:inputText id="asig_ingles" value = "encuestas.encuesta.asig_ingles"/>
+			<h:message for="asig_ingles" />
 
 			<h:commandButton value="Guardar"
 				action="#{encuesta.ejecutarAccion()}" />

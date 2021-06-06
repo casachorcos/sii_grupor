@@ -44,7 +44,7 @@ public class EncuestaT {
 		
 		try {
 			
-			Encuesta en = new Encuesta(new Date(2021, 5, 22, 13, 21, 56));
+			Encuesta en = new Encuesta(new Date(2021, 5, 22, 13, 21, 56),null,null,null,null);
 			
 			try {
 				gestionEncuesta.insertarEncuesta(en);
@@ -68,7 +68,7 @@ public class EncuestaT {
 	@Requisitos({"RF07"})
 	@Test
 	public void testInsertarEncuestaExistente() {
-		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
+		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56),null,null,null,null);
 		
 		try {
 			gestionEncuesta.insertarEncuesta(en);
@@ -108,7 +108,7 @@ public class EncuestaT {
 	@Requisitos({"RF07"})
 	@Test
 	public void testEliminarEncuesta() {
-		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56));
+		Encuesta en = new Encuesta(new Date(2021, 4, 22, 13, 21, 56),null,null,null,null);
 		try {
 			gestionEncuesta.eliminarEncuesta(en);
 			
@@ -127,7 +127,7 @@ public class EncuestaT {
 	@Requisitos({"RF07"})
 	@Test
 	public void testEliminarEncuestaNoExistente() {
-		Encuesta en = new Encuesta(new Date(2000, 2, 22, 2, 22, 22));
+		Encuesta en = new Encuesta(new Date(2000, 2, 22, 2, 22, 22),null,null,null,null);
 		try {
 			gestionEncuesta.eliminarEncuesta(en);
 			fail("Debe lanzar EncuestaNoEncontradoException");

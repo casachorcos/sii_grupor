@@ -68,7 +68,7 @@ public class Encuestas {
 	public String guardar() {
 		try { 
 			Calendar mydate = new GregorianCalendar(TimeZone.getTimeZone("Europa/Madrid"),new Locale("ES"));
-			encuesta = new Encuesta(new Date(mydate.get(Calendar.YEAR)-1900, mydate.get(Calendar.MONTH), mydate.get(Calendar.DAY_OF_MONTH), mydate.get(Calendar.HOUR)+2, mydate.get(Calendar.MINUTE), mydate.get(Calendar.SECOND)));
+			encuesta.setFecha_de_envio(new Date(mydate.get(Calendar.YEAR)-1900, mydate.get(Calendar.MONTH), mydate.get(Calendar.DAY_OF_MONTH), mydate.get(Calendar.HOUR)+2, mydate.get(Calendar.MINUTE), mydate.get(Calendar.SECOND)));
 			gestion.insertarEncuesta(encuesta);
 			return "encuestaRealizada.xhtml";
 		} catch (TrazabilidadException e) {
