@@ -10,6 +10,7 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Encuesta
  *
  */
+@NamedQuery(name = "Encuesta.todos", query = "select e from Encuesta e")
 @Entity
 public class Encuesta implements Serializable {
 
