@@ -4,32 +4,32 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:head>
-	<title>Edición encuesta</title>
+	<title>Realizar encuesta</title>
 </h:head>
 <h:body>
 
-	<h1>#{encuestas.accion} encuesta</h1>
+	<h1>Realizar encuesta</h1>
 	<h:form id="encuesta">
 		<h:panelGrid columns="3">
 			<h:outputText value="Nº Expediente" />
-			<h:inputText id="nexpediente" />
+			<h:inputText id="nexpediente" value = "#{encuestas.encuesta.nexpediente}"/>
 			<h:message for="nexpediente" />
 
 			<h:outputText value="Asignaturas" />
-			<h:inputText id="asignaturas"/>
+			<h:inputText id="asignaturas" value = "#{encuestas.encuesta.asignaturas}"/>
 			<h:message for="asignaturas" />
 
 			<h:outputText value="Grupo preferente" />
-			<h:inputText id="grupoPreferente"/>
-			<h:message for="grupoPreferente" />
+			<h:inputText id="gr_preferente" value = "#{encuestas.encuesta.gr_preferente}"/>
+			<h:message for="gr_preferente" />
 			
-			<h:outputText value="Asignaturas en inglés" />
-			<h:inputText id="asigIngles"/>
-			<h:message for="asigIngles" />
+			<h:outputText value="Asignaturas Ingles" />
+			<h:inputText id="asig_ingles" value = "#{encuestas.encuesta.asig_ingles}"/>
+			<h:message for="asig_ingles" />
 
-			<h:commandButton value="Guardar"
+			<h:commandButton value="Insertar"
 				action="#{encuestas.guardar()}" />
-			<h:commandButton value="Cancelar" action="encuesta.xhtml" />
+			<h:commandButton value="Cancelar" action="realizarEncuesta.xhtml" />
 		</h:panelGrid>
 	</h:form>
 

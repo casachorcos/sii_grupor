@@ -13,8 +13,6 @@ import javax.inject.Named;
 
 import ejb.GestionEncuestas;
 import ejb.excepciones.TrazabilidadException;
-import es.uma.informatica.sii.backing.Asignaturas.Modo;
-import jpa.entidades.Asignatura;
 import jpa.entidades.Encuesta;
 
 @Named(value = "encuestas")
@@ -65,10 +63,28 @@ public class Encuestas {
         return null;
     }
 	
+	public String ejecutarAccion() {
+        try {
+            switch (modo) {
+                case MODIFICAR:
+                    gestion.actualizarEncuesta(encuesta);
+                    break;
+                case INSERTAR:
+                	Calendar mydate = new GregorianCalendar(TimeZone.getTimeZone("Europa/Madrid"),new Locale("ES"));
+        			encuesta.setFecha_de_envio(new Date(mydate.get(Calendar.YEAR)-1900, mydate.get(Calendar.MONTH), mydate.get(Calendar.DAY_OF_MONTH), mydate.get(Calendar.HOUR)+2, mydate.get(Calendar.MINUTE), mydate.get(Calendar.SECOND)));
+                    gestion.insertarEncuesta(encuesta);
+                    break;
+            }
+            return "encuesta.xhtml";
+        } catch (TrazabilidadException e) {
+            return "login.xhtml";
+		}
+    }
+	
 	public String guardar() {
 		try { 
 			Calendar mydate = new GregorianCalendar(TimeZone.getTimeZone("Europa/Madrid"),new Locale("ES"));
-			encuesta = new Encuesta(new Date(mydate.get(Calendar.YEAR)-1900, mydate.get(Calendar.MONTH), mydate.get(Calendar.DAY_OF_MONTH), mydate.get(Calendar.HOUR)+2, mydate.get(Calendar.MINUTE), mydate.get(Calendar.SECOND)));
+			encuesta.setFecha_de_envio(new Date(mydate.get(Calendar.YEAR)-1900, mydate.get(Calendar.MONTH), mydate.get(Calendar.DAY_OF_MONTH), mydate.get(Calendar.HOUR)+2, mydate.get(Calendar.MINUTE), mydate.get(Calendar.SECOND)));
 			gestion.insertarEncuesta(encuesta);
 			return "encuestaRealizada.xhtml";
 		} catch (TrazabilidadException e) {
@@ -90,12 +106,17 @@ public class Encuestas {
 	        setModo(Modo.MODIFICAR);
 	        return "edicionEncuesta.xhtml";
 	    }
+	 
+	 public String insertarEncuesta() {
+	        setModo(Modo.INSERTAR);
+	        return "edicionEncuesta.xhtml";
+	    }
 	
-	public List<Encuesta> getLista() {
+	 public List<Encuesta> getLista() {
     	try {
     		return gestion.listaEncuesta();
     	} catch (TrazabilidadException e) {
     		return null;
     	}
-    }
+	 }
 }

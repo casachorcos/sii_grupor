@@ -8,12 +8,9 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
-import ejb.excepciones.AlumnoNoEncontradoException;
 import ejb.excepciones.EncuestaExistenteException;
 import ejb.excepciones.EncuestaNoEncontradoException;
 import ejb.excepciones.TrazabilidadException;
-import jpa.entidades.Alumno;
-import jpa.entidades.Asignatura;
 import jpa.entidades.Encuesta;
 
 @Stateless
@@ -44,8 +41,10 @@ public class EncuestaEJB implements GestionEncuestas{
 		if (en==null) {
 			throw new EncuestaNoEncontradoException();
 		}
-		en.setFecha_de_envio(encuesta.getFecha_de_envio());
-		
+		en.setNexpediente(encuesta.getNexpediente());
+		en.setAsignaturas(encuesta.getAsignaturas());
+		en.setGr_preferente(encuesta.getGr_preferente());
+		en.setAsig_ingles(encuesta.getAsig_ingles());
 	}
 
 	@Override
@@ -54,7 +53,6 @@ public class EncuestaEJB implements GestionEncuestas{
 		if (en==null) {
 			throw new EncuestaNoEncontradoException();
 		}
-		
 		em.remove(en);
 	}
 	

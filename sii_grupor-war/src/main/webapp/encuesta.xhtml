@@ -14,6 +14,22 @@
 					<f:facet name="header">Fecha envío</f:facet>
 					<h:outputText value="#{e.fecha_de_envio}" />
 				</h:column>
+				<h:column>
+					<f:facet name="header">Nº Expediente</f:facet>
+					<h:outputText value="#{e.nexpediente}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Asignaturas</f:facet>
+					<h:outputText value="#{e.asignaturas}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Grupo Preferente</f:facet>
+					<h:outputText value="#{e.gr_preferente}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Asignaturas Ingles</f:facet>
+					<h:outputText value="#{e.asig_ingles}" />
+				</h:column>
 	
 				<h:column>
 					<h:commandButton value="Modificar"
