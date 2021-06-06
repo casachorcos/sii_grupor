@@ -1,5 +1,6 @@
 package ejb;
 
+import ejb.excepciones.EncuestaNoEncontradoException;
 import ejb.excepciones.TrazabilidadException;
 import jpa.entidades.Encuesta;
 

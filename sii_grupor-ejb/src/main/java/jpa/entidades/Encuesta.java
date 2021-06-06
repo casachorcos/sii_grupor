@@ -28,7 +28,7 @@ public class Encuesta implements Serializable {
 	private String asignaturas;
 	@Column (name = "Grupo_Preferente")
 	private String gr_preferente;
-	@Column (name = "Asignaturas_Ingles")
+	@Column (name = "Asignatura_Ingles")
 	private String asig_ingles;
 	
 	@ManyToOne //(cascade = CascadeType.PERSIST)
