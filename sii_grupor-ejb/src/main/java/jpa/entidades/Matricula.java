@@ -9,6 +9,7 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Matricula
  *
  */
+@NamedQuery(name = "Matricula.todos", query = "select a from Matricula a")
 @Entity
 
 @IdClass(Matricula.MatriculaId.class)

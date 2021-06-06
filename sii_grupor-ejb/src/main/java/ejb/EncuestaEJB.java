@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Stateless;
 
@@ -12,6 +13,7 @@ import ejb.excepciones.EncuestaExistenteException;
 import ejb.excepciones.EncuestaNoEncontradoException;
 import ejb.excepciones.TrazabilidadException;
 import jpa.entidades.Alumno;
+import jpa.entidades.Asignatura;
 import jpa.entidades.Encuesta;
 
 @Stateless
@@ -54,6 +56,11 @@ public class EncuestaEJB implements GestionEncuestas{
 		}
 		
 		em.remove(en);
+	}
+	
+	@Override
+	public List<Encuesta> listaEncuesta() throws TrazabilidadException {
+		return em.createNamedQuery("Encuesta.todos", Encuesta.class).getResultList();
 	}
 }
 	

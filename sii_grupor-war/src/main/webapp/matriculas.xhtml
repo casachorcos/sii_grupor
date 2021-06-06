@@ -9,7 +9,7 @@
 	</h:head>
 	<h:body>
 		<h:form id="matriculas">
-			<h:dataTable value="#{infoSesion.matriculas}" var="m">
+			<h:dataTable value="#{matriculas.getLista()}" var="m">
 				<h:column>
 					<f:facet name="header">Curso Académico</f:facet>
 					<h:outputText value="#{m.curso}" />
@@ -49,9 +49,7 @@
 				<h:column>
 					<h:commandButton value="Modificar" action="#{matriculas.modificar(m)}" />
 				</h:column>
-	
 			</h:dataTable>
-			<h:commandButton value="Refrescar" action="#{matriculas.refrescar}"/>
 			<p>
 				<h:commandLink action="#{matriculas.menu()}">Volver al menú</h:commandLink>
 			</p>

@@ -9,10 +9,10 @@
 	</h:head>
 	<h:body>
 		<h:form id="encuestas">
-			<h:dataTable value="#{infoSesion.encuestas}" var="e">
+			<h:dataTable value="#{encuestas.getLista()}" var="e">
 				<h:column>
 					<f:facet name="header">Fecha envío</f:facet>
-					<h:outputText value="#{e.fecha}" />
+					<h:outputText value="#{e.fecha_de_envio}" />
 				</h:column>
 	
 				<h:column>
@@ -26,7 +26,6 @@
 			</h:dataTable>
 			<h:commandButton value="Insertar"
 				action="#{encuestas.insertarEncuesta()}" />
-			<h:commandButton value="Refrescar" action="#{encuestas.refrescar}" />
 			<p>
 				<h:link outcome="menuSecretaria.xhtml">Volver al menú</h:link>
 			</p>

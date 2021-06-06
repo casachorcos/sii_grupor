@@ -2,6 +2,9 @@ package ejb;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import java.util.List;
+
 import javax.ejb.Stateless;
 
 import ejb.excepciones.AlumnoNoEncontradoException;
@@ -36,6 +39,8 @@ public class AlumnoEJB implements GestionAlumnos {
 		em.persist(al);
 	}
 
-	
-	
+	@Override
+	public List<Alumno> listaAlumno() throws TrazabilidadException {
+		return em.createNamedQuery("Alumno.todos", Alumno.class).getResultList();
+	}
 }

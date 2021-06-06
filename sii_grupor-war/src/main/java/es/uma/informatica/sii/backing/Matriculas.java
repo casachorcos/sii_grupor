@@ -1,11 +1,15 @@
 package es.uma.informatica.sii.backing;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import ejb.GestionMatricula;
 import ejb.excepciones.TrazabilidadException;
+import es.uma.informatica.sii.backing.Asignaturas.Modo;
+import jpa.entidades.Asignatura;
 import jpa.entidades.Matricula;
 
 @Named(value = "matriculas")
@@ -73,5 +77,13 @@ public class Matriculas {
     
     public String menu() {
         return "menuSecretaria.xhtml";
+    }
+    
+    public List<Matricula> getLista() {
+    	try {
+    		return gestionMatricula.listaMatricula();
+    	} catch (TrazabilidadException e) {
+    		return null;
+    	}
     }
 }

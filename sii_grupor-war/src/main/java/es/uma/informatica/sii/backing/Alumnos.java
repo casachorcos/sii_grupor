@@ -1,8 +1,10 @@
 package es.uma.informatica.sii.backing;
 
 import jpa.entidades.Alumno;
+import jpa.entidades.Asignatura;
 import ejb.excepciones.AlumnoNoEncontradoException;
 import ejb.excepciones.TrazabilidadException;
+import es.uma.informatica.sii.backing.Asignaturas.Modo;
 import ejb.GestionAlumnos;
 
 import java.util.List;
@@ -17,7 +19,6 @@ public class Alumnos {
 
     public static enum Modo {
         MODIFICAR,
-        INSERTAR,
         NOACCION
     };
 
@@ -44,9 +45,6 @@ public class Alumnos {
         switch (modo) {
             case MODIFICAR:
                 return "Modificar";
-            case INSERTAR:
-                return "Insertar";
-
         }
         return null;
     }
@@ -81,5 +79,13 @@ public class Alumnos {
     
     public String getMenu() {
         return "menuSecretaria.xhtml";
+    }
+    
+    public List<Alumno> getLista() {
+    	try {
+    		return gestionAlumnos.listaAlumno();
+    	} catch (TrazabilidadException e) {
+    		return null;
+    	}
     }
 }

@@ -1,10 +1,20 @@
 package es.uma.informatica.sii.backing;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import ejb.GestionEncuestas;
+import ejb.excepciones.TrazabilidadException;
+import es.uma.informatica.sii.backing.Asignaturas.Modo;
+import jpa.entidades.Asignatura;
 import jpa.entidades.Encuesta;
 
 @Named(value = "encuestas")
@@ -54,5 +64,38 @@ public class Encuestas {
         }
         return null;
     }
-    
+	
+	public String guardar() {
+		try { 
+			Calendar mydate = new GregorianCalendar(TimeZone.getTimeZone("Europa/Madrid"),new Locale("ES"));
+			encuesta = new Encuesta(new Date(mydate.get(Calendar.YEAR)-1900, mydate.get(Calendar.MONTH), mydate.get(Calendar.DAY_OF_MONTH), mydate.get(Calendar.HOUR)+2, mydate.get(Calendar.MINUTE), mydate.get(Calendar.SECOND)));
+			gestion.insertarEncuesta(encuesta);
+			return "encuestaRealizada.xhtml";
+		} catch (TrazabilidadException e) {
+            return "login.xhtml";
+		}
+	}
+	
+	 public String eliminar(Encuesta en) {
+	        try {
+	            gestion.eliminarEncuesta(en);
+	        } catch (TrazabilidadException e) {
+	            return "login.xhtml";
+	        }
+	        return null;
+	    }
+	 
+	 public String modificar(Encuesta en) {
+	        encuesta = en;
+	        setModo(Modo.MODIFICAR);
+	        return "edicionEncuesta.xhtml";
+	    }
+	
+	public List<Encuesta> getLista() {
+    	try {
+    		return gestion.listaEncuesta();
+    	} catch (TrazabilidadException e) {
+    		return null;
+    	}
+    }
 }

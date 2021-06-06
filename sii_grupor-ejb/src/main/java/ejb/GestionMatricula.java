@@ -1,8 +1,10 @@
 package ejb;
 
-import ejb.excepciones.MatriculaNoEncontradoException;
 import ejb.excepciones.TrazabilidadException;
 import jpa.entidades.Matricula;
+
+import java.util.List;
+
 import javax.ejb.Local;
 
 @Local
@@ -14,5 +16,7 @@ public interface GestionMatricula {
 	 * @param matricula Matricula que se quiere actualizar.
 	 */
 	public void actualizarMatricula(Matricula matricula) throws TrazabilidadException;
+
+	public List<Matricula> listaMatricula() throws TrazabilidadException;
 	
 }
