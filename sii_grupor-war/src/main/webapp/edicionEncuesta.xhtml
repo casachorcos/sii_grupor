@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">>
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<title>Edición encuesta</title>
 </h:head>
@@ -11,6 +11,7 @@
 
 	<h1>#{encuestas.accion} encuesta</h1>
 	<h:form id="encuesta">
+<<<<<<< HEAD
 		<h:panelGrid columns="3">
 		
 			<h:outputText value="Fecha de envío (no tocar)" />
@@ -19,6 +20,9 @@
 			</h:inputText>
 			<h:message for="fecha_de_envio" />
 		
+=======
+		<h:panelGrid columns="3">	
+>>>>>>> 3d53d70aa77b899efeb82b5983c47fb83c7cd3e6
 			<h:outputText value="Nº Expediente" />
 			<h:inputText id="nexpediente" value = "#{encuestas.encuesta.nexpediente}"/>
 			<h:message for="nexpediente" />
@@ -41,6 +45,9 @@
 
 
 			<h:inputHidden value="#{encuestas.modo}" />
+			<h:inputHidden value="#{encuestas.encuesta.fecha_de_envio}">
+			<f:convertDateTime pattern = "yyyy-MM-dd HH:mm:ss.S"/>
+			</h:inputHidden>
 		</h:panelGrid>
 	</h:form>
 

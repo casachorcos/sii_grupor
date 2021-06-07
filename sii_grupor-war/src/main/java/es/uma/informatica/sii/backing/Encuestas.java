@@ -1,5 +1,7 @@
 package es.uma.informatica.sii.backing;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -67,7 +69,13 @@ public class Encuestas {
         try {
             switch (modo) {
                 case MODIFICAR:
-                    gestion.actualizarEncuesta(encuesta);
+                	Date date = encuesta.getFecha_de_envio();
+                	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+                	String strDate = dateFormat.format(date);
+                	encuesta.setFecha_de_envio(new Date(Integer.parseInt(strDate.substring(0,4))-1900,Integer.parseInt(strDate.substring(5,7))-1,Integer.parseInt(strDate.substring(8,10)),Integer.parseInt(strDate.substring(11,13)),Integer.parseInt(strDate.substring(14,16)),Integer.parseInt(strDate.substring(17,19))));
+                	//Para la fecha se ha restado 1900 al año y 1 al mes para que coincida con la fecha actual, puesto que nos devolvía el año 3921 y el mes 7 para el dato 2021-06-06
+                	gestion.actualizarEncuesta(encuesta);
+                	
                     break;
                 case INSERTAR:
                 	Calendar mydate = new GregorianCalendar(TimeZone.getTimeZone("Europa/Madrid"),new Locale("ES"));
