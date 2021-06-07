@@ -85,7 +85,7 @@ public class Encuestas {
             }
             return "encuesta.xhtml";
         } catch (TrazabilidadException e) {
-            return "login.xhtml";
+            return "errores.xhtml";
 		}
     }
 	
@@ -96,7 +96,7 @@ public class Encuestas {
 			gestion.insertarEncuesta(encuesta);
 			return "encuestaRealizada.xhtml";
 		} catch (TrazabilidadException e) {
-            return "login.xhtml";
+            return "errores.xhtml";
 		}
 	}
 	
@@ -104,7 +104,7 @@ public class Encuestas {
 	        try {
 	            gestion.eliminarEncuesta(en);
 	        } catch (TrazabilidadException e) {
-	            return "login.xhtml";
+	            return "errores.xhtml";
 	        }
 	        return null;
 	    }

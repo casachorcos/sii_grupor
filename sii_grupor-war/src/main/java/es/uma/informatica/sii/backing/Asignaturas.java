@@ -74,7 +74,7 @@ public class Asignaturas {
             }
             return "asignaturas.xhtml";
         } catch (TrazabilidadException e) {
-            return "login.xhtml";
+            return "errores.xhtml";
 		}
     }
     
@@ -86,7 +86,7 @@ public class Asignaturas {
         try {
             gestion.eliminarAsignatura(a);
         } catch (TrazabilidadException e) {
-            return "login.xhtml";
+            return "errores.xhtml";
         }
         return null;
     }
