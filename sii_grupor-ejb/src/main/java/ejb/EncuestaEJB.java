@@ -45,6 +45,7 @@ public class EncuestaEJB implements GestionEncuestas{
 		en.setAsignaturas(encuesta.getAsignaturas());
 		en.setGr_preferente(encuesta.getGr_preferente());
 		en.setAsig_ingles(encuesta.getAsig_ingles());
+		em.persist(en);
 	}
 
 	@Override
