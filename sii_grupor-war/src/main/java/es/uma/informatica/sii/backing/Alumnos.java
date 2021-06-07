@@ -73,7 +73,7 @@ public class Alumnos {
             }
             return "alumnos.xhtml";
         } catch (TrazabilidadException e) {
-            return "login.xhtml";
+            return "errores.xhtml";
 		}
     }
     

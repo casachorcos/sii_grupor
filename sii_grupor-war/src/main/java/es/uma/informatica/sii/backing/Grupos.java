@@ -74,7 +74,7 @@ public class Grupos {
             }
             return "grupos.xhtml";
         } catch (TrazabilidadException e) {
-            return "login.xhtml";
+            return "errores.xhtml";
 		}
     }
     
@@ -86,7 +86,7 @@ public class Grupos {
         try {
             gestion.eliminarGrupo(g);
         } catch (TrazabilidadException e) {
-            return "login.xhtml";
+            return "errores.xhtml";
         }
         return null;
     }

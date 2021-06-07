@@ -71,7 +71,7 @@ public class Matriculas {
             }
             return "matriculas.xhtml";
         } catch (TrazabilidadException e) {
-            return "login.xhtml";
+            return "errores.xhtml";
 		}
     }
     
