@@ -20,6 +20,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import es.uma.informatica.sii.anotaciones.Requisitos;
+import jpa.entidades.Alumno;
+import jpa.entidades.Matricula;
 
 
 public class DefaultSuiteIT {
@@ -31,8 +33,7 @@ public class DefaultSuiteIT {
 
 	@Before
 	public void setUp() {
-		emf = Persistence.createEntityManagerFactory("sii_gruporTest");
-		em = emf.createEntityManager();
+		
 		
 		driver = new FirefoxDriver();
 		js = (JavascriptExecutor) driver;
@@ -41,8 +42,7 @@ public class DefaultSuiteIT {
 
 	@After
 	public void tearDown() {
-		em.close();
-		emf.close();
+		
 		driver.quit();
 	}
 	
@@ -84,7 +84,10 @@ public class DefaultSuiteIT {
 	public void testAlumno() {
 		//TODO: 
 		//persist de alumno con el em
-		//Alumno profe = new Alumno();
+		emf = Persistence.createEntityManagerFactory("sii_gruporTest");
+		em = emf.createEntityManager();
+		Alumno profe = new Alumno("12345678A","Profe","Apruébanos","Porfa","un5son6creditos@uma.es","aunqueseaun5@gmail.com","123456789","987654321","Teatinos 69","Málaga","Málaga","29001");
+		em.persist(profe);
 		
 		driver.get("http://localhost:8080/sii_grupor-war/");
 		driver.findElement(By.name("login:j_idt9")).click();
@@ -120,21 +123,30 @@ public class DefaultSuiteIT {
 
 		driver.findElement(By.linkText("Volver al menú")).click();
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+		
+		em.remove(profe);
+		em.close();
+		emf.close();
 	}
 	@Requisitos({"RF06"})
 	@Test
 	public void testMatricula() {
 		//TODO: 
 		//persist de matricula con el em
+		emf = Persistence.createEntityManagerFactory("sii_gruporTest");
+		em = emf.createEntityManager();
+		Matricula mat = new Matricula(2021,'s',123456,"Mañana",null,'s',"101,102,103,104,105,106,107,108,109,110");
+		em.persist(mat);
+		
 		driver.get("http://localhost:8080/sii_grupor-war/");
 		driver.findElement(By.name("login:j_idt9")).click();
 		driver.findElement(By.cssSelector("input:nth-child(5)")).click();
 
 		assertThat(driver.findElement(By.cssSelector("td:nth-child(1)")).getText(), is("2021"));
 		assertThat(driver.findElement(By.cssSelector("td:nth-child(2)")).getText(), is("s"));
-		assertThat(driver.findElement(By.cssSelector("td:nth-child(3)")).getText(), is("123456789"));
+		assertThat(driver.findElement(By.cssSelector("td:nth-child(3)")).getText(), is("123456"));
 		assertThat(driver.findElement(By.cssSelector("td:nth-child(4)")).getText(), is("Mañana"));
-		assertThat(driver.findElement(By.cssSelector("td:nth-child(6)")).getText(), is("si"));
+		assertThat(driver.findElement(By.cssSelector("td:nth-child(6)")).getText(), is("s"));
 		assertThat(driver.findElement(By.cssSelector("td:nth-child(7)")).getText(), is("101,102,103,104,105,106,107,108,109,110"));
 
 		driver.findElement(By.name("matriculas:modificarmatricula")).click();
@@ -151,6 +163,9 @@ public class DefaultSuiteIT {
 		
 		driver.findElement(By.linkText("Volver al menú")).click();
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+		em.remove(mat);
+		em.close();
+		emf.close();
 	}
 	@Requisitos({"RF05"})
 	@Test
