@@ -79,12 +79,9 @@
 
 			<h:column>
 				<h:commandButton value="Modificar"
-					action="#{alumnos.modificar(a)}" />
+					action="#{alumnos.modificar(a)}" id="modificaralumnos" />
 			</h:column>
 
-			<h:column>
-				<h:commandButton value="Eliminar" action="#{alumnos.eliminar(a)}" />
-			</h:column>
 		</h:dataTable>
 		<p>
 			<h:commandLink action="#{alumnos.getMenu()}">Volver al menú</h:commandLink>
