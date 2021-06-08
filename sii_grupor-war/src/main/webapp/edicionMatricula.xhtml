@@ -40,7 +40,8 @@
 			<h:message for="listaAsig" />
 			
 			
-			<h:commandButton value="#{matriculas.accion}" action="#{matriculas.ejecutarAccion()}" />
+			<h:commandButton value="#{matriculas.accion}" 
+			action="#{matriculas.ejecutarAccion()}" id="accionmatricula"/>
 			<h:commandButton value="Cancelar" action="matriculas.xhtml" />
 
 			<h:inputHidden value="#{matriculas.modo}" />
