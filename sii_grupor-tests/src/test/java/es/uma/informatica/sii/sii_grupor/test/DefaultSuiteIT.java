@@ -30,11 +30,11 @@ public class DefaultSuiteIT {
 
 	@Before
 	public void setUp() {
-		
+		BaseDatos.inicializar("sii_gruporTestIT");
 		driver = new FirefoxDriver();
 		js = (JavascriptExecutor) driver;
 		vars = new HashMap<String, Object>();
-		BaseDatos.inicializar("sii_gruporTestIT");
+		
 	}
 
 	@After
@@ -42,7 +42,9 @@ public class DefaultSuiteIT {
 		
 		driver.quit();
 	}
-/*	
+	
+	//Menús: Test sencillo introductorio que comprueba que funciona el acceso a las secciones
+	//de secretaría y de alumno (se haría automáticamente si se implementara el login)
 	@Test
 	public void mens() {
 		driver.get("http://localhost:8080/sii_grupor-war/");
@@ -53,6 +55,10 @@ public class DefaultSuiteIT {
 		assertThat(driver.findElement(By.cssSelector("h1")).getText(), is("Menú principal secretaría"));
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 	}
+	
+	//realizarEncuesta: Comprueba el requisito realizar encuesta desde la parte de alumno, y luego
+	//se mueve a la parte de secretaría y comprueba que los datos coinciden correctamente.
+	//Para terminar elimina la encuesta y vuelve al menú principal.
 	@Requisitos({"RF08"})
 	@Test
 	public void realizarEncuesta() {
@@ -76,7 +82,10 @@ public class DefaultSuiteIT {
 		driver.findElement(By.linkText("Volver al menú")).click();
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 	}
-	*/
+	
+	//testAlumno: Comprueba el RU de alumno. Lee (R) y comprueba que los datos sean correctos, 
+	//Modifica (U) el alumno y comprueba que se han guardado los cambios, y por último
+	//modifica el alumno otra vez y lo devuelve a su estado original antes de volver al menú principal.
 	@Requisitos({"RF04"})
 	@Test
 	public void testAlumno() {
@@ -128,6 +137,10 @@ public class DefaultSuiteIT {
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 		
 	}
+	
+	//testMatricula: Comprueba el RU de matricula. Lee (R) y comprueba que los datos sean correctos, 
+	//Modifica (U) la matricula y comprueba que se han guardado los cambios, y por último
+	//modifica la matricula otra vez y la devuelve a su estado original antes de volver al menú principal.
 	@Requisitos({"RF06"})
 	@Test
 	public void testMatricula() {
@@ -159,7 +172,10 @@ public class DefaultSuiteIT {
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 		
 	}
-	/*
+	
+	//testAsignaturaExistente: comprueba que la aplicación devuelve un error cuando se introduce una
+	//asignatura duplicada. Primero inserta una asignatura y luego inserta otra idéntica, y comprueba
+	//que devuelve el código de error correcto. Por último elimina la asignatura y vuelve al menú.
 	@Requisitos({"RF05"})
 	@Test
 	public void testAsignaturaExistente() {
@@ -203,6 +219,10 @@ public class DefaultSuiteIT {
 		driver.findElement(By.linkText("Volver al menú")).click();
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 	}
+	
+	//testAsignatura: Comprueba el CRUD de asignatura. Crea e inserta una asignatura, lee (R) y 
+	//comprueba que los datos sean correctos, Modifica (U) la asignatura y comprueba que se han 
+	//guardado los cambios, y por último elimina (D) la asignatura y vuelve al menú principal.
 	@Requisitos({"RF05"})
 	@Test
 	public void testAsignatura() {
@@ -243,6 +263,10 @@ public class DefaultSuiteIT {
 		driver.findElement(By.linkText("Volver al menú")).click();
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 	}
+	
+	//testEncuesta: Comprueba el CRUD de encuesta. Crea e inserta una encuesta, lee (R) y 
+	//comprueba que los datos sean correctos, Modifica (U) la encuesta y comprueba que se han 
+	//guardado los cambios, y por último elimina (D) la encuesta y vuelve al menú principal.
 	@Requisitos({"RF07"})
 	@Test
 	public void testEncuesta() {
@@ -271,6 +295,10 @@ public class DefaultSuiteIT {
 		driver.findElement(By.linkText("Volver al menú")).click();
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 	}
+	
+	//testGrupo: Comprueba el CRUD de grupo. Crea e inserta un grupo, lee (R) y 
+	//comprueba que los datos sean correctos, Modifica (U) el grupo y comprueba que se han 
+	//guardado los cambios, y por último elimina (D) el grupo y vuelve al menú principal.
 	@Requisitos({"RF03"})
 	@Test
 	public void testGrupo() {
@@ -310,6 +338,10 @@ public class DefaultSuiteIT {
 		driver.findElement(By.linkText("Volver al menú")).click();
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 	}
+	
+	//testGrupoExistente: comprueba que la aplicación devuelve un error cuando se introduce un
+	//grupo duplicado. Primero inserta un grupo y luego inserta otro idéntico, y comprueba
+	//que devuelve el código de error correcto. Por último elimina el grupo y vuelve al menú.
 	@Requisitos({"RF03"})
 	@Test
 	public void testGrupoExistente() {
@@ -348,5 +380,5 @@ public class DefaultSuiteIT {
 		driver.findElement(By.linkText("Volver al menú")).click();
 		driver.findElement(By.cssSelector("input:nth-child(7)")).click();
 	}
-	*/
+	
 }

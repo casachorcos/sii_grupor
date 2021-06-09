@@ -23,8 +23,6 @@ public class BaseDatos {
 
 	public static void datos(EntityManager em) {
 		
-		
-		
 		Alumno profe = new Alumno();
 		profe.setDNI("12345678A");
 		profe.setNombre("Profe");
@@ -42,7 +40,7 @@ public class BaseDatos {
 		em.getTransaction().begin();
 		em.persist(profe);
 		em.getTransaction().commit();
-
+/*
 		Expediente exp = new Expediente();
 		exp.setNum_exp(1);
 		exp.setActivo('s');
@@ -74,7 +72,7 @@ public class BaseDatos {
 		em.getTransaction().begin();
 		em.persist(mat);
 		em.getTransaction().commit();
-		
+	*/
 	
 	}
 	
