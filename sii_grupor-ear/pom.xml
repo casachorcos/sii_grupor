@@ -5,8 +5,10 @@
     <artifactId>sii_grupor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+  
   <artifactId>sii_grupor-ear</artifactId>
   <packaging>ear</packaging>
+  
   <dependencies>
   	<dependency>
   		<groupId>es.uma.informatica.sii</groupId>

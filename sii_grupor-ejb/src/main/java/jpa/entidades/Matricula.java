@@ -60,7 +60,7 @@ public class Matricula implements Serializable {
 	private Integer nArchivo;
 	@Column (name = "Turno_preferente", length=10)
 	private String turno;
-	@Column (name = "Fecha_de_matricula", nullable = false)
+	@Column (name = "Fecha_de_matricula", nullable = true)
 	@Temporal (TemporalType.DATE)
 	private Date fecha_matr;
 	@Column (name = "Nuevo_Ingreso")
@@ -72,7 +72,7 @@ public class Matricula implements Serializable {
 	private List<Asignaturas_Matricula> asig_matricula;		//Relacion OneToMany entre Matricula y Asignaturas_Matricula
 	
 	@Id
-	@ManyToOne//(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Expediente expediente;
 	
 	public Matricula(int c, char e, int na, String t, Date fm, char ni, String la) {
