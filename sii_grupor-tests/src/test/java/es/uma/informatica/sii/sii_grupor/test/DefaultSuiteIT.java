@@ -84,7 +84,7 @@ public class DefaultSuiteIT {
 	public void testAlumno() {
 		//TODO: 
 		//persist de alumno con el em
-		emf = Persistence.createEntityManagerFactory("sii_gruporTest");
+		emf = Persistence.createEntityManagerFactory("sii_gruporTestIT");
 		em = emf.createEntityManager();
 		Alumno profe = new Alumno("12345678A","Profe","Apruébanos","Porfa","un5son6creditos@uma.es","aunqueseaun5@gmail.com","123456789","987654321","Teatinos 69","Málaga","Málaga","29001");
 		em.persist(profe);
@@ -133,7 +133,7 @@ public class DefaultSuiteIT {
 	public void testMatricula() {
 		//TODO: 
 		//persist de matricula con el em
-		emf = Persistence.createEntityManagerFactory("sii_gruporTest");
+		emf = Persistence.createEntityManagerFactory("sii_gruporTestIT");
 		em = emf.createEntityManager();
 		Matricula mat = new Matricula(2021,'s',123456,"Mañana",null,'s',"101,102,103,104,105,106,107,108,109,110");
 		em.persist(mat);
