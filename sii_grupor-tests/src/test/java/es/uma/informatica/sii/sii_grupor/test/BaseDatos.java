@@ -18,7 +18,6 @@ public class BaseDatos {
 		
 		em.close();
 		emf.close();
-		
 	}
 
 	public static void datos(EntityManager em) {
@@ -40,9 +39,9 @@ public class BaseDatos {
 		em.getTransaction().begin();
 		em.persist(profe);
 		em.getTransaction().commit();
-/*
+
 		Expediente exp = new Expediente();
-		exp.setNum_exp(1);
+		exp.setNum_exp(1000);
 		exp.setActivo('s');
 		exp.setNotaMedia(5.0);
 		exp.setCr_cf(6.0);
@@ -58,7 +57,7 @@ public class BaseDatos {
 		em.getTransaction().commit();
 		
 		Matricula mat = new Matricula();
-		mat.setCurso(2021);
+		mat.setCurso(2122);
 		mat.setEstado('s');
 		mat.setnArchivo(123456);
 		mat.setTurno("Mañana");
@@ -72,7 +71,6 @@ public class BaseDatos {
 		em.getTransaction().begin();
 		em.persist(mat);
 		em.getTransaction().commit();
-	*/
 	
 	}
 	

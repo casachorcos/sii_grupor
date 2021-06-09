@@ -13,6 +13,7 @@ import javax.persistence.Persistence;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -30,7 +31,7 @@ public class DefaultSuiteIT {
 
 	@Before
 	public void setUp() {
-		BaseDatos.inicializar("sii_gruporTestIT");
+		
 		driver = new FirefoxDriver();
 		js = (JavascriptExecutor) driver;
 		vars = new HashMap<String, Object>();
@@ -41,6 +42,11 @@ public class DefaultSuiteIT {
 	public void tearDown() {
 		
 		driver.quit();
+	}
+	
+	@BeforeClass
+	public static void inicializarBD() {
+		BaseDatos.inicializar("sii_gruporTestIT");
 	}
 	
 	//Menús: Test sencillo introductorio que comprueba que funciona el acceso a las secciones
